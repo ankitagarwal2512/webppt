@@ -366,7 +366,7 @@ document.getElementById('stage').addEventListener('click', e => {
   if(!e.target.closest('.card') && !e.target.closest('#popover')) closePop();
 });
 document.getElementById('prevBtn').addEventListener('click', ()=>{});
-document.getElementById('nextBtn').addEventListener('click', ()=>{});
+document.getElementById('nextBtn').addEventListener('click', ()=>{ window.location.href='hrone-slide6.html'; });
 
 function fit(){ const s = Math.min(window.innerWidth/1920, window.innerHeight/1080); document.getElementById('stage').style.transform = `scale(${s})`; }
 window.addEventListener('resize', fit); fit();
