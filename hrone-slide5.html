@@ -45,13 +45,10 @@
   @keyframes fadeDown{ from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
   @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
 
-  .banner { left:100px; top:178px; width:1720px; height:76px; background:#fff; border-radius:12px; display:flex; align-items:center; gap:20px; padding-left:60px; opacity:0; animation:bannerIn .6s .5s ease forwards; }
+  .banner { left:100px; top:178px; width:1720px; height:76px; background:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center; gap:18px; padding:0 60px; opacity:0; animation:bannerIn .6s .5s ease forwards; }
   @keyframes bannerIn{ from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
-  .oneai-logo { display:flex; align-items:baseline; position:relative; }
-  .oneai-one { font-weight:600; font-size:38px; color:#1f3d34; letter-spacing:-1px; }
-  .oneai-ai  { font-weight:800; font-size:38px; color:#23A578; letter-spacing:-1px; }
-  .oneai-dot { position:absolute; top:-2px; right:-14px; width:11px; height:11px; background:#9fe1cb; border-radius:50%; transform-origin:center; }
-  @media (prefers-reduced-motion: no-preference){ .oneai-dot{ animation:twinkle 2.2s ease-in-out infinite; } }
+  .banner-icon-disc { width:46px; height:46px; border-radius:50%; background:rgba(35,165,120,.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .banner-icon-disc svg { width:24px; height:24px; }
   .banner-text { font-size:28px; color:#1a1a1a; font-weight:400; }
   .banner-text b { font-weight:700; }
 
