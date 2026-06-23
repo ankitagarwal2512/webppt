@@ -8,214 +8,305 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-  html,body{width:100%;height:100%;overflow:hidden;background:#013a29;font-family:'Public Sans',system-ui,sans-serif;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:#013a29;font-family:'Public Sans',system-ui,sans-serif;}
+.deck{display:flex;width:100vw;height:100vh;overflow:hidden;}
 
-  .deck{display:flex;width:100vw;height:100vh;overflow:hidden;}
+/* ═══════════════════════════════
+   SIDEBAR
+═══════════════════════════════ */
+.sidebar{
+  flex-shrink:0;
+  width:264px;
+  height:100vh;
+  background:#0d1f14;
+  display:flex;
+  flex-direction:column;
+  transition:width .3s cubic-bezier(.4,0,.2,1);
+  border-right:1px solid rgba(255,255,255,.06);
+  z-index:10;
+  overflow:hidden;
+}
+.sidebar.collapsed{ width:48px; }
 
-  /* ── Sidebar ─────────────────────────────────── */
-  .sidebar{
-    width:252px;height:100vh;
-    background:#0b1c12;
-    display:flex;flex-direction:column;
-    flex-shrink:0;overflow:hidden;
-    transition:width .26s cubic-bezier(.4,0,.2,1);
-    border-right:1px solid rgba(255,255,255,.06);
-    z-index:10;
-  }
-  .sidebar.collapsed{width:56px;}
+/* ── Header ──────────────────── */
+.nav-hdr{
+  flex-shrink:0;
+  height:60px;
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  gap:10px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  overflow:hidden;
+}
+.hdr-logo{
+  width:30px;height:30px;border-radius:8px;
+  background:#1d4ed8;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:14px;color:#fff;
+  flex-shrink:0;letter-spacing:-.5px;
+  transition:opacity .2s;
+}
+.hdr-title{
+  flex:1;
+  font-size:14px;font-weight:700;color:#fff;
+  white-space:nowrap;overflow:hidden;
+  transition:opacity .18s;
+}
+.hdr-toggle{
+  flex-shrink:0;
+  width:30px;height:30px;
+  border-radius:8px;border:none;
+  background:rgba(255,255,255,.08);
+  color:rgba(255,255,255,.55);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s,color .15s;
+}
+.hdr-toggle:hover{background:rgba(255,255,255,.14);color:#fff;}
+.hdr-toggle svg{
+  width:15px;height:15px;
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+}
+/* When expanded, chevron points left (collapse) */
+.sidebar:not(.collapsed) .hdr-toggle svg{ transform:rotate(180deg); }
 
-  /* Header */
-  .nav-hdr{
-    display:flex;align-items:center;gap:10px;
-    padding:11px 10px;min-height:50px;flex-shrink:0;
-    border-bottom:1px solid rgba(255,255,255,.07);
-  }
-  .logo-sq{
-    width:28px;height:28px;border-radius:7px;background:#2563eb;
-    display:flex;align-items:center;justify-content:center;
-    font-weight:800;font-size:13px;color:#fff;flex-shrink:0;
-    letter-spacing:-.5px;user-select:none;
-  }
-  .hdr-title{
-    flex:1;font-size:13px;font-weight:600;color:#fff;white-space:nowrap;
-    overflow:hidden;transition:opacity .2s;
-  }
-  .sidebar.collapsed .hdr-title{opacity:0;}
-  .toggle-btn{
-    width:26px;height:26px;border-radius:6px;border:none;
-    background:rgba(255,255,255,.08);color:rgba(255,255,255,.55);
-    cursor:pointer;display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;transition:background .15s;
-  }
-  .toggle-btn:hover{background:rgba(255,255,255,.15);}
-  .toggle-btn svg{width:13px;height:13px;transition:transform .26s;}
-  .sidebar.collapsed .toggle-btn svg{transform:scaleX(-1);}
-  .sidebar.collapsed .nav-hdr{justify-content:center;}
-  .sidebar.collapsed .toggle-btn{margin:0 auto;}
+/* Collapsed header — only toggle, centered */
+.sidebar.collapsed .nav-hdr{ padding:0; justify-content:center; }
+.sidebar.collapsed .hdr-logo,
+.sidebar.collapsed .hdr-title{ opacity:0; width:0; overflow:hidden; flex:none; }
+.sidebar.collapsed .hdr-toggle{ width:34px;height:34px; }
 
-  /* Search */
-  .nav-srch{
-    padding:8px 10px;flex-shrink:0;overflow:hidden;
-    border-bottom:1px solid rgba(255,255,255,.07);
-    transition:max-height .26s ease,padding .26s ease,opacity .2s;
-    max-height:56px;
-  }
-  .sidebar.collapsed .nav-srch{max-height:0;padding:0;opacity:0;pointer-events:none;}
-  .srch-wrap{position:relative;}
-  .srch-ico{
-    position:absolute;left:9px;top:50%;transform:translateY(-50%);
-    color:rgba(255,255,255,.3);pointer-events:none;display:flex;
-  }
-  .srch-ico svg{width:13px;height:13px;}
-  .nav-srch input{
-    width:100%;height:32px;border-radius:7px;
-    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);
-    color:#fff;font-family:inherit;font-size:12.5px;padding:0 8px 0 28px;
-    outline:none;transition:border-color .15s,background .15s;
-  }
-  .nav-srch input::placeholder{color:rgba(255,255,255,.28);}
-  .nav-srch input:focus{
-    border-color:rgba(35,165,120,.45);
-    background:rgba(35,165,120,.05);
-  }
+/* ── Search ──────────────────── */
+.nav-srch{
+  flex-shrink:0;
+  overflow:hidden;
+  max-height:58px;
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  transition:max-height .28s ease, padding .28s ease, opacity .18s;
+}
+.sidebar.collapsed .nav-srch{
+  max-height:0; padding-top:0; padding-bottom:0;
+  opacity:0; pointer-events:none;
+}
+.srch-inner{ position:relative; }
+.srch-icon{
+  position:absolute;left:11px;top:50%;transform:translateY(-50%);
+  color:rgba(255,255,255,.3);pointer-events:none;line-height:0;
+}
+.srch-icon svg{ width:14px;height:14px; }
+.nav-srch input{
+  width:100%;height:36px;
+  border-radius:9px;
+  background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.08);
+  color:#fff;font-family:inherit;font-size:13px;
+  padding:0 10px 0 34px;
+  outline:none;
+  transition:border-color .15s,background .15s;
+}
+.nav-srch input::placeholder{ color:rgba(255,255,255,.28); }
+.nav-srch input:focus{
+  border-color:rgba(35,165,120,.5);
+  background:rgba(35,165,120,.05);
+}
 
-  /* Scroll */
-  .nav-scroll{flex:1;overflow-y:auto;overflow-x:hidden;padding:3px 0 4px;}
-  .nav-scroll::-webkit-scrollbar{width:3px;}
-  .nav-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px;}
-  .nav-scroll::-webkit-scrollbar-track{background:transparent;}
+/* ── Scroll area ─────────────── */
+.nav-scroll{
+  flex:1;overflow-y:auto;overflow-x:hidden;
+  padding:8px 0 20px;
+  transition:opacity .18s;
+}
+.nav-scroll::-webkit-scrollbar{ width:3px; }
+.nav-scroll::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.1);border-radius:2px; }
+.nav-scroll::-webkit-scrollbar-track{ background:transparent; }
 
-  /* Group */
-  .nav-grp{overflow:hidden;}
-  .grp-hdr{
-    display:flex;align-items:center;gap:8px;
-    padding:7px 10px;cursor:pointer;min-height:34px;
-    transition:background .12s;user-select:none;
-  }
-  .grp-hdr:hover{background:rgba(255,255,255,.05);}
-  .grp-ico{
-    width:20px;height:20px;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;
-    color:rgba(255,255,255,.45);transition:color .12s;
-  }
-  .grp-ico svg{width:14px;height:14px;}
-  .nav-grp.open .grp-ico{color:rgba(255,255,255,.75);}
-  .grp-lbl{
-    flex:1;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.78);
-    white-space:nowrap;overflow:hidden;
-    transition:opacity .2s;
-  }
-  .grp-cnt{
-    font-size:11px;font-weight:500;color:rgba(255,255,255,.28);
-    transition:opacity .2s;flex-shrink:0;
-  }
-  .grp-chev{
-    width:13px;height:13px;flex-shrink:0;
-    color:rgba(255,255,255,.25);
-    transition:transform .2s,opacity .2s;
-  }
-  .nav-grp.open .grp-chev{transform:rotate(90deg);}
-  .sidebar.collapsed .grp-lbl,
-  .sidebar.collapsed .grp-cnt,
-  .sidebar.collapsed .grp-chev{opacity:0;pointer-events:none;}
-  .sidebar.collapsed .grp-hdr{padding:7px 0;justify-content:center;}
+/* Collapsed: fully hidden scroll content */
+.sidebar.collapsed .nav-scroll{ opacity:0; pointer-events:none; overflow:hidden; }
 
-  /* Slides list — animate open/close */
-  .grp-slides{
-    overflow:hidden;
-    max-height:0;
-    transition:max-height .22s ease;
-  }
-  .nav-grp.open .grp-slides{max-height:800px;}
-  .sidebar.collapsed .grp-slides{max-height:0!important;}
+/* ── Group ───────────────────── */
+.nav-grp{ margin:0 8px 2px; }
 
-  .slide-row{
-    display:flex;align-items:center;gap:7px;
-    padding:5px 10px 5px 36px;cursor:pointer;
-    position:relative;transition:background .1s;min-height:27px;
-  }
-  .slide-row:hover{background:rgba(255,255,255,.04);}
-  .slide-row.active{background:rgba(35,165,120,.13);}
-  .slide-row.active::before{
-    content:'';position:absolute;left:0;top:0;bottom:0;
-    width:3px;background:#23A578;border-radius:0 2px 2px 0;
-  }
-  .slide-row.stub{opacity:.38;cursor:not-allowed;}
-  .slide-num{
-    font-size:11px;font-weight:500;color:rgba(255,255,255,.28);
-    min-width:16px;text-align:right;flex-shrink:0;
-  }
-  .slide-row.active .slide-num{color:#23A578;}
-  .slide-ttl{
-    font-size:12px;font-weight:400;color:rgba(255,255,255,.68);
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  }
-  .slide-row.active .slide-ttl{color:#fff;font-weight:500;}
+.grp-hdr{
+  display:flex;align-items:center;gap:9px;
+  height:42px;padding:0 10px;
+  border-radius:9px;
+  cursor:pointer;user-select:none;
+  transition:background .12s;
+}
+.grp-hdr:hover{ background:rgba(255,255,255,.06); }
+.nav-grp.open > .grp-hdr{ background:rgba(255,255,255,.05); }
 
-  /* Empty */
-  .nav-empty{
-    display:none;padding:24px 12px;text-align:center;
-    font-size:12px;color:rgba(255,255,255,.22);
-  }
+.grp-icon{
+  width:20px;height:20px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.38);
+  transition:color .15s;
+}
+.grp-icon svg{ width:14px;height:14px; }
+.nav-grp.open .grp-icon,
+.grp-hdr:hover .grp-icon{ color:rgba(255,255,255,.65); }
 
-  /* Footer */
-  .nav-ftr{
-    border-top:1px solid rgba(255,255,255,.07);
-    padding:8px 10px;flex-shrink:0;
-    display:flex;align-items:center;gap:8px;min-height:50px;
-  }
-  .btn-present{
-    flex:1;height:32px;border-radius:7px;
-    background:#23A578;border:none;color:#fff;
-    font-family:inherit;font-size:12px;font-weight:600;
-    cursor:pointer;display:flex;align-items:center;justify-content:center;
-    gap:5px;overflow:hidden;white-space:nowrap;
-    transition:background .15s;
-  }
-  .btn-present:hover{background:#1b9068;}
-  .btn-present svg{width:11px;height:11px;flex-shrink:0;}
-  .btn-lbl{transition:opacity .2s,max-width .26s;max-width:80px;overflow:hidden;}
-  .sidebar.collapsed .btn-present{flex:none;width:32px;padding:0;}
-  .sidebar.collapsed .btn-lbl{opacity:0;max-width:0;}
-  .slide-ctr{
-    font-size:11.5px;font-weight:500;color:rgba(255,255,255,.32);
-    white-space:nowrap;flex-shrink:0;transition:opacity .2s;
-  }
-  .sidebar.collapsed .slide-ctr{opacity:0;width:0;overflow:hidden;}
+.grp-label{
+  flex:1;
+  font-size:13px;font-weight:600;letter-spacing:.01em;
+  color:rgba(255,255,255,.6);
+  white-space:nowrap;overflow:hidden;
+  transition:color .15s;
+}
+.nav-grp.open .grp-label,
+.grp-hdr:hover .grp-label{ color:rgba(255,255,255,.88); }
 
-  /* ── Stage ──────────────────────────────────── */
-  .stage-host{
-    flex:1;min-width:0;overflow:hidden;
-    background:#013a29;
-    display:flex;align-items:stretch;
-  }
-  #slideFrame{
-    flex:1;border:none;width:100%;height:100%;display:block;
-  }
+.grp-badge{
+  flex-shrink:0;
+  font-size:10.5px;font-weight:700;
+  color:rgba(255,255,255,.28);
+  background:rgba(255,255,255,.07);
+  border-radius:20px;padding:2px 7px;
+  letter-spacing:.02em;
+}
+
+.grp-chevron{
+  flex-shrink:0;
+  width:14px;height:14px;
+  color:rgba(255,255,255,.22);
+  transition:transform .22s, color .15s;
+}
+.nav-grp.open .grp-chevron{ transform:rotate(90deg); color:rgba(255,255,255,.4); }
+.grp-hdr:hover .grp-chevron{ color:rgba(255,255,255,.35); }
+
+/* ── Slide rows ──────────────── */
+.grp-slides{
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .24s ease;
+  padding:2px 0 4px;
+}
+.nav-grp.open .grp-slides{ max-height:600px; }
+
+.slide-row{
+  display:flex;align-items:center;gap:9px;
+  height:36px;
+  padding:0 10px 0 40px;
+  border-radius:7px;
+  cursor:pointer;
+  position:relative;
+  transition:background .1s;
+}
+.slide-row:hover:not(.stub){ background:rgba(255,255,255,.05); }
+
+.slide-row.active{
+  background:rgba(35,165,120,.13);
+  box-shadow:inset 3px 0 0 #23A578;
+}
+
+.slide-row.stub{ opacity:.3; cursor:default; }
+
+.slide-num{
+  font-size:11px;font-weight:700;
+  color:rgba(255,255,255,.22);
+  min-width:18px;text-align:right;flex-shrink:0;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:.03em;
+}
+.slide-row.active .slide-num{ color:#23A578; }
+
+.slide-name{
+  flex:1;
+  font-size:13px;font-weight:400;
+  color:rgba(255,255,255,.58);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.slide-row.active .slide-name{ color:#fff;font-weight:500; }
+.slide-row:hover:not(.stub) .slide-name{ color:rgba(255,255,255,.82); }
+
+/* ── Empty state ─────────────── */
+.nav-empty{
+  display:none;
+  padding:36px 16px;text-align:center;
+  font-size:13px;color:rgba(255,255,255,.18);line-height:1.7;
+}
+
+/* ── Footer ──────────────────── */
+.nav-ftr{
+  flex-shrink:0;
+  height:58px;
+  border-top:1px solid rgba(255,255,255,.07);
+  padding:0 12px;
+  display:flex;align-items:center;gap:10px;
+  overflow:hidden;
+}
+.sidebar.collapsed .nav-ftr{ padding:0;justify-content:center; }
+
+.btn-present{
+  flex:1;height:36px;border-radius:9px;
+  background:#23A578;border:none;color:#fff;
+  font-family:inherit;font-size:13px;font-weight:600;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  overflow:hidden;white-space:nowrap;
+  box-shadow:0 2px 12px rgba(35,165,120,.22);
+  transition:background .15s,box-shadow .15s;
+}
+.btn-present:hover{
+  background:#1c9c6e;
+  box-shadow:0 4px 16px rgba(35,165,120,.32);
+}
+.btn-present svg{ width:10px;height:10px;flex-shrink:0; }
+.btn-present-lbl{
+  overflow:hidden;
+  transition:max-width .3s ease, opacity .2s;
+  max-width:80px;
+}
+.sidebar.collapsed .btn-present{ flex:none;width:36px;height:36px;padding:0;box-shadow:none; }
+.sidebar.collapsed .btn-present-lbl{ max-width:0;opacity:0; }
+
+.slide-ctr{
+  flex-shrink:0;
+  font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:rgba(255,255,255,.28);
+  white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+  transition:opacity .2s;
+}
+.sidebar.collapsed .slide-ctr{ opacity:0;width:0;overflow:hidden; }
+
+/* ═══════════════════════════════
+   STAGE
+═══════════════════════════════ */
+.stage-host{
+  flex:1;min-width:0;overflow:hidden;
+  background:#013a29;
+  display:flex;
+}
+#slideFrame{ flex:1;border:none;display:block; }
 </style>
 </head>
 <body>
 <div class="deck">
 
-  <!-- ══ Sidebar ══ -->
-  <nav class="sidebar" id="sidebar">
+  <!-- ════ SIDEBAR ════ -->
+  <nav class="sidebar collapsed" id="sidebar">
 
     <div class="nav-hdr">
-      <div class="logo-sq">H</div>
+      <div class="hdr-logo">H</div>
       <span class="hdr-title">HROne deck</span>
-      <button class="toggle-btn" id="toggleBtn" title="Toggle sidebar">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 2L4 7l5 5"/>
+      <button class="hdr-toggle" id="toggleBtn" title="Expand sidebar">
+        <!-- Right-pointing chevron. Rotates 180° when sidebar is open. -->
+        <svg viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5.5 3l5 4.5-5 4.5"/>
         </svg>
       </button>
     </div>
 
     <div class="nav-srch">
-      <div class="srch-wrap">
-        <span class="srch-ico">
-          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-            <circle cx="6" cy="6" r="4"/><path d="M10 10l2.5 2.5"/>
+      <div class="srch-inner">
+        <span class="srch-icon">
+          <svg viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+            <circle cx="6.5" cy="6.5" r="4.5"/>
+            <path d="M10.5 10.5L13 13"/>
           </svg>
         </span>
         <input type="text" id="searchInput" placeholder="Jump to slide…" autocomplete="off" spellcheck="false">
@@ -228,24 +319,26 @@
 
     <div class="nav-ftr">
       <button class="btn-present" id="presentBtn" title="Present fullscreen">
-        <svg viewBox="0 0 12 12" fill="currentColor"><polygon points="2,1 11,6 2,11"/></svg>
-        <span class="btn-lbl">Present</span>
+        <svg viewBox="0 0 10 10" fill="currentColor">
+          <polygon points="1,0.5 9.5,5 1,9.5"/>
+        </svg>
+        <span class="btn-present-lbl">Present</span>
       </button>
-      <span class="slide-ctr" id="slideCtr">5 / 32</span>
+      <span class="slide-ctr" id="slideCtr">05 / 32</span>
     </div>
 
   </nav>
 
-  <!-- ══ Stage ══ -->
+  <!-- ════ STAGE ════ -->
   <div class="stage-host">
     <iframe id="slideFrame" src="hrone-slide5.html" allowfullscreen title="Slide stage"></iframe>
   </div>
 
 </div>
 <script>
-// ── Manifest ────────────────────────────────────────────────────
+// ── Manifest ─────────────────────────────────────────────────────
 const GROUPS = [
-  { id:'intro', label:'Introduction', icon:'M2 3h10M2 6.5h8M2 10h5.5',
+  { id:'intro', label:'Introduction', icon:'M2 3.5h10M2 7h8M2 10.5h6',
     slides:[
       { n:1,  t:'Welcome to HROne',           f:null },
       { n:2,  t:'The Problem We Solve',        f:null },
@@ -258,27 +351,27 @@ const GROUPS = [
       { n:6,  t:'Payroll Outsourcing',          f:'hrone-slide6.html' },
       { n:7,  t:'Platform Architecture',        f:null },
     ]},
-  { id:'mobile', label:'Mobile & AI', icon:'M4 1h6a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zM6 11.5h2',
+  { id:'mobile', label:'Mobile & AI', icon:'M4.5 1h5a1 1 0 011 1v10a1 1 0 01-1 1h-5a1 1 0 01-1-1V2a1 1 0 011-1zM6 11.5h2',
     slides:[
       { n:8,  t:'Mobile-First Experience',     f:null },
       { n:9,  t:'OneAI Voice Agent',           f:null },
       { n:10, t:'AI-Powered Insights',         f:null },
     ]},
-  { id:'build', label:'Build & Extend', icon:'M4 3L2 7l2 4M10 3l2 4-2 4',
+  { id:'build', label:'Build & Extend', icon:'M4 2.5L2 7l2 4.5M10 2.5l2 4.5-2 4.5',
     slides:[
       { n:11, t:'HROne Studio',                f:null },
       { n:12, t:'Custom Apps & Workflows',     f:null },
       { n:13, t:'Reporting & Analytics',       f:null },
       { n:14, t:'Role-Based Access Control',   f:null },
     ]},
-  { id:'analytics', label:'Analytics & Trust', icon:'M2 10l3-4 3 2 4-5',
+  { id:'analytics', label:'Analytics & Trust', icon:'M1.5 11l3-4.5 3 2.5 3.5-5 2.5 2',
     slides:[
       { n:15, t:'Compliance Dashboard',        f:null },
       { n:16, t:'Audit & Security',            f:null },
       { n:17, t:'Data Residency',              f:null },
       { n:18, t:'Enterprise Trust',            f:null },
     ]},
-  { id:'modules', label:'Modules', icon:'M2 2h10v2H2zM2 6h10v2H2zM2 10h10v2H2z',
+  { id:'modules', label:'Modules', icon:'M2 3h10M2 7h10M2 11h10',
     slides:[
       { n:19, t:'Core HR',                     f:null },
       { n:20, t:'Recruitment',                 f:null },
@@ -291,7 +384,7 @@ const GROUPS = [
       { n:27, t:'Expense',                     f:null },
       { n:28, t:'Helpdesk',                    f:null },
     ]},
-  { id:'market', label:'Marketplace', icon:'M2 5h10l-1 7H3L2 5zM5 5V4a2 2 0 014 0v1',
+  { id:'market', label:'Marketplace', icon:'M2 5h10l-1.5 7H3.5L2 5zM5.5 5V3.5a1.5 1.5 0 013 0V5',
     slides:[
       { n:29, t:'Add-Ons Overview',            f:null },
       { n:30, t:'Integrations Ecosystem',      f:null },
@@ -303,83 +396,78 @@ const GROUPS = [
     ]},
 ];
 
-// Flat map: filename → slide object
+// filename → slide lookup
 const FILE_MAP = {};
 GROUPS.forEach(g => g.slides.forEach(s => { if (s.f) FILE_MAP[s.f] = s; }));
 
-// ── Build DOM ────────────────────────────────────────────────────
+// ── Build nav DOM ─────────────────────────────────────────────────
 const navScroll = document.getElementById('navScroll');
 const navEmpty  = document.getElementById('navEmpty');
 
 GROUPS.forEach(g => {
-  const grpEl = document.createElement('div');
-  grpEl.className = 'nav-grp';
-  grpEl.dataset.gid = g.id;
+  const el = document.createElement('div');
+  el.className = 'nav-grp';
+  el.dataset.gid = g.id;
 
-  grpEl.innerHTML =
+  el.innerHTML =
     `<div class="grp-hdr">
-       <div class="grp-ico">
-         <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+       <span class="grp-icon">
+         <svg viewBox="0 0 14 14" fill="none" stroke="currentColor"
+              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
            <path d="${g.icon}"/>
          </svg>
-       </div>
-       <span class="grp-lbl">${g.label}</span>
-       <span class="grp-cnt">${g.slides.length}</span>
-       <svg class="grp-chev" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+       </span>
+       <span class="grp-label">${g.label}</span>
+       <span class="grp-badge">${g.slides.length}</span>
+       <svg class="grp-chevron" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+            stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
          <path d="M5 3l4 4-4 4"/>
        </svg>
      </div>
      <div class="grp-slides">
        ${g.slides.map(s =>
          `<div class="slide-row${s.f ? '' : ' stub'}"
-               data-n="${s.n}"
-               data-q="${s.t.toLowerCase()}"
-               data-file="${s.f || ''}">
-            <span class="slide-num">${s.n}</span>
-            <span class="slide-ttl">${s.t}</span>
+               data-n="${s.n}" data-q="${s.t.toLowerCase()}" data-file="${s.f || ''}">
+            <span class="slide-num">${String(s.n).padStart(2,'0')}</span>
+            <span class="slide-name">${s.t}</span>
           </div>`
        ).join('')}
      </div>`;
 
-  // Toggle accordion
-  grpEl.querySelector('.grp-hdr').addEventListener('click', () => {
-    if (!sidebar.classList.contains('collapsed')) {
-      grpEl.classList.toggle('open');
-    }
+  el.querySelector('.grp-hdr').addEventListener('click', () => {
+    if (!sidebar.classList.contains('collapsed')) el.classList.toggle('open');
   });
 
-  // Slide click
-  grpEl.querySelectorAll('.slide-row:not(.stub)').forEach(row => {
-    row.addEventListener('click', () => goTo(parseInt(row.dataset.n), row.dataset.file));
+  el.querySelectorAll('.slide-row:not(.stub)').forEach(row => {
+    row.addEventListener('click', () => goTo(+row.dataset.n, row.dataset.file));
   });
 
-  navScroll.insertBefore(grpEl, navEmpty);
+  navScroll.insertBefore(el, navEmpty);
 });
 
-// ── State ────────────────────────────────────────────────────────
-const sidebar    = document.getElementById('sidebar');
-const frame      = document.getElementById('slideFrame');
-const slideCtr   = document.getElementById('slideCtr');
-let   current    = 5;
+// ── State ─────────────────────────────────────────────────────────
+const sidebar  = document.getElementById('sidebar');
+const frame    = document.getElementById('slideFrame');
+const slideCtr = document.getElementById('slideCtr');
+let   current  = 5;
 
 function setActive(n) {
   current = n;
-  slideCtr.textContent = `${n} / 32`;
+  slideCtr.textContent = `${String(n).padStart(2,'0')} / 32`;
 
   document.querySelectorAll('.slide-row').forEach(r => {
-    r.classList.toggle('active', parseInt(r.dataset.n) === n);
+    r.classList.toggle('active', +r.dataset.n === n);
   });
 
-  // Auto-open parent group, close others
+  // Auto-open parent group
   document.querySelectorAll('.nav-grp').forEach(g => {
-    const hasIt = [...g.querySelectorAll('.slide-row')].some(r => parseInt(r.dataset.n) === n);
-    if (hasIt) g.classList.add('open');
+    const has = [...g.querySelectorAll('.slide-row')].some(r => +r.dataset.n === n);
+    if (has) g.classList.add('open');
   });
 
-  // Scroll active into view
   requestAnimationFrame(() => {
-    const activeRow = navScroll.querySelector('.slide-row.active');
-    if (activeRow) activeRow.scrollIntoView({ block:'nearest', behavior:'smooth' });
+    const row = navScroll.querySelector('.slide-row.active');
+    if (row) row.scrollIntoView({ block:'nearest', behavior:'smooth' });
   });
 }
 
@@ -389,55 +477,53 @@ function goTo(n, file) {
   setActive(n);
 }
 
-// Sync sidebar when slide's own prev/next arrows are used
+// Sync when slide's own prev/next buttons are used
 frame.addEventListener('load', () => {
   try {
-    const href = frame.contentWindow.location.href;
-    const file = href.split('/').pop().split('?')[0];
-    const match = FILE_MAP[file];
-    if (match) setActive(match.n);
+    const file = frame.contentWindow.location.href.split('/').pop().split('?')[0];
+    const s = FILE_MAP[file];
+    if (s) setActive(s.n);
   } catch(e) {}
-  // Kick the slide's fit() so it rescales to iframe size
   try { frame.contentWindow.dispatchEvent(new Event('resize')); } catch(e) {}
 });
 
-// Init
 setActive(5);
 
-// ── Collapse / Expand ─────────────────────────────────────────────
-const toggleBtn = document.getElementById('toggleBtn');
-toggleBtn.addEventListener('click', () => {
+// ── Toggle ────────────────────────────────────────────────────────
+document.getElementById('toggleBtn').addEventListener('click', () => {
   sidebar.classList.toggle('collapsed');
-  afterTransition();
+  document.getElementById('toggleBtn').title =
+    sidebar.classList.contains('collapsed') ? 'Expand sidebar' : 'Collapse sidebar';
+  scheduleResize();
 });
 
-function afterTransition() {
+function scheduleResize() {
   setTimeout(() => {
     try { frame.contentWindow.dispatchEvent(new Event('resize')); } catch(e) {}
-  }, 280);
+  }, 310);
 }
 
 // ── Search ────────────────────────────────────────────────────────
 document.getElementById('searchInput').addEventListener('input', function() {
   const q = this.value.trim().toLowerCase();
-  let anyVisible = false;
+  let any = false;
 
   document.querySelectorAll('.nav-grp').forEach(g => {
-    let grpMatch = false;
+    let hit = false;
     g.querySelectorAll('.slide-row').forEach(r => {
       const show = !q || r.dataset.q.includes(q) || r.dataset.n.includes(q);
       r.style.display = show ? '' : 'none';
-      if (show) grpMatch = true;
+      if (show) hit = true;
     });
-    g.style.display = grpMatch ? '' : 'none';
-    if (q && grpMatch) g.classList.add('open');
-    if (grpMatch) anyVisible = true;
+    g.style.display = hit ? '' : 'none';
+    if (q && hit) g.classList.add('open');
+    if (hit) any = true;
   });
 
-  navEmpty.style.display = (!anyVisible && q) ? 'block' : 'none';
+  navEmpty.style.display = (!any && q) ? 'block' : 'none';
 });
 
-// ── Present (fullscreen) ──────────────────────────────────────────
+// ── Present / Fullscreen ──────────────────────────────────────────
 let wasCollapsed = false;
 document.getElementById('presentBtn').addEventListener('click', () => {
   if (!document.fullscreenElement) {
@@ -451,14 +537,13 @@ document.getElementById('presentBtn').addEventListener('click', () => {
 document.addEventListener('fullscreenchange', () => {
   if (document.fullscreenElement) {
     sidebar.classList.add('collapsed');
-    afterTransition();
   } else {
     if (!wasCollapsed) sidebar.classList.remove('collapsed');
-    afterTransition();
   }
+  scheduleResize();
 });
 
-// ── Keyboard nav (deck-level) ─────────────────────────────────────
+// ── Keyboard ──────────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT') return;
   const built = GROUPS.flatMap(g => g.slides.filter(s => s.f)).sort((a,b) => a.n - b.n);
