@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>World's Easiest HCM Software — HROne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+  width:100%; height:100%;
+  background:#000;
+  overflow:hidden;
+  display:flex; align-items:flex-start; justify-content:flex-start;
+}
+#stage {
+  width:1920px; height:1080px;
+  transform-origin:top left;
+  position:relative;
+  overflow:hidden;
+}
+.slide {
+  width:1920px; height:1080px;
+  background:#0A1B10;
+  position:relative;
+  overflow:hidden;
+  font-family:'Public Sans',system-ui,-apple-system,sans-serif;
+  color:#fff;
+}
+
+/* ── BACKGROUND GLOWS ── */
+.bg-blob-left {
+  position:absolute;
+  left:192px; top:388px;
+  width:760px; height:300px;
+  background:radial-gradient(ellipse at center, rgba(35,165,120,0.22) 0%, rgba(35,165,120,0.08) 45%, transparent 70%);
+  pointer-events:none;
+}
+.bg-blob-right {
+  position:absolute;
+  left:1150px; top:320px;
+  width:720px; height:300px;
+  background:radial-gradient(ellipse at center, rgba(35,165,120,0.15) 0%, rgba(35,165,120,0.05) 50%, transparent 70%);
+  pointer-events:none;
+}
+.bg-wave {
+  position:absolute;
+  left:-60px; bottom:-120px;
+  width:2040px; height:380px;
+  background:radial-gradient(ellipse 1200px 280px at 50% 100%, rgba(25,130,75,0.28) 0%, rgba(20,100,55,0.12) 50%, transparent 75%);
+  pointer-events:none;
+}
+.bg-wave-2 {
+  position:absolute;
+  left:-200px; bottom:-80px;
+  width:1200px; height:260px;
+  background:radial-gradient(ellipse 800px 220px at 40% 100%, rgba(35,165,100,0.20) 0%, transparent 60%);
+  pointer-events:none;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  position:absolute;
+  left:0; top:0; right:0; height:86px;
+  display:flex; align-items:center;
+  padding:0 100px;
+}
+.tb-logo {
+  display:flex; align-items:center; gap:10px;
+  flex-shrink:0;
+}
+.tb-logo svg { width:36px; height:34px; }
+.tb-logo-wordmark {
+  font-size:22px; font-weight:700; letter-spacing:0.01em;
+  line-height:1;
+}
+.tb-logo-wordmark span { font-weight:400; }
+.tb-recognized {
+  flex:1; text-align:center;
+  font-size:10.5px; font-weight:600;
+  letter-spacing:0.13em; text-transform:uppercase;
+  color:rgba(255,255,255,0.45);
+}
+.tb-badge-group {
+  display:flex; align-items:center;
+  gap:0; flex-shrink:0;
+}
+.tb-badge {
+  display:flex; align-items:center;
+  gap:12px; padding:0 26px;
+}
+.tb-badge-logo { flex-shrink:0; }
+.tb-badge-text { display:flex; flex-direction:column; gap:1px; }
+.tb-badge-title {
+  font-size:11px; font-weight:600;
+  color:rgba(255,255,255,0.88); letter-spacing:0.02em; white-space:nowrap;
+}
+.tb-badge-sub {
+  font-size:10px; font-weight:400;
+  color:rgba(255,255,255,0.48); white-space:nowrap;
+}
+.tb-stars { display:flex; gap:2px; margin-bottom:2px; }
+.tb-stars svg { width:9px; height:9px; }
+.tb-rating {
+  display:flex; align-items:baseline;
+  gap:2px; margin-left:4px;
+}
+.tb-rating-num {
+  font-size:26px; font-weight:700;
+  color:#fff; line-height:1;
+}
+.tb-rating-denom {
+  font-size:13px; font-weight:400;
+  color:rgba(255,255,255,0.55);
+}
+.tb-vdivider {
+  width:1px; height:46px;
+  background:rgba(255,255,255,0.14);
+  flex-shrink:0;
+}
+.tb-extra {
+  display:flex; flex-direction:column;
+  align-items:center; gap:1px; margin-left:6px;
+}
+.tb-extra-num {
+  font-size:17px; font-weight:700;
+  color:#fff; line-height:1;
+}
+.tb-extra-label {
+  font-size:10px; font-weight:400;
+  color:rgba(255,255,255,0.48);
+}
+.tb-hdivider {
+  position:absolute;
+  left:96px; right:96px; bottom:0;
+  height:1px;
+  background:rgba(255,255,255,0.10);
+}
+
+/* ── HERO ── */
+.hero {
+  position:absolute;
+  left:0; right:0; top:130px;
+  display:flex; flex-direction:column;
+  align-items:center; gap:0;
+  text-align:center;
+}
+.ai-pill {
+  display:inline-flex; align-items:center; gap:7px;
+  padding:9px 20px;
+  border:1px solid rgba(35,165,120,0.55);
+  border-radius:100px;
+  background:rgba(35,165,120,0.09);
+  margin-bottom:22px;
+}
+.ai-pill-icon { width:14px; height:14px; flex-shrink:0; }
+.ai-pill-text {
+  font-size:14px; font-weight:600;
+  color:#34C98A; letter-spacing:0.04em;
+}
+.hero-h1 {
+  font-size:66px; font-weight:800;
+  color:#fff; line-height:1.04;
+  letter-spacing:-0.025em;
+  margin-bottom:18px;
+}
+.hero-sub {
+  font-size:21px; font-weight:400;
+  color:rgba(255,255,255,0.55);
+  letter-spacing:0.01em;
+}
+
+/* ── PRODUCT IMAGES ── */
+.product-web {
+  position:absolute;
+  left:649px; top:428px;
+  width:968px; height:830px;
+  object-fit:cover; object-position:top center;
+  border-radius:12px 12px 0 0;
+  box-shadow:
+    0 -16px 60px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(255,255,255,0.07),
+    0 0 80px rgba(35,165,120,0.06);
+}
+.product-mobile {
+  position:absolute;
+  left:358px; top:517px;
+  width:265px; height:638px;
+  object-fit:cover; object-position:top center;
+  border-radius:14px;
+  box-shadow:
+    0 8px 48px rgba(0,0,0,0.50),
+    0 0 0 1px rgba(255,255,255,0.06);
+}
+.mic-badge {
+  position:absolute;
+  left:292px; top:656px;
+  width:88px; height:85px;
+  object-fit:contain;
+  filter:drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+}
+.ai-circle {
+  position:absolute;
+  left:570px; top:726px;
+  width:113px; height:113px;
+  object-fit:contain;
+  filter:drop-shadow(0 4px 20px rgba(35,165,120,0.35));
+}
+</style>
+</head>
+<body>
+<div id="stage">
+<div class="slide">
+
+  <!-- Background -->
+  <div class="bg-blob-left"></div>
+  <div class="bg-blob-right"></div>
+  <div class="bg-wave"></div>
+  <div class="bg-wave-2"></div>
+
+  <!-- ── TOP BAR ── -->
+  <div class="topbar">
+
+    <!-- HROne Logo -->
+    <div class="tb-logo">
+      <svg viewBox="0 0 47 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.7176 20.3174L22.2354 22.5769L26.6003 24.7603L22.2354 26.9438L17.7176 29.2033L13.2 26.9438L8.88477 24.7603L13.2 22.5769L17.7176 20.3174Z" fill="white"/>
+        <path d="M15.6542 14.8012L23.2823 18.6166L30.7575 14.8773L23.2823 11.0619L15.6542 14.8012Z" fill="white"/>
+        <path d="M46.9883 23.1032V23.2516C46.9883 34.4326 38.0068 43.5 26.8441 43.5H23.2823V37.1315H26.8441C34.4981 37.1315 40.6978 30.8946 40.6978 23.2516V23.1032C40.6978 15.4602 34.4981 9.22325 26.8441 9.22325H23.2823V2.85474H26.8441C38.0068 2.85474 46.9883 11.9221 46.9883 23.1032Z" fill="white"/>
+      </svg>
+      <div class="tb-logo-wordmark">HR<span>One</span></div>
+    </div>
+
+    <!-- Recognised text -->
+    <div class="tb-recognized">Recognised by the platforms that matter</div>
+
+    <!-- Badge group -->
+    <div class="tb-badge-group">
+
+      <!-- Gartner -->
+      <div class="tb-badge">
+        <div class="tb-badge-logo">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+            <rect width="34" height="34" rx="5" fill="rgba(255,255,255,0.07)"/>
+            <rect x="1" y="1" width="32" height="32" rx="4" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <text x="17" y="13" text-anchor="middle" font-size="5.5" font-weight="700" fill="rgba(255,255,255,0.7)" font-family="Arial,sans-serif" letter-spacing="0.5">GARTNER</text>
+            <text x="17" y="22" text-anchor="middle" font-size="4.5" font-weight="400" fill="rgba(255,255,255,0.5)" font-family="Arial,sans-serif" letter-spacing="0.3">PEER</text>
+            <text x="17" y="30" text-anchor="middle" font-size="4.5" font-weight="400" fill="rgba(255,255,255,0.5)" font-family="Arial,sans-serif" letter-spacing="0.3">INSIGHTS</text>
+          </svg>
+        </div>
+        <div class="tb-badge-text">
+          <div class="tb-stars">
+            <svg viewBox="0 0 10 10" fill="#F7941D"><polygon points="5,0.5 6.2,3.6 9.5,3.8 7,6 7.9,9.3 5,7.5 2.1,9.3 3,6 0.5,3.8 3.8,3.6"/></svg>
+            <svg viewBox="0 0 10 10" fill="#F7941D"><polygon points="5,0.5 6.2,3.6 9.5,3.8 7,6 7.9,9.3 5,7.5 2.1,9.3 3,6 0.5,3.8 3.8,3.6"/></svg>
+            <svg viewBox="0 0 10 10" fill="#F7941D"><polygon points="5,0.5 6.2,3.6 9.5,3.8 7,6 7.9,9.3 5,7.5 2.1,9.3 3,6 0.5,3.8 3.8,3.6"/></svg>
+            <svg viewBox="0 0 10 10" fill="#F7941D"><polygon points="5,0.5 6.2,3.6 9.5,3.8 7,6 7.9,9.3 5,7.5 2.1,9.3 3,6 0.5,3.8 3.8,3.6"/></svg>
+            <svg viewBox="0 0 10 10" fill="#F7941D"><polygon points="5,0.5 6.2,3.6 9.5,3.8 7,6 7.9,9.3 5,7.5 2.1,9.3 3,6 0.5,3.8 3.8,3.6"/></svg>
+          </div>
+          <div class="tb-badge-title">Gartner Peer Insights</div>
+          <div class="tb-badge-sub">Customers' Choice 2025</div>
+        </div>
+        <div class="tb-rating">
+          <div class="tb-rating-num">4.8</div>
+          <div class="tb-rating-denom">&thinsp;/ 5</div>
+        </div>
+      </div>
+
+      <div class="tb-vdivider"></div>
+
+      <!-- G2 -->
+      <div class="tb-badge">
+        <div class="tb-badge-logo">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="22" r="22" fill="#FF492C"/>
+            <text x="22" y="29" text-anchor="middle" font-size="17" font-weight="800" fill="white" font-family="Arial,sans-serif">G2</text>
+          </svg>
+        </div>
+        <div class="tb-badge-text">
+          <div class="tb-stars">
+            <svg viewBox="0 0 10 10" fill="#F7941D"><polygon points="5,0.5 6.2,3.6 9.5,3.8 7,6 7.9,9.3 5,7.5 2.1,9.3 3,6 0.5,3.8 3.8,3.6"/></svg>
+            <svg viewBox="0 0 10 10" fill="#F7941D"><polygon points="5,0.5 6.2,3.6 9.5,3.8 7,6 7.9,9.3 5,7.5 2.1,9.3 3,6 0.5,3.8 3.8,3.6"/></svg>
+            <svg viewBox="0 0 10 10" fill="#F7941D"><polygon points="5,0.5 6.2,3.6 9.5,3.8 7,6 7.9,9.3 5,7.5 2.1,9.3 3,6 0.5,3.8 3.8,3.6"/></svg>
+            <svg viewBox="0 0 10 10" fill="#F7941D"><polygon points="5,0.5 6.2,3.6 9.5,3.8 7,6 7.9,9.3 5,7.5 2.1,9.3 3,6 0.5,3.8 3.8,3.6"/></svg>
+            <svg viewBox="0 0 10 10" fill="#F7941D"><polygon points="5,0.5 6.2,3.6 9.5,3.8 7,6 7.9,9.3 5,7.5 2.1,9.3 3,6 0.5,3.8 3.8,3.6"/></svg>
+          </div>
+          <div class="tb-badge-title">Best Software 2026 — Top 5 India</div>
+          <div class="tb-badge-sub">Best Software Awards 2026</div>
+        </div>
+        <div class="tb-rating">
+          <div class="tb-rating-num">4.9</div>
+          <div class="tb-rating-denom">&thinsp;/ 5</div>
+        </div>
+        <div class="tb-extra">
+          <div class="tb-extra-num">2100+</div>
+          <div class="tb-extra-label">Reviews</div>
+        </div>
+      </div>
+
+    </div><!-- /badge-group -->
+    <div class="tb-hdivider"></div>
+  </div><!-- /topbar -->
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="ai-pill">
+      <!-- AI sparkle icon -->
+      <svg class="ai-pill-icon" viewBox="0 0 14 14" fill="none">
+        <path d="M7 0.5C7 3.8 3.8 7 0.5 7C3.8 7 7 10.2 7 13.5C7 10.2 10.2 7 13.5 7C10.2 7 7 3.8 7 0.5Z" fill="#34C98A"/>
+        <circle cx="2" cy="2" r="1" fill="#34C98A" opacity="0.5"/>
+        <circle cx="12" cy="12" r="0.8" fill="#34C98A" opacity="0.4"/>
+      </svg>
+      <span class="ai-pill-text">AI Supercharged</span>
+    </div>
+    <h1 class="hero-h1">World's Easiest HCM Software</h1>
+    <p class="hero-sub">One platform. Every HR process. Now supercharged with AI.</p>
+  </div>
+
+  <!-- ── PRODUCT IMAGES ── -->
+  <img class="product-web" src="Assets/Product web.svg" alt="HROne Dashboard">
+  <img class="product-mobile" src="Assets/product mobile.svg" alt="HROne Mobile">
+  <img class="mic-badge" src="Assets/mic.svg" alt="">
+  <img class="ai-circle" src="Assets/aicircle.png" alt="HROne AI">
+
+</div>
+</div>
+
+<script>
+function resize() {
+  const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+  const stage = document.getElementById('stage');
+  stage.style.transform = `scale(${s})`;
+  stage.style.marginLeft = ((window.innerWidth - 1920 * s) / 2) + 'px';
+  stage.style.marginTop  = ((window.innerHeight - 1080 * s) / 2) + 'px';
+}
+window.addEventListener('resize', resize);
+resize();
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+    e.preventDefault();
+    if (window.parent !== window) window.parent.postMessage({type:'nav-key', key:e.key}, '*');
+  }
+});
+</script>
+</body>
+</html>
