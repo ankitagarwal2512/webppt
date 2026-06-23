@@ -509,7 +509,7 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 <!-- NAV                                           -->
 <!-- ──────────────────────────────────────────── -->
 <div class="nav">
-  <span class="nav-count" id="navCount">07 / 32</span>
+  <span class="nav-count" id="navCount">20 / 32</span>
   <button class="nav-btn" id="prevBtn" aria-label="Previous slide">
     <svg viewBox="0 0 20 20" fill="none">
       <path d="M13 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -611,11 +611,11 @@ document.addEventListener('keydown', e => {
 
 document.getElementById('prevBtn').addEventListener('click', () => {
   if (window.parent !== window)
-    window.parent.postMessage({ type: 'nav', dir: 'prev' }, '*');
+    window.parent.postMessage({ type: 'nav-key', key: 'ArrowLeft' }, '*');
 });
 document.getElementById('nextBtn').addEventListener('click', () => {
   if (window.parent !== window)
-    window.parent.postMessage({ type: 'nav', dir: 'next' }, '*');
+    window.parent.postMessage({ type: 'nav-key', key: 'ArrowRight' }, '*');
 });
 </script>
 </body>
