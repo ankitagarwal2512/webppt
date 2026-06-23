@@ -343,6 +343,14 @@ function closePop(){ pop.classList.remove('show'); cards().forEach(c=>c.classLis
 function refresh(){ cards().forEach(c=>c.classList.remove('active')); cards()[active].classList.add('active'); showPop(active); }
 document.addEventListener('keydown', e => {
   if(e.key==='Escape') return closePop();
+  // In deck shell: forward arrow keys to parent for slide navigation
+  if(window.parent !== window) {
+    if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+      e.preventDefault();
+      window.parent.postMessage({type:'nav-key', key:e.key}, '*');
+      return;
+    }
+  }
   if(active===null) return;
   if(e.key==='ArrowRight'){ active=(active+1)%10; refresh(); }
   if(e.key==='ArrowLeft'){ active=(active+9)%10; refresh(); }

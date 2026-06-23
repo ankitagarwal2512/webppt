@@ -301,6 +301,13 @@ function fit(){ const s=Math.min(window.innerWidth/1920,window.innerHeight/1080)
 window.addEventListener('resize', fit); fit();
 document.getElementById('prevBtn').addEventListener('click', ()=>{ window.location.href='hrone-slide5.html'; });
 document.getElementById('nextBtn').addEventListener('click', ()=>{});
+document.addEventListener('keydown', e => {
+  if(e.key==='ArrowLeft'||e.key==='ArrowRight'){
+    e.preventDefault();
+    if(window.parent !== window) window.parent.postMessage({type:'nav-key', key:e.key}, '*');
+    else if(e.key==='ArrowLeft') window.location.href='hrone-slide5.html';
+  }
+});
 </script>
 </body>
 </html>

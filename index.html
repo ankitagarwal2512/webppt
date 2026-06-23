@@ -550,14 +550,23 @@ document.addEventListener('fullscreenchange', () => {
   scheduleResize();
 });
 
-// ── Keyboard ──────────────────────────────────────────────────────
+// ── Keyboard (shell focus) ────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT') return;
+  navArrow(e.key);
+});
+
+// ── Keyboard (iframe focus → postMessage) ─────────────────────────
+window.addEventListener('message', e => {
+  if (e.data && e.data.type === 'nav-key') navArrow(e.data.key);
+});
+
+function navArrow(key) {
   const built = GROUPS.flatMap(g => g.slides.filter(s => s.f)).sort((a,b) => a.n - b.n);
   const idx   = built.findIndex(s => s.n === current);
-  if (e.key === 'ArrowRight' && idx < built.length - 1) goTo(built[idx+1].n, built[idx+1].f);
-  if (e.key === 'ArrowLeft'  && idx > 0)                goTo(built[idx-1].n, built[idx-1].f);
-});
+  if (key === 'ArrowRight' && idx < built.length - 1) goTo(built[idx+1].n, built[idx+1].f);
+  if (key === 'ArrowLeft'  && idx > 0)                goTo(built[idx-1].n, built[idx-1].f);
+}
 </script>
 </body>
 </html>
