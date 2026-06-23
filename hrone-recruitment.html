@@ -164,22 +164,6 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 }
 .leg-item { display:flex; align-items:center; gap:7px; font-size:12.5px; font-weight:700; color:#3d3d3d; }
 
-/* ── NAV ─────────────────────────────────────── */
-.nav {
-  position:fixed; bottom:26px; right:30px;
-  display:flex; align-items:center; gap:12px; z-index:200;
-  opacity:0; animation:fadeIn .6s 2.7s ease forwards;
-}
-.nav-count { color:rgba(0,0,0,.42); font-size:14px; font-weight:500; letter-spacing:.5px; margin-right:4px; }
-.nav-btn {
-  width:44px; height:44px; border-radius:50%;
-  border:1.5px solid rgba(0,0,0,.18); background:rgba(0,0,0,.04); color:#555;
-  cursor:pointer; display:flex; align-items:center; justify-content:center;
-  transition:background .18s, border-color .18s, color .18s, transform .12s;
-}
-.nav-btn:hover { background:rgba(238,90,60,.1); border-color:#ee5a3c; color:#ee5a3c; }
-.nav-btn:active { transform:scale(.92); }
-.nav-btn svg { width:20px; height:20px; }
 
 /* ── KEYFRAMES ───────────────────────────────── */
 @keyframes fadeDown  { from{opacity:0;transform:translateY(-12px)} to{opacity:1;transform:translateY(0)} }
@@ -497,22 +481,6 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 </div>
 
 
-<!-- ──────────────────────────────────────────── -->
-<!-- NAV                                           -->
-<!-- ──────────────────────────────────────────── -->
-<div class="nav">
-  <span class="nav-count" id="navCount">20 / 32</span>
-  <button class="nav-btn" id="prevBtn" aria-label="Previous slide">
-    <svg viewBox="0 0 20 20" fill="none">
-      <path d="M13 5l-5 5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <button class="nav-btn" id="nextBtn" aria-label="Next slide">
-    <svg viewBox="0 0 20 20" fill="none">
-      <path d="M7 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-</div>
 
 </div><!-- #stage -->
 </div><!-- #viewport -->
@@ -601,14 +569,6 @@ document.addEventListener('keydown', e => {
   }
 });
 
-document.getElementById('prevBtn').addEventListener('click', () => {
-  if (window.parent !== window)
-    window.parent.postMessage({ type: 'nav-key', key: 'ArrowLeft' }, '*');
-});
-document.getElementById('nextBtn').addEventListener('click', () => {
-  if (window.parent !== window)
-    window.parent.postMessage({ type: 'nav-key', key: 'ArrowRight' }, '*');
-});
 </script>
 </body>
 </html>
