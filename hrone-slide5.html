@@ -102,8 +102,8 @@
   .pill-peach{ background:#f4d7c6; } .pill-rose{ background:#f0c9d5; } .pill-coral{ background:#f0c0ad; }
   .pill-mint{ background:#bfe9d8; } .pill-lav{ background:#dcd2ef; } .pill-cream{ background:#f5ecc4; }
   .pill-mintL{ background:#dcf0e7; } .pill-mintM{ background:#9fdcc6; }
-  .more-text { font-weight:600; font-size:20px; color:#fff; opacity:.92; margin-top:2px; padding-left:4px; }
-  .sub-label { position:absolute; font-weight:800; font-size:26px; color:#fff; }
+  .more-text { font-weight:600; font-size:20px; color:#fff; opacity:0; margin-top:2px; padding-left:4px; animation:fadeUp .5s 1.95s ease forwards; }
+  .sub-label { position:absolute; font-weight:800; font-size:26px; color:#fff; opacity:0; animation:fadeUp .5s 1.5s ease forwards; }
 
   #popover { position:absolute; z-index:60; width:300px; background:#012b1f; border:1.5px solid #23A578; border-radius:14px; padding:18px 20px; box-shadow:0 20px 50px rgba(0,0,0,.5); opacity:0; transform:translateY(8px) scale(.96); pointer-events:none; transition:opacity .2s, transform .2s; }
   #popover.show { opacity:1; transform:translateY(0) scale(1); }
@@ -292,11 +292,11 @@ const MODULES = [
   { t:'Workforce', d:'Manage employee life-cycle', x:800, y:282, icon:'workforce', f:['Lifecycle Tracking','Transfers & Promotions','Separation Flow','Probation Mgmt','Full & Final'] },
   { t:'Time Office', d:'Real time leave & attendance', x:1150, y:282, icon:'time', f:['Leave Management','Shift Planning','Attendance Sync','Comp-Off','Holiday Calendar'] },
   { t:'Payroll', d:'Auto process your payroll', x:1500, y:282, icon:'payroll', f:['Auto Processing','CTC Structuring','Statutory Compliance','Bank Transfer','Digital Payslips'] },
-  { t:'Expense', d:'Manage your Employee Expenses', x:100, y:432, icon:'expense', f:['Claim Submission','Manager Approval','Policy Limits','Receipt Capture','Reimbursement'] },
-  { t:'Performance', d:'Help your team achieve goals', x:450, y:432, icon:'perf', f:['Goal Setting','OKRs','360° Feedback','Appraisal Cycle','Bell Curve'] },
-  { t:'Engagement', d:'Make your employees feel valued', x:800, y:432, icon:'engage', f:['Pulse Surveys','Recognition & Rewards','Announcements','Reward Points','eNPS Score'] },
-  { t:'Asset', d:'Keep a tab on your company assets', x:1150, y:432, icon:'asset', f:['Asset Register','Allocation Tracking','Return Workflow','Maintenance Log','Depreciation'] },
-  { t:'Helpdesk', d:'Conversational ticketing solution', x:1500, y:432, icon:'help', f:['Ticket Raising','Auto Assignment','SLA Tracking','Root Cause Analysis','Knowledge Base'] },
+  { t:'Expense', d:'Manage your Employee Expenses', x:100, y:416, icon:'expense', f:['Claim Submission','Manager Approval','Policy Limits','Receipt Capture','Reimbursement'] },
+  { t:'Performance', d:'Help your team achieve goals', x:450, y:416, icon:'perf', f:['Goal Setting','OKRs','360° Feedback','Appraisal Cycle','Bell Curve'] },
+  { t:'Engagement', d:'Make your employees feel valued', x:800, y:416, icon:'engage', f:['Pulse Surveys','Recognition & Rewards','Announcements','Reward Points','eNPS Score'] },
+  { t:'Asset', d:'Keep a tab on your company assets', x:1150, y:416, icon:'asset', f:['Asset Register','Allocation Tracking','Return Workflow','Maintenance Log','Depreciation'] },
+  { t:'Helpdesk', d:'Conversational ticketing solution', x:1500, y:416, icon:'help', f:['Ticket Raising','Auto Assignment','SLA Tracking','Root Cause Analysis','Knowledge Base'] },
 ];
 const ICONS = {
   corehr:'<circle cx="17" cy="12" r="6" stroke-width="2.2"/><path d="M5 30c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke-width="2.2" stroke-linecap="round"/>',
