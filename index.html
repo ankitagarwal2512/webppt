@@ -512,6 +512,16 @@ function goTo(n, file) {
   if (!file) return;
   frame.src = file;
   setActive(n);
+  updateShellNav(file);
+}
+
+// Slides that manage their own nav buttons — shell buttons hidden for these
+const SELF_NAV = new Set(['hrone-slide5.html','hrone-slide6.html','hrone-recruitment.html']);
+
+function updateShellNav(file) {
+  const selfNav = SELF_NAV.has(file);
+  btnPrev.style.visibility = selfNav ? 'hidden' : '';
+  btnNext.style.visibility = selfNav ? 'hidden' : '';
 }
 
 // Sync when slide's own prev/next buttons are used
@@ -520,6 +530,7 @@ frame.addEventListener('load', () => {
     const file = frame.contentWindow.location.href.split('/').pop().split('?')[0];
     const s = FILE_MAP[file];
     if (s) setActive(s.n);
+    updateShellNav(file);
   } catch(e) {}
   try { frame.contentWindow.dispatchEvent(new Event('resize')); } catch(e) {}
 });
