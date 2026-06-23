@@ -134,17 +134,35 @@ html, body {
   text-align:center;
 }
 .ai-pill {
-  display:inline-flex; align-items:center; gap:7px;
-  padding:9px 20px;
-  border:1px solid rgba(35,165,120,0.55);
+  display:inline-flex; align-items:center;
+  padding:14px 36px;
   border-radius:100px;
-  background:rgba(35,165,120,0.09);
+  position:relative;
+  background:transparent;
   margin-bottom:22px;
 }
-.ai-pill-icon { width:14px; height:14px; flex-shrink:0; }
+.ai-pill::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:100px;
+  padding:2px;
+  background:linear-gradient(90deg,#FC704F,#FBBC04,#32D583,#23A578,#4ECDC4,#A78BFA,#FC704F);
+  background-size:300% 100%;
+  animation:gradient-border 3s linear infinite;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+}
+@keyframes gradient-border {
+  0%   { background-position:0% 0%; }
+  100% { background-position:300% 0%; }
+}
 .ai-pill-text {
-  font-size:14px; font-weight:600;
-  color:#34C98A; letter-spacing:0.04em;
+  font-size:22px; font-weight:600;
+  color:#fff; letter-spacing:0.02em;
+  position:relative; z-index:1;
 }
 .hero-h1 {
   font-size:66px; font-weight:800;
@@ -203,19 +221,62 @@ html, body {
     0 8px 48px rgba(0,0,0,0.50),
     0 0 0 1px rgba(255,255,255,0.06);
 }
-.mic-badge {
+.mic-badge-wrap {
   position:absolute;
-  left:292px; top:656px;
+  left:322px; top:656px;
+  width:88px; height:85px;
+}
+.mic-badge {
   width:88px; height:85px;
   object-fit:contain;
   filter:drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+  position:relative; z-index:1;
 }
-.ai-circle {
+/* ── SPARK SVG ── */
+.spark-svg {
+  position:absolute;
+  pointer-events:none;
+  z-index:10;
+  transform-origin:center center;
+  animation:twinkle-spark 2s ease-in-out infinite;
+}
+@keyframes twinkle-spark {
+  0%,100% { transform:scale(0) rotate(0deg);  opacity:0; }
+  40%,60% { transform:scale(1) rotate(45deg); opacity:1; }
+}
+
+.ai-circle-wrap {
   position:absolute;
   left:570px; top:726px;
   width:113px; height:113px;
+}
+.ai-circle {
+  width:78px; height:78px;
   object-fit:contain;
   filter:drop-shadow(0 4px 20px rgba(35,165,120,0.35));
+  position:absolute; z-index:1;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+}
+.ai-circle-wrap::before,
+.ai-circle-wrap::after {
+  content:'';
+  position:absolute;
+  top:50%; left:50%;
+  width:122px; height:122px;
+  margin:-61px 0 0 -61px;
+  border-radius:50%;
+  background:rgba(252,112,79,0.50);
+  animation:ripple-solid 2.2s ease-out infinite;
+  pointer-events:none;
+  z-index:0;
+}
+.ai-circle-wrap::after { animation-delay:1.1s; }
+
+@keyframes ripple-solid {
+  0%   { transform:scale(1);   opacity:0.7; }
+  50%  { opacity:0.25; }
+  100% { transform:scale(2.2); opacity:0; }
 }
 </style>
 </head>
@@ -310,12 +371,6 @@ html, body {
   <!-- ── HERO ── -->
   <div class="hero">
     <div class="ai-pill">
-      <!-- AI sparkle icon -->
-      <svg class="ai-pill-icon" viewBox="0 0 14 14" fill="none">
-        <path d="M7 0.5C7 3.8 3.8 7 0.5 7C3.8 7 7 10.2 7 13.5C7 10.2 10.2 7 13.5 7C10.2 7 7 3.8 7 0.5Z" fill="#34C98A"/>
-        <circle cx="2" cy="2" r="1" fill="#34C98A" opacity="0.5"/>
-        <circle cx="12" cy="12" r="0.8" fill="#34C98A" opacity="0.4"/>
-      </svg>
       <span class="ai-pill-text">AI Supercharged</span>
     </div>
     <h1 class="hero-h1">World's Easiest HCM Software</h1>
@@ -325,8 +380,11 @@ html, body {
   <!-- ── PRODUCT IMAGES ── -->
   <img class="product-web" src="Assets/Product svg2.svg?v=4" alt="HROne Dashboard">
   <img class="product-mobile" src="Assets/MOBILE2.svg?v=4" alt="HROne Mobile">
-  <img class="mic-badge" src="Assets/mic.svg" alt="">
-  <img class="ai-circle" src="Assets/aicircle.png" alt="HROne AI">
+  <div class="mic-badge-wrap">
+    <img class="mic-badge" src="Assets/mic.svg?v=2" alt="">
+  </div>
+  <img class="spark-svg" src="Assets/SPARK.svg" width="24" height="23" alt="" style="left:308px;top:644px;">
+  <div class="ai-circle-wrap"><img class="ai-circle" src="Assets/aicircle.png" alt="HROne AI"></div>
 
   <!-- ── GREEN CUTOUT (masks product bottom, under wave) ── -->
   <div class="green-cutout">
