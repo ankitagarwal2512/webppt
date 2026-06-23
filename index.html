@@ -282,8 +282,33 @@ html,body{width:100%;height:100%;overflow:hidden;background:#013a29;font-family:
   flex:1;min-width:0;overflow:hidden;
   background:#013a29;
   display:flex;
+  position:relative;
 }
 #slideFrame{ flex:1;border:none;display:block; }
+
+/* ── Nav arrows ──────────────────────────────── */
+.nav-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:48px;height:72px;border-radius:12px;border:none;
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(8px);
+  color:rgba(255,255,255,.45);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  z-index:20;
+  transition:background .18s, color .18s, transform .18s, opacity .18s;
+  opacity:0.4;
+}
+.nav-btn:hover{
+  background:rgba(35,165,120,.22);
+  color:#fff;opacity:1;
+  transform:translateY(-50%) scale(1.05);
+}
+.nav-btn:active{ transform:translateY(-50%) scale(.97); }
+.nav-btn svg{ width:22px;height:22px; }
+.nav-btn-prev{ left:10px; }
+.nav-btn-next{ right:10px; }
+.nav-btn.hidden{ opacity:0;pointer-events:none; }
 </style>
 </head>
 <body>
@@ -339,7 +364,17 @@ html,body{width:100%;height:100%;overflow:hidden;background:#013a29;font-family:
 
   <!-- ════ STAGE ════ -->
   <div class="stage-host">
+    <button class="nav-btn nav-btn-prev hidden" id="btnPrev" title="Previous slide" aria-label="Previous slide">
+      <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 5l-7 6 7 6"/>
+      </svg>
+    </button>
     <iframe id="slideFrame" src="hrone-slide1.html" allowfullscreen title="Slide stage"></iframe>
+    <button class="nav-btn nav-btn-next" id="btnNext" title="Next slide" aria-label="Next slide">
+      <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 5l7 6-7 6"/>
+      </svg>
+    </button>
   </div>
 
 </div>
@@ -562,12 +597,27 @@ window.addEventListener('message', e => {
   if (e.data && e.data.type === 'nav-key') navArrow(e.data.key);
 });
 
+const btnPrev = document.getElementById('btnPrev');
+const btnNext = document.getElementById('btnNext');
+btnPrev.addEventListener('click', () => navArrow('ArrowLeft'));
+btnNext.addEventListener('click', () => navArrow('ArrowRight'));
+
+function updateNavBtns() {
+  const built = GROUPS.flatMap(g => g.slides.filter(s => s.f)).sort((a,b) => a.n - b.n);
+  const idx   = built.findIndex(s => s.n === current);
+  btnPrev.classList.toggle('hidden', idx <= 0);
+  btnNext.classList.toggle('hidden', idx >= built.length - 1);
+}
+
 function navArrow(key) {
   const built = GROUPS.flatMap(g => g.slides.filter(s => s.f)).sort((a,b) => a.n - b.n);
   const idx   = built.findIndex(s => s.n === current);
   if (key === 'ArrowRight' && idx < built.length - 1) goTo(built[idx+1].n, built[idx+1].f);
   if (key === 'ArrowLeft'  && idx > 0)                goTo(built[idx-1].n, built[idx-1].f);
+  updateNavBtns();
 }
+
+updateNavBtns();
 </script>
 </body>
 </html>
