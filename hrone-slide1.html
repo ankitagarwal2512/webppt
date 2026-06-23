@@ -9,7 +9,7 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body {
   width:100%; height:100%;
-  background:#0A1B10;
+  background:#013A29;
   overflow:hidden;
 }
 #stage {
@@ -21,7 +21,7 @@ html, body {
 }
 .slide {
   width:1920px; height:1080px;
-  background:#0A1B10;
+  background:#013A29;
   position:relative;
   overflow:hidden;
   font-family:'Public Sans',system-ui,-apple-system,sans-serif;
@@ -34,7 +34,7 @@ html, body {
   position:absolute;
   inset:0;
   /* Ellipse 5334: x=52 y=-39 w=703 h=255 → center=(403,88) */
-  background:radial-gradient(ellipse 620px 380px at 403px 88px,
+  background:radial-gradient(ellipse 620px 380px at 249px 88px,
     rgba(35,165,120,0.38) 0%,
     rgba(35,165,120,0.14) 40%,
     transparent 68%);
@@ -206,9 +206,10 @@ html, body {
   object-fit:none; object-position:top center;
   border-radius:12px 12px 0 0;
   box-shadow:
-    0 -16px 60px rgba(0,0,0,0.55),
-    0 0 0 1px rgba(255,255,255,0.07),
-    0 0 80px rgba(35,165,120,0.06);
+    0 -24px 80px rgba(0,18,10,0.38),
+    0 24px 60px rgba(0,18,10,0.28),
+    0 0 0 1px rgba(255,255,255,0.06),
+    0 0 100px rgba(35,165,120,0.08);
 }
 .product-mobile {
   position:absolute;
@@ -217,9 +218,11 @@ html, body {
   object-fit:none; object-position:top center;
   border-radius:14px;
   overflow:hidden;
+  background:#013A29;
   box-shadow:
-    0 8px 48px rgba(0,0,0,0.50),
-    0 0 0 1px rgba(255,255,255,0.06);
+    0 12px 60px rgba(0,18,10,0.35),
+    0 0 0 1px rgba(255,255,255,0.07),
+    0 0 40px rgba(35,165,120,0.07);
 }
 .mic-badge-wrap {
   position:absolute;
@@ -389,7 +392,7 @@ html, body {
   <!-- ── GREEN CUTOUT (masks product bottom, under wave) ── -->
   <div class="green-cutout">
     <svg width="1920" height="176" viewBox="0 0 1920 176" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M315.827 18.4067L-17.5391 184.749L96.31 1056.68L1910.4 987.828L2017.43 136.346H1855.18L1597.5 0H1295.47L1191.85 52.4933L664.192 96.8058L315.827 18.4067Z" fill="#0A1B10"/>
+      <path d="M315.827 18.4067L-17.5391 184.749L96.31 1056.68L1910.4 987.828L2017.43 136.346H1855.18L1597.5 0H1295.47L1191.85 52.4933L664.192 96.8058L315.827 18.4067Z" fill="#013A29"/>
     </svg>
   </div>
 
