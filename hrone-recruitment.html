@@ -250,10 +250,6 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   <circle class="conn" id="c-ai-node" cx="895" cy="638" r="9"
           fill="#ee5a3c" stroke="#fff" stroke-width="2"/>
 
-  <!-- AI CORE output junction node -->
-  <circle class="conn" id="c-ai-out-node" cx="1007" cy="638" r="7"
-          fill="#ee5a3c" stroke="#fff" stroke-width="2"/>
-
   <!-- ⑤ AI CORE right-center → SCREEN cards (diverging web, all gray dashed) -->
   <!-- → AI Resume Parser (1048,401) -->
   <line class="conn c-ai-scr" x1="1007" y1="638" x2="1048" y2="401"
@@ -575,8 +571,7 @@ stagger('.c-src-ai', 1220, 55);
 at('#c-ai-node', 1600);
 setTimeout(() => document.getElementById('ai-core').classList.add('in'), 1660);
 
-// ⑦ AI CORE output node, then fan-out lines
-at('#c-ai-out-node', 1855);
+// ⑦ AI CORE → SCREEN lines (fan-out)
 stagger('.c-ai-scr', 1860, 65);
 
 // ⑧ SCREEN column right rail + stubs + SCREEN cards
