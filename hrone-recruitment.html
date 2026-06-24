@@ -276,26 +276,25 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
         x1="1400" y1="368" x2="1400" y2="700"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
 
-  <!-- ⑦ SCREEN right (1373) → SCREEN–OFFER rail (1400): short stubs -->
+  <!-- ⑦ SCREEN right (1373) → SCREEN–OFFER rail (1400): short stubs (skip y=575, coral arrow replaces it) -->
   <line class="conn c-scr-stub" x1="1373" y1="401" x2="1400" y2="401" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
   <line class="conn c-scr-stub" x1="1373" y1="488" x2="1400" y2="488" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
-  <line class="conn c-scr-stub" x1="1373" y1="575" x2="1400" y2="575" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
   <line class="conn c-scr-stub" x1="1373" y1="662" x2="1400" y2="662" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
 
   <!-- ⑧ SCREEN-OFFER rail (1400) → OFFER cards (1432) -->
-  <!-- AI Resume Parser → Offer Generation -->
   <line class="conn c-scr-off" x1="1400" y1="401" x2="1432" y2="401"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <!-- Share w/ HM → e-KYC -->
   <line class="conn c-scr-off" x1="1400" y1="488" x2="1432" y2="488"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <!-- AI Interviewer → Initiate BGV: coral double-headed arrow -->
+  <!-- AI Interviewer ←→ Initiate BGV: two-line double-headed coral arrow -->
+  <!-- Left arrowhead (← at x=1373): short reversed line with arr-coral tip -->
+  <line class="conn" id="c-ai-interviewer-l"
+        x1="1400" y1="575" x2="1373" y2="575"
+        stroke="#ee5a3c" stroke-width="2.5" marker-end="url(#arr-coral)"/>
+  <!-- Right arrowhead (→ at x=1432): full line -->
   <line class="conn" id="c-ai-interviewer"
         x1="1373" y1="575" x2="1432" y2="575"
-        stroke="#ee5a3c" stroke-width="2.5"
-        marker-start="url(#arr-coral-rev)"
-        marker-end="url(#arr-coral)"/>
-  <!-- Multi-round → Upcoming Joiner -->
+        stroke="#ee5a3c" stroke-width="2.5" marker-end="url(#arr-coral)"/>
   <line class="conn c-scr-off" x1="1400" y1="662" x2="1432" y2="662"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
 </svg>
@@ -575,7 +574,8 @@ stagger('.scr-card', 1960, 80);
 
 // ⑨ SCREEN → OFFER short connectors + coral double-arrow + OFFER cards
 stagger('.c-scr-off', 2280, 50);
-at('#c-ai-interviewer', 2310);
+at('#c-ai-interviewer-l', 2310);
+at('#c-ai-interviewer',   2310);
 stagger('.off-card',  2230, 80);
 
 
