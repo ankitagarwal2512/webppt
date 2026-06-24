@@ -385,7 +385,7 @@ const GROUPS = [
   { id:'platform', label:'The Platform', icon:'M2 2h4v4H2zM8 2h4v4H8zM2 8h4v4H2zM8 8h4v4H8z',
     slides:[
       { n:5,  t:'The Comprehensive HCM Suite', f:'hrone-slide5.html' },
-      { n:6,  t:'Payroll Outsourcing',          f:'hrone-slide6.html' },
+      { n:6,  t:'Payroll Outsourcing',          f:'hrone-payroll-outsourcing.html' },
       { n:7,  t:'Platform Architecture',        f:null },
     ]},
   { id:'mobile', label:'Mobile & AI', icon:'M4.5 1h5a1 1 0 011 1v10a1 1 0 01-1 1h-5a1 1 0 01-1-1V2a1 1 0 011-1zM6 11.5h2',
@@ -516,7 +516,7 @@ function goTo(n, file) {
 }
 
 // Slides that manage their own nav buttons — shell buttons hidden for these
-const SELF_NAV = new Set(['hrone-slide5.html','hrone-slide6.html','hrone-recruitment.html']);
+const SELF_NAV = new Set(['hrone-slide5.html','hrone-slide6.html','hrone-recruitment.html','hrone-payroll-outsourcing.html']);
 
 function updateShellNav(file) {
   const selfNav = SELF_NAV.has(file);
