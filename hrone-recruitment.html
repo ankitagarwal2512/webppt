@@ -102,8 +102,8 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 
 /* ── AI CORE ─────────────────────────────────── */
 .ai-core {
-  position:absolute; left:876px; top:563px; width:149px; height:149px;
-  border-radius:18px; background:#fde8df;
+  position:absolute; left:895px; top:582px; width:112px; height:112px;
+  border-radius:14px; background:#fde8df;
   border:2px dashed #ee5a3c;
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
   z-index:10; opacity:0; transform:scale(.8);
@@ -232,43 +232,43 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 
   <!-- ③ SOURCE cards → AI CORE left-center (converging web) -->
   <!-- IJP (769,401) → AI CORE node (876,638) -->
-  <line class="conn c-src-ai" x1="769" y1="401" x2="876" y2="638"
+  <line class="conn c-src-ai" x1="769" y1="401" x2="895" y2="638"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <!-- Career Portal (769,488) → (876,638) -->
-  <line class="conn c-src-ai" x1="769" y1="488" x2="876" y2="638"
+  <line class="conn c-src-ai" x1="769" y1="488" x2="895" y2="638"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <!-- Referral (769,575) → (876,638) -->
-  <line class="conn c-src-ai" x1="769" y1="575" x2="876" y2="638"
+  <line class="conn c-src-ai" x1="769" y1="575" x2="895" y2="638"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <!-- LinkedIn (769,662) → (876,638) -->
-  <line class="conn c-src-ai" x1="769" y1="662" x2="876" y2="638"
+  <line class="conn c-src-ai" x1="769" y1="662" x2="895" y2="638"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <!-- Consultants (769,749) → (876,638) -->
-  <line class="conn c-src-ai" x1="769" y1="749" x2="876" y2="638"
+  <line class="conn c-src-ai" x1="769" y1="749" x2="895" y2="638"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <!-- Chrome Ext (769,835) → (876,638) -->
-  <line class="conn c-src-ai" x1="769" y1="835" x2="876" y2="638"
+  <line class="conn c-src-ai" x1="769" y1="835" x2="895" y2="638"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
 
   <!-- ④ AI CORE input node circle — solid coral -->
-  <circle class="conn" id="c-ai-node" cx="876" cy="638" r="9"
+  <circle class="conn" id="c-ai-node" cx="895" cy="638" r="9"
           fill="#ee5a3c" stroke="#fff" stroke-width="2"/>
 
   <!-- ⑤ AI CORE right-center → SCREEN cards (diverging web, all gray dashed) -->
   <!-- → AI Resume Parser (1048,401) -->
-  <line class="conn c-ai-scr" x1="1025" y1="638" x2="1048" y2="401"
+  <line class="conn c-ai-scr" x1="1007" y1="638" x2="1048" y2="401"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <!-- → Share with HM (1048,488) -->
-  <line class="conn c-ai-scr" x1="1025" y1="638" x2="1048" y2="488"
+  <line class="conn c-ai-scr" x1="1007" y1="638" x2="1048" y2="488"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <!-- → AI Interviewer (1048,575) — regular gray dashed -->
-  <line class="conn c-ai-scr" x1="1025" y1="638" x2="1048" y2="575"
+  <line class="conn c-ai-scr" x1="1007" y1="638" x2="1048" y2="575"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <!-- → Multi-round (1048,662) -->
-  <line class="conn c-ai-scr" x1="1025" y1="638" x2="1048" y2="662"
+  <line class="conn c-ai-scr" x1="1007" y1="638" x2="1048" y2="662"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <!-- → Feedback & Decision (1048,749) -->
-  <line class="conn c-ai-scr" x1="1025" y1="638" x2="1048" y2="749"
+  <line class="conn c-ai-scr" x1="1007" y1="638" x2="1048" y2="749"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
 
   <!-- ⑥ Right dashed rail of SCREEN column (Figma 72.94%×1920 = 1400px) -->
@@ -430,7 +430,7 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 <!-- AI CORE                                       -->
 <!-- ──────────────────────────────────────────── -->
 <div class="ai-core" id="ai-core" aria-label="AI Core hub">
-  <svg width="52" height="52" viewBox="0 0 56 56" fill="none" class="sparkle-svg">
+  <svg width="40" height="40" viewBox="0 0 56 56" fill="none" class="sparkle-svg">
     <path d="M27.5316 0C27.5316 16.0325 15.3023 27.6933 0 27.6933C15.3015 27.6933 27.5316 39.3533 27.5316 55.3866C27.5316 39.3541 39.761 27.6933 55.0633 27.6933C39.7618 27.6933 27.5316 16.0332 27.5316 0Z" fill="#E56046"/>
   </svg>
   <div class="ai-core-lbl">AI CORE</div>
