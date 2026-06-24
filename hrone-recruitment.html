@@ -16,6 +16,15 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 /* ── HEADER ─────────────────────────────────────── */
 .hd-logo { position:absolute; right:93px; top:67px; opacity:0; animation:fadeIn .5s .1s ease forwards; }
 
+.module-eyebrow { position:absolute; left:79px; top:109px; display:flex; align-items:center; gap:10px; opacity:0; animation:fadeDown .5s .12s ease forwards; }
+.eyebrow-line { width:28px; height:3px; background:#ee5a3c; border-radius:2px; flex-shrink:0; }
+.eyebrow-txt { font-size:13px; font-weight:700; color:#ee5a3c; letter-spacing:.11em; text-transform:uppercase; white-space:nowrap; }
+
+.slide-title { position:absolute; left:79px; top:133px; font-size:90px; font-weight:800; color:#0e0e0e; letter-spacing:-2.5px; line-height:1; white-space:nowrap; opacity:0; animation:fadeDown .65s .2s ease forwards; }
+.slide-title .dot { color:#ee5a3c; }
+
+.slide-sub { position:absolute; left:701px; top:150px; width:680px; font-size:21.5px; font-weight:400; color:#3d3d3d; line-height:1.52; opacity:0; animation:fadeIn .6s .35s ease forwards; }
+
 /* ── COLUMN LABELS ───────────────────────────── */
 .col-lbl { position:absolute; top:321px; font-size:13px; font-weight:700; color:#ee5a3c; letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; opacity:0; }
 .col-lbl.in { animation:fadeDown .4s ease forwards; }
@@ -30,7 +39,7 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   position:absolute; width:335px; border-radius:14px;
   background:#fff; border:1.5px solid #e5dbd1;
   display:flex; align-items:center; padding:0 15px; gap:13px;
-  cursor:pointer; z-index:5;
+  cursor:pointer;
   transition:transform .22s cubic-bezier(.34,1.4,.6,1), box-shadow .22s, border-color .2s;
   opacity:0;
 }
@@ -163,60 +172,6 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 }
 .leg-item { display:flex; align-items:center; gap:7px; font-size:12.5px; font-weight:700; color:#3d3d3d; }
 
-
-/* ── LEFT PANEL ──────────────────────────────── */
-.left-panel {
-  position:absolute; left:0; top:0; width:460px; height:1080px;
-  background:#013a29; z-index:1;
-  box-shadow:8px 0 28px rgba(0,0,0,.18);
-}
-.lp-top {
-  position:absolute; top:0; left:0; width:100%;
-  padding:52px 44px 0;
-}
-.lp-breadcrumb {
-  display:flex; align-items:center; gap:10px;
-  font-size:12px; font-weight:500; color:rgba(255,255,255,.55);
-  letter-spacing:.06em;
-  opacity:0; animation:fadeIn .5s .08s ease forwards;
-}
-.lp-breadcrumb-line { width:26px; height:2px; background:rgba(255,255,255,.35); border-radius:2px; flex-shrink:0; }
-.lp-title {
-  font-size:60px; font-weight:800; color:#fff;
-  letter-spacing:-1.5px; line-height:1; margin-top:14px;
-  opacity:0; animation:fadeDown .65s .15s ease forwards;
-}
-.lp-tagline {
-  font-size:20px; font-weight:700; color:#23A578;
-  line-height:1.4; margin-top:18px;
-  opacity:0; animation:fadeIn .6s .35s ease forwards;
-}
-.lp-divider {
-  width:30px; height:3px; background:#23A578; border-radius:2px;
-  margin-top:16px;
-  opacity:0; animation:fadeIn .4s .42s ease forwards;
-}
-.lp-body {
-  font-size:14.5px; font-weight:400; color:rgba(255,255,255,.78);
-  line-height:1.6; margin-top:14px;
-  opacity:0; animation:fadeIn .6s .48s ease forwards;
-}
-.lp-body strong { color:#fff; font-weight:700; }
-.lp-bottom {
-  position:absolute; bottom:0; left:0; width:100%;
-  padding:30px 44px 40px;
-  border-top:1px solid rgba(255,255,255,.1);
-  opacity:0; animation:fadeIn .6s .65s ease forwards;
-}
-.lp-tagline2 {
-  font-size:30px; font-weight:800; color:#fff;
-  line-height:1.2; letter-spacing:-.5px;
-}
-.lp-cta {
-  display:inline-flex; align-items:center; gap:5px;
-  font-size:14px; font-weight:600; color:#23A578;
-  margin-top:10px; cursor:pointer;
-}
 
 /* ── KEYFRAMES ───────────────────────────────── */
 @keyframes fadeDown  { from{opacity:0;transform:translateY(-12px)} to{opacity:1;transform:translateY(0)} }
@@ -364,22 +319,14 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   </svg>
 </div>
 
-<div class="left-panel">
-  <div class="lp-top">
-    <div class="lp-breadcrumb">
-      <div class="lp-breadcrumb-line"></div>
-      <span>Recruitment</span>
-    </div>
-    <div class="lp-title">Recruit&shy;ment</div>
-    <div class="lp-tagline">Nobody tracks<br>the hire. So<br>nobody closes it.</div>
-    <div class="lp-divider"></div>
-    <p class="lp-body">HROne is the <strong>one platform</strong> accountable for every step — from approved requisition to signed offer, powered by AI and built on real ownership.</p>
-  </div>
-  <div class="lp-bottom">
-    <div class="lp-tagline2">One pipeline.<br>Every hire owned.</div>
-    <div class="lp-cta">Request a Demo →</div>
-  </div>
+<div class="module-eyebrow">
+  <div class="eyebrow-line"></div>
+  <span class="eyebrow-txt">Module 01 · Plan to Hire</span>
 </div>
+
+<div class="slide-title">Recruitment</div>
+
+<p class="slide-sub">Four stages, six sourcing channels, One AI core — every requisition<br>tracked from approved plan to signed offer.</p>
 
 
 <!-- ──────────────────────────────────────────── -->
