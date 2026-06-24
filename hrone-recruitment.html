@@ -111,10 +111,10 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 .ai-core.in { animation:popIn .6s cubic-bezier(.34,1.45,.5,1) forwards; }
 
 @media (prefers-reduced-motion:no-preference) {
-  .sparkle-svg { animation:starSpin 14s linear infinite; transform-origin:center; }
+  .sparkle-svg { animation:sparkPulse 2.2s ease-in-out infinite; transform-origin:center; }
   .ai-core.in { animation:popIn .6s cubic-bezier(.34,1.45,.5,1) forwards, coreGlow 3s 2s ease-in-out infinite; }
 }
-@keyframes starSpin { to { transform:rotate(360deg); } }
+@keyframes sparkPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
 @keyframes coreGlow {
   0%,100% { box-shadow:0 0 0 0 rgba(238,90,60,0); }
   50%      { box-shadow:0 0 0 8px rgba(238,90,60,.14); }
@@ -202,23 +202,32 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
     <marker id="arr-coral-rev" markerWidth="9" markerHeight="9" refX="1.5" refY="3" orient="auto-start-reverse">
       <path d="M0 3L9 0L9 6z" fill="#ee5a3c"/>
     </marker>
+    <!-- Small gray left-pointing arrowhead for SOURCE left stubs -->
+    <marker id="arr-gray-l" markerWidth="7" markerHeight="7" refX="1" refY="3.5" orient="auto-start-reverse">
+      <path d="M7 0L0 3.5L7 7z" fill="none" stroke="#c2b4a8" stroke-width="1.2"/>
+    </marker>
   </defs>
 
-  <!-- ① Left dashed rail of SOURCE column (Figma 25.65%×1920 = 492px) -->
+  <!-- ① Left dashed rail of SOURCE column -->
   <line class="conn" id="c-src-vert"
         x1="492" y1="368" x2="492" y2="867"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <!-- Short stubs: rail → each SOURCE card left edge (492→521 = 29px each) -->
-  <line class="conn c-src-stub" x1="492" y1="401" x2="521" y2="401" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
-  <line class="conn c-src-stub" x1="492" y1="488" x2="521" y2="488" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
-  <line class="conn c-src-stub" x1="492" y1="575" x2="521" y2="575" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
-  <line class="conn c-src-stub" x1="492" y1="662" x2="521" y2="662" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
-  <line class="conn c-src-stub" x1="492" y1="749" x2="521" y2="749" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
-  <line class="conn c-src-stub" x1="492" y1="835" x2="521" y2="835" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <!-- SOURCE left stubs: rail → card left edge, with ← arrowhead at rail end -->
+  <line class="conn c-src-stub" x1="492" y1="401" x2="521" y2="401" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3" marker-start="url(#arr-gray-l)"/>
+  <line class="conn c-src-stub" x1="492" y1="488" x2="521" y2="488" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3" marker-start="url(#arr-gray-l)"/>
+  <line class="conn c-src-stub" x1="492" y1="575" x2="521" y2="575" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3" marker-start="url(#arr-gray-l)"/>
+  <line class="conn c-src-stub" x1="492" y1="662" x2="521" y2="662" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3" marker-start="url(#arr-gray-l)"/>
+  <line class="conn c-src-stub" x1="492" y1="749" x2="521" y2="749" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3" marker-start="url(#arr-gray-l)"/>
+  <line class="conn c-src-stub" x1="492" y1="835" x2="521" y2="835" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3" marker-start="url(#arr-gray-l)"/>
 
-  <!-- ② Arrow: Budgeted Job Req → SOURCE column (from PLAN right x=461 to rail x=488) -->
+  <!-- ② PLAN cards → SOURCE left rail: stubs for all 4 cards -->
+  <!-- New Job Req (y=417), Replacement Req (y=540), Workforce Planning (y=789): gray dashed -->
+  <line class="conn c-plan-stub" x1="461" y1="417" x2="492" y2="417" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line class="conn c-plan-stub" x1="461" y1="540" x2="492" y2="540" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line class="conn c-plan-stub" x1="461" y1="789" x2="492" y2="789" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <!-- Budgeted Job Req (y=663): coral arrow (highlighted) -->
   <line class="conn" id="c-plan-src"
-        x1="461" y1="663" x2="488" y2="663"
+        x1="461" y1="663" x2="492" y2="663"
         stroke="#ee5a3c" stroke-width="2.2" marker-end="url(#arr-coral)"/>
 
   <!-- ③ SOURCE cards → AI CORE left-center (converging web) -->
@@ -241,9 +250,9 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   <line class="conn c-src-ai" x1="769" y1="835" x2="876" y2="638"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
 
-  <!-- ④ AI CORE input node circle -->
-  <circle class="conn" id="c-ai-node" cx="876" cy="638" r="7"
-          fill="#fde8df" stroke="#ee5a3c" stroke-width="2"/>
+  <!-- ④ AI CORE input node circle — solid coral -->
+  <circle class="conn" id="c-ai-node" cx="876" cy="638" r="9"
+          fill="#ee5a3c" stroke="#fff" stroke-width="2"/>
 
   <!-- ⑤ AI CORE right-center → SCREEN cards (diverging web, all gray dashed) -->
   <!-- → AI Resume Parser (1048,401) -->
@@ -545,7 +554,8 @@ at('#c-src-vert', 840);
 stagger('.c-src-stub', 855, 40);
 stagger('.src-card',  870, 80);
 
-// ④ Budgeted→SOURCE arrow (after Budgeted card visible)
+// ④ PLAN→SOURCE stubs + Budgeted coral arrow
+stagger('.c-plan-stub', 1050, 60);
 at('#c-plan-src', 1090);
 
 // ⑤ SOURCE → AI CORE converging lines (fan-in)
