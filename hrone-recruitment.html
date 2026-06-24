@@ -282,14 +282,9 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <line class="conn c-scr-off" x1="1400" y1="488" x2="1432" y2="488"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <!-- AI Interviewer ←→ Initiate BGV: two-line double-headed coral arrow -->
-  <!-- Left arrowhead (← at x=1373): short reversed line with arr-coral tip -->
-  <line class="conn" id="c-ai-interviewer-l"
-        x1="1400" y1="575" x2="1373" y2="575"
-        stroke="#ee5a3c" stroke-width="2.5" marker-end="url(#arr-coral)"/>
-  <!-- Right arrowhead (→ at x=1432): full line -->
+  <!-- AI Interviewer → Initiate BGV: single right-pointing coral arrow from dotted line -->
   <line class="conn" id="c-ai-interviewer"
-        x1="1373" y1="575" x2="1432" y2="575"
+        x1="1400" y1="575" x2="1432" y2="575"
         stroke="#ee5a3c" stroke-width="2.5" marker-end="url(#arr-coral)"/>
   <line class="conn c-scr-off" x1="1400" y1="662" x2="1432" y2="662"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
@@ -582,7 +577,6 @@ stagger('.scr-card', 1960, 80);
 
 // ⑨ SCREEN → OFFER short connectors + coral double-arrow + OFFER cards
 stagger('.c-scr-off', 2280, 50);
-at('#c-ai-interviewer-l', 2310);
 at('#c-ai-interviewer',   2310);
 stagger('.off-card',  2230, 80);
 
