@@ -282,7 +282,11 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <line class="conn c-scr-off" x1="1400" y1="488" x2="1432" y2="488"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <!-- AI Interviewer → Initiate BGV: single right-pointing coral arrow from dotted line -->
+  <!-- stub from AI Interviewer card right edge (1373) → rail (1400) at y=575 -->
+  <line class="conn c-scr-stub" x1="1373" y1="575" x2="1400" y2="575" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <!-- junction node dot at rail × coral arrow -->
+  <circle class="conn" id="c-scr-node" cx="1400" cy="575" r="6" fill="#ee5a3c" stroke="#fff" stroke-width="2"/>
+  <!-- AI Interviewer → Initiate BGV: coral arrow from rail to OFFER column -->
   <line class="conn" id="c-ai-interviewer"
         x1="1400" y1="575" x2="1432" y2="575"
         stroke="#ee5a3c" stroke-width="2.5" marker-end="url(#arr-coral)"/>
@@ -577,6 +581,7 @@ stagger('.scr-card', 1960, 80);
 
 // ⑨ SCREEN → OFFER short connectors + coral double-arrow + OFFER cards
 stagger('.c-scr-off', 2280, 50);
+at('#c-scr-node',         2308);
 at('#c-ai-interviewer',   2310);
 stagger('.off-card',  2230, 80);
 
