@@ -7,156 +7,159 @@
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:'Public Sans',sans-serif}
+html,body{width:100%;height:100%;background:#111;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:'Public Sans',sans-serif}
 #viewport{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center}
 #stage{width:1920px;height:1080px;background:#fdf5e7;position:relative;flex-shrink:0;transform-origin:center;overflow:hidden}
 
-@keyframes fadeIn   {from{opacity:0}to{opacity:1}}
-@keyframes fadeDown {from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
-@keyframes slideUp  {from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes cardIn   {from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-@keyframes charIn   {from{opacity:0;transform:translateY(-10px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes fadeIn  {from{opacity:0}to{opacity:1}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cardIn  {from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes charIn  {from{opacity:0;transform:translateY(-12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 
-/* ── Logo ── */
-.hd-logo{position:absolute;right:80px;top:52px;opacity:0;animation:fadeIn .4s .1s ease forwards}
+/* ── HROne Logo top-right ── */
+.hd-logo{position:absolute;right:80px;top:48px;opacity:0;animation:fadeIn .4s .1s ease forwards}
 
-/* ── Eyebrow (optional top-left) ── */
-.eyebrow{position:absolute;left:79px;top:73px;display:flex;align-items:center;gap:10px;
+/* ── Eyebrow ── */
+.eyebrow{position:absolute;left:79px;top:72px;display:flex;align-items:center;gap:10px;
   opacity:0;animation:fadeIn .4s .1s ease forwards}
-.ey-line{width:28px;height:3px;background:#ee5a3c;border-radius:2px;flex-shrink:0}
+.ey-line{width:28px;height:3px;background:#ee5a3c;border-radius:2px}
 .ey-txt{font-size:14px;font-weight:700;color:#ee5a3c;letter-spacing:.16em;text-transform:uppercase}
 
 /* ── Headline ── */
-.headline{position:absolute;left:72px;top:134px;
-  font-size:78px;font-weight:800;line-height:1;color:#0e0e0e;
+.headline{position:absolute;left:72px;top:108px;
+  font-size:92px;font-weight:800;line-height:1;color:#0e0e0e;
   opacity:0;animation:fadeDown .55s .2s ease forwards}
 
 /* ── Subtext ── */
-.subtext{position:absolute;left:465px;top:150px;
-  font-size:33px;font-weight:700;line-height:1.35;
+.subtext{position:absolute;left:435px;top:120px;font-size:32px;font-weight:700;line-height:1.4;
   opacity:0;animation:fadeIn .5s .3s ease forwards}
 .subtext .l1{color:#272727}
 .subtext .l2{color:#e56046}
 
-/* ── Character ── */
-.character{position:absolute;left:636px;top:272px;width:258px;height:228px;
-  object-fit:contain;z-index:20;
+/* ── Character overlaps left card header ── */
+.character{position:absolute;left:614px;top:238px;width:266px;height:234px;
+  object-fit:contain;z-index:25;pointer-events:none;
   opacity:0;animation:charIn .55s .35s ease forwards}
 
-/* ── Cards ── */
-.card{position:absolute;top:308px;height:610px;width:852px;background:#013b2a;border-radius:16px;overflow:hidden;
-  opacity:0}
-.card-left {left:72px; animation:cardIn .5s .4s ease forwards}
-.card-right{left:996px;animation:cardIn .5s .5s ease forwards}
+/* ═══════════════════════════════════════════
+   CARD — white background, dark green bars
+═══════════════════════════════════════════ */
+.card{
+  position:absolute;top:308px;width:852px;
+  background:#ffffff;
+  border-radius:14px;
+  box-shadow:0 2px 28px rgba(1,59,42,.12);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  opacity:0;
+}
+.card-left {left:72px; animation:cardIn .5s .42s ease forwards}
+.card-right{left:996px;animation:cardIn .5s .52s ease forwards}
 
-/* ── Card header row ── */
-.card-hdr{position:absolute;top:0;left:0;right:0;height:56px;
-  display:flex;align-items:center;gap:14px;padding:0 28px;
-  border-bottom:1px solid rgba(255,255,255,.1)}
-.g2-icon{width:28px;height:28px;object-fit:contain;flex-shrink:0}
-.hdr-divider{width:1px;height:26px;background:rgba(255,255,255,.22);flex-shrink:0}
-.hdr-label{font-size:13px;font-weight:700;color:#cfe0d6;letter-spacing:.1em;text-transform:uppercase}
-.gartner-logo{height:18px;object-fit:contain;flex-shrink:0}
+/* ── Dark green header bar ── */
+.card-hdr{
+  height:50px;background:#013b2a;flex-shrink:0;
+  display:flex;align-items:center;gap:12px;padding:0 24px;
+}
+.g2-icon-img{width:24px;height:24px;object-fit:contain;flex-shrink:0}
+.hdr-div{width:1px;height:22px;background:rgba(255,255,255,.22);flex-shrink:0}
+.hdr-label{font-size:12.5px;font-weight:700;color:rgba(207,224,214,.9);letter-spacing:.1em;text-transform:uppercase}
+.gartner-wl{height:15px;object-fit:contain;flex-shrink:0}
 
-/* ── Left card – rating ── */
-.l-rating-big{position:absolute;top:75px;left:46px;
-  font-size:72px;font-weight:800;color:#ffffff;line-height:1}
-.l-from{position:absolute;top:117px;left:196px;
-  font-size:16px;color:#b1b1b1;font-weight:500}
-.l-prev{position:absolute;top:117px;left:237px;
-  font-size:18px;color:#ee5a3c;font-weight:700}
-.l-stars{position:absolute;top:152px;left:46px;
-  font-size:22px;color:#ee5a3c;letter-spacing:2px}
-.l-reviews{position:absolute;top:157px;left:196px;
-  font-size:12px;color:#5d7a68;font-weight:500}
+/* ── White body (flex-grow to fill) ── */
+.card-body{flex:1;padding:20px 24px 16px;display:flex;flex-direction:column;gap:0}
 
-/* ── Left card – section divider ── */
-.sec-div{position:absolute;left:28px;right:28px;height:1px;background:rgba(255,255,255,.1)}
-.sec-label{position:absolute;font-size:12px;font-weight:700;color:#ee5a3c;
-  letter-spacing:1.2px;text-transform:uppercase}
+/* rating row */
+.rating-row{display:flex;align-items:flex-end;gap:10px}
+.r-num{font-size:76px;font-weight:800;color:#013b2a;line-height:1}
+.from-wrap{display:flex;align-items:center;gap:6px;padding-bottom:10px}
+.from-lbl{font-size:15px;color:#8aaa9a;font-weight:500}
+.from-val{font-size:17px;color:#ee5a3c;font-weight:700}
+.stars{font-size:21px;color:#ee5a3c;letter-spacing:1.5px;margin:2px 0}
+.rev-count{font-size:12px;color:#7a9a8a;font-weight:500;margin-top:1px}
 
-/* ── Left card – badges ── */
-.l-badges-div{top:205px}
-.l-badges-label{top:188px;left:46px}
-.badges-img{position:absolute;top:218px;left:28px;right:28px;height:132px;object-fit:contain;object-position:left center}
+/* separator */
+.sep{height:1px;background:#ddeee5;margin:12px 0 10px}
 
-/* ── Left card – Also #1 ── */
-.l-also-div{top:370px}
-.l-also-label{top:354px;left:46px;letter-spacing:.5px}
-.l-pills{position:absolute;top:382px;left:28px;display:flex;gap:8px;align-items:center}
-.pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
-  border-radius:20px;padding:5px 14px;
-  font-size:11px;font-weight:700;color:#e0ede7;white-space:nowrap}
+/* orange section label */
+.sec-lbl{font-size:11px;font-weight:700;color:#ee5a3c;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px}
 
-/* ── Left card – footer ── */
-.l-footer{position:absolute;bottom:0;left:0;right:0;height:56px;
-  background:rgba(0,0,0,.2);border-top:1px solid rgba(255,255,255,.08);
-  display:flex;align-items:center;gap:5px;padding:0 28px}
-.lf-val{font-size:20px;font-weight:800;color:#7fbf9f}
-.lf-arrow{font-size:16px;color:#cfe0d6}
-.lf-climbed{font-size:12px;font-weight:700;color:#7fbf9f;letter-spacing:.5px;text-transform:uppercase}
-.lf-sub{font-size:12px;color:rgba(207,224,214,.7);font-weight:400}
+/* G2 badges strip */
+.badges-strip img{width:100%;height:102px;object-fit:contain;object-position:left center;display:block}
 
-/* ── Right card – Gartner badge ── */
-.gartner-badge{position:absolute;top:74px;left:28px;width:196px;height:180px;object-fit:contain}
+/* Also #1 pills */
+.pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:2px}
+.pill{
+  display:inline-flex;align-items:center;
+  background:#f2f7f4;border:1px solid #c4dbd1;border-radius:20px;
+  padding:5px 14px;font-size:11px;font-weight:600;color:#1e3a2a;
+  white-space:nowrap;
+}
 
-/* ── Right card – rating ── */
-.r-rating-big{position:absolute;top:75px;left:246px;
-  font-size:72px;font-weight:800;color:#ffffff;line-height:1}
-.r-stars{position:absolute;top:152px;left:246px;
-  font-size:22px;color:#ee5a3c;letter-spacing:2px}
-.r-reviews{position:absolute;top:157px;left:362px;
-  font-size:11px;color:#5d7a68;font-weight:500}
+/* ── Dark green footer bar ── */
+.card-footer{
+  height:50px;background:#013b2a;flex-shrink:0;
+  display:flex;align-items:center;gap:4px;padding:0 24px;
+}
+.ft-v{font-size:18px;font-weight:800;color:#7dc99e}
+.ft-arr{font-size:14px;color:#a0c8b0}
+.ft-lbl{font-size:11px;font-weight:700;color:#7dc99e;letter-spacing:.5px;text-transform:uppercase}
+.ft-sub{font-size:11px;color:rgba(207,224,214,.6);font-weight:400}
 
-/* ── Right card – BY COMPANY SIZE ── */
-.r-bysize-div{position:absolute;top:196px;left:234px;right:28px;height:1px;background:rgba(255,255,255,.1)}
-.r-bysize-label{position:absolute;top:208px;left:246px;
-  font-size:12px;font-weight:700;color:#ee5a3c;letter-spacing:.8px;text-transform:uppercase}
+/* ═══════════════════════════════════════════
+   RIGHT CARD extras
+═══════════════════════════════════════════ */
 
-.r-company-row{position:absolute;left:234px;right:28px;height:34px;
-  display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.07)}
-.r-company-row:first-child{top:232px}
-.r-company-row-2{top:266px}
-.r-co-name{font-size:12px;font-weight:600;color:#e0ede7;flex:1}
-.r-co-score{font-size:18px;font-weight:800;color:#ffffff;width:34px;flex-shrink:0}
-.r-co-bar-wrap{width:90px;height:4px;background:rgba(255,255,255,.12);border-radius:2px;flex-shrink:0}
-.r-co-bar{height:100%;border-radius:2px;background:#ee5a3c}
-.r-co-reviews{font-size:10px;color:#5d7a68;white-space:nowrap}
+/* top row: badge left, rating right */
+.r-top{display:flex;gap:18px;align-items:flex-start;padding:18px 24px 0}
+.r-badge img{width:160px;height:146px;object-fit:contain;display:block}
+.r-side{flex:1;padding-top:2px}
 
-/* ── Right card – CX section ── */
-.r-cx-div{position:absolute;top:312px;left:28px;right:28px;height:1px;background:rgba(255,255,255,.1)}
-.r-cx-label{position:absolute;top:324px;left:46px;
-  font-size:12px;font-weight:700;color:#ee5a3c;letter-spacing:.8px;text-transform:uppercase}
+/* company size rows */
+.co-rows{display:flex;flex-direction:column;gap:6px;margin-top:2px}
+.co-row{
+  display:flex;align-items:center;gap:8px;
+  background:#f2f7f4;border:1px solid #d4e8dc;border-radius:8px;
+  padding:7px 12px;
+}
+.co-name{font-size:11.5px;font-weight:600;color:#1e3a2a;flex:1;white-space:nowrap}
+.co-bar-bg{width:70px;height:3px;background:#c8dfd4;border-radius:2px;flex-shrink:0}
+.co-bar-fg{height:100%;border-radius:2px;background:#ee5a3c}
+.co-score{font-size:16px;font-weight:800;color:#013b2a;width:26px;text-align:right;flex-shrink:0}
+.co-rev{font-size:10px;color:#7a9a8a;white-space:nowrap;flex-shrink:0}
 
-.r-cx-items{position:absolute;top:346px;left:28px;width:370px}
-.r-cx-row{display:flex;align-items:center;height:36px;gap:6px;border-bottom:1px solid rgba(255,255,255,.06)}
-.r-cx-row:last-child{border-bottom:none}
-.r-cx-name{font-size:12px;color:#d0e2d8;width:190px;flex-shrink:0}
-.r-cx-score{font-size:14px;font-weight:800;color:#ffffff;width:30px;flex-shrink:0}
-.r-cx-bar-wrap{flex:1;height:3px;background:rgba(255,255,255,.1);border-radius:2px;position:relative}
-.r-cx-bar{position:absolute;left:0;top:0;height:100%;background:#ee5a3c;border-radius:2px}
+/* CX + 96% row */
+.r-bottom{display:flex;gap:12px;padding:0 24px 0;margin-top:2px}
+.r-cx{flex:1}
+.cx-row{display:flex;align-items:center;gap:8px;height:30px;border-bottom:1px solid #eef4f0}
+.cx-row:last-child{border-bottom:none}
+.cx-name{font-size:11.5px;color:#2a4a38;width:196px;flex-shrink:0}
+.cx-score{font-size:12.5px;font-weight:800;color:#013b2a;width:26px;flex-shrink:0}
+.cx-bar-bg{flex:1;height:3px;background:#deeee5;border-radius:2px}
+.cx-bar-fg{height:100%;border-radius:2px;background:#ee5a3c}
 
-/* ── Right card – 96% box ── */
-.r-rec-box{position:absolute;top:342px;left:432px;right:28px;bottom:56px;
-  background:rgba(0,0,0,.28);border-radius:12px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+/* 96% box */
+.r-rec{
+  width:196px;flex-shrink:0;
+  background:#013b2a;border-radius:10px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:4px;padding:12px 10px;
+}
+.r-rec-lbl{font-size:9px;font-weight:700;color:#8dc8a6;letter-spacing:.8px;text-transform:uppercase;text-align:center;line-height:1.4}
 .r-rec-pct{font-size:52px;font-weight:800;color:#f8d772;line-height:1}
-.r-rec-label{font-size:10px;font-weight:700;color:#cfe0d6;letter-spacing:.8px;text-transform:uppercase;text-align:center}
-.r-rec-sub{font-size:10px;color:rgba(255,255,255,.55);text-align:center}
+.r-rec-sub{font-size:9px;color:rgba(255,255,255,.45);text-align:center}
 
-/* ── Right card – footer ── */
-.r-footer{position:absolute;bottom:0;left:0;right:0;height:56px;
-  background:rgba(0,0,0,.2);border-top:1px solid rgba(255,255,255,.08);
-  display:flex;align-items:center;gap:8px;padding:0 28px}
-.rf-q{font-size:11px;font-weight:700;color:#7fbf9f;letter-spacing:.5px;text-transform:uppercase}
-.rf-val{font-size:12px;color:rgba(207,224,214,.75)}
+/* right card footer extras */
+.rf-q{font-size:10.5px;font-weight:700;color:#7dc99e;letter-spacing:.6px;text-transform:uppercase}
+.rf-sub{font-size:10.5px;color:rgba(207,224,214,.65)}
+.rf-div{width:1px;height:18px;background:rgba(255,255,255,.2);flex-shrink:0;margin:0 8px}
 
-/* ── Nav ── */
+/* ── Nav pill ── */
 .nav{position:fixed;bottom:26px;right:30px;display:flex;align-items:center;gap:12px;z-index:200;
-  background:rgba(1,58,41,.82);backdrop-filter:blur(6px);
+  background:rgba(1,58,41,.84);backdrop-filter:blur(6px);
   padding:8px 14px 8px 16px;border-radius:40px;
-  opacity:0;animation:fadeIn .6s 1.8s ease forwards}
-.nav-count{color:rgba(255,255,255,.65);font-size:14px;font-weight:500;letter-spacing:.5px;margin-right:4px}
+  opacity:0;animation:fadeIn .6s 1.6s ease forwards}
+.nav-count{color:rgba(255,255,255,.6);font-size:14px;font-weight:500;letter-spacing:.5px;margin-right:4px}
 .nav-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.28);
   background:rgba(255,255,255,.06);color:#fff;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
@@ -170,10 +173,10 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 <div id="viewport">
 <div id="stage">
 
-<!-- ── HROne Logo ── -->
+<!-- HROne wordmark logo -->
 <div class="hd-logo">
-  <svg height="44" width="190" viewBox="0 0 228 51" fill="none" aria-label="HROne">
-    <g clip-path="url(#r-h)">
+  <svg height="42" width="184" viewBox="0 0 228 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#hr-clip)">
       <path d="M19.9582 23.0264L25.0472 25.5872L20.8408 41.815L18.8467 51C8.39627 47.8265 0 38.3481 0 26.618C0 24.285.305121 22.028.893568 19.874C1.11696 19.961 1.3349 20.064 1.54195 20.178L6.65817 23.01C7.87866 23.688 9.31163 23.911 10.6738 23.64L16.1278 22.527C17.4246 22.261 18.7758 22.446 19.9527 23.032L19.9582 23.0264Z" fill="#013b2a"/>
       <path d="M17.6325 16.7746L26.2249 21.0987V21.1096L20.3949 18.4836C18.9783 17.8543 17.36 17.7946 15.9107 18.3426L10.8708 20.2306C9.416 20.7841 7.80322 20.7244 6.38658 20.0896L1.521 17.8922C1.78798 17.1489 2.08765 16.4165 2.42546 15.7112L4.33792 16.7692C5.5584 17.4419 6.98593 17.6589 8.35352 17.3768L13.813 16.2646C15.1043 16.0042 16.4501 16.1832 17.627 16.78L17.6325 16.7746Z" fill="#013b2a"/>
       <path d="M52.9274 26.1836V26.3518C52.9219 27.8764 52.7748 29.3684 52.5187 30.817C52.4915 30.9689 52.4588 31.11 52.437 31.2565C52.4152 31.3759 52.3879 31.4952 52.3607 31.6146C52.3226 31.7882 52.2844 31.9564 52.2463 32.1246C51.3854 35.6729 49.7617 38.9607 47.555 41.8091H32.0647L30.8442 30.855H45.1795L46.7759 24.9791L26.2238 15.8534L18.0673 12.2346C16.6561 11.5998 15.0433 11.5455 13.594 12.0935L8.55406 13.987C7.09929 14.535 5.49195 14.4862 4.07532 13.846L3.5686 13.6181C3.72116 13.3468 3.86828 13.0864 4.02628 12.8205C8.614 5.13798 17.0212 0 26.6379 0C28.959 0 31.2038.298 33.3451.86266C44.2042 3.71649 52.3008 13.2763 52.8892 24.8218C52.911 25.2721 52.9274 25.7224 52.9274 26.1782V26.1836Z" fill="#013b2a"/>
@@ -183,157 +186,176 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
       <path d="M164.93 41.7777V9.22453H168.782V14.4656C171.163 10.9661 174.786 9.15942 179.717 9.15942C182.436 9.15942 184.817 9.72368 186.855 10.7383C188.669 11.7528 190.026 13.1092 191.05 14.9159C192.015 16.7226 192.521 18.8114 192.521 21.2367V41.7777H188.669V21.2367C188.669 18.6433 187.819 16.6087 186.119 15.1438C184.419 13.6789 182.207 12.8868 179.374 12.8868C175.974 12.8868 173.37 13.8471 171.555 15.7623C169.686 17.6829 168.776 20.3903 168.776 23.8897V41.7777H164.924H164.93Z" fill="#013b2a"/>
       <path d="M203.919 39.7422C201.472 38.3045 199.581 36.3133 198.192 33.823C196.803 31.3326 196.138 28.5656 196.138 25.5762C196.138 22.5867 196.803 19.8739 198.192 17.3836C199.581 14.8933 201.472 12.9021 203.919 11.4643C206.31 10.0266 208.975 9.25073 211.868 9.25073C214.761 9.25073 217.371 10.0266 219.758 11.4643C222.149 12.9021 224.035 14.8933 225.424 17.3836C226.813 19.8739 227.538 22.5867 227.538 25.5762C227.538 26.352 227.484 26.8512 227.484 27.1821H200.028C200.252 29.2872 200.916 31.1645 202.028 32.8247C203.139 34.5391 204.529 35.8684 206.251 36.807C207.918 37.8053 209.808 38.2448 211.863 38.2448C213.917 38.2448 215.698 37.7999 217.366 36.8613C219.033 35.9769 220.422 34.7019 221.534 33.0959H225.871C224.536 35.8087 222.591 37.9681 220.144 39.5144C217.644 41.1203 214.865 41.8962 211.863 41.8962C208.86 41.8962 206.305 41.1746 203.913 39.7368L203.919 39.7422ZM223.702 23.6392C223.37 21.6481 222.7 19.8197 221.588 18.1595C220.477 16.4992 219.033 15.2242 217.366 14.2856C215.698 13.4013 213.862 12.9021 211.863 12.9021C209.863 12.9021 207.972 13.4013 206.305 14.2856C204.638 15.2242 203.248 16.4992 202.137 18.1595C201.025 19.8197 200.301 21.6481 200.023 23.6392H223.697H223.702Z" fill="#013b2a"/>
     </g>
-    <defs><clipPath id="r-h"><rect width="227.538" height="51" fill="white"/></clipPath></defs>
+    <defs><clipPath id="hr-clip"><rect width="227.538" height="51" fill="white"/></clipPath></defs>
   </svg>
 </div>
 
-<!-- ── Eyebrow ── -->
+<!-- Eyebrow -->
 <div class="eyebrow">
   <div class="ey-line"></div>
-  <span class="ey-txt">Recognition & Awards</span>
+  <span class="ey-txt">Recognition &amp; Awards</span>
 </div>
 
-<!-- ── Headline ── -->
+<!-- Headline -->
 <p class="headline">Voted #1</p>
 
-<!-- ── Subtext ── -->
+<!-- Subtext -->
 <div class="subtext">
   <div class="l1">Not by analysts.</div>
   <div class="l2">By the HR teams who use HROne every day.</div>
 </div>
 
-<!-- ── Character (overlaps cards from above) ── -->
+<!-- Character (floats above left card) -->
 <img class="character" src="Assets/character.png" alt="">
 
-<!-- ══════════════════════════════════════
+<!-- ═══════════════════════════════
      LEFT CARD — G2
-═══════════════════════════════════════ -->
+═══════════════════════════════ -->
 <div class="card card-left">
 
-  <!-- Header -->
+  <!-- dark green top bar -->
   <div class="card-hdr">
-    <img class="g2-icon" src="Assets/g2icon.svg" alt="G2">
-    <div class="hdr-divider"></div>
+    <img class="g2-icon-img" src="Assets/g2icon.svg" alt="G2">
+    <div class="hdr-div"></div>
     <span class="hdr-label">Best Software 2026</span>
   </div>
 
-  <!-- Rating -->
-  <div class="l-rating-big">4.9</div>
-  <div class="l-from">from</div>
-  <div class="l-prev">4.8</div>
-  <div class="l-stars">★★★★★</div>
-  <div class="l-reviews">2,000+ Verified Reviews</div>
+  <!-- white body -->
+  <div class="card-body">
+    <!-- Big rating -->
+    <div class="rating-row">
+      <span class="r-num">4.9</span>
+      <div class="from-wrap">
+        <span class="from-lbl">from</span>
+        <span class="from-val">4.8</span>
+      </div>
+    </div>
+    <div class="stars">★★★★★</div>
+    <div class="rev-count">2,000+ Verified Reviews</div>
 
-  <!-- 2026 Badges -->
-  <div class="sec-label l-badges-label">2026 Badges</div>
-  <div class="sec-div l-badges-div"></div>
-  <img class="badges-img" src="Assets/g2 badges.svg" alt="G2 2026 Badges">
+    <div class="sep"></div>
+    <div class="sec-lbl">2026 Badges</div>
+    <div class="badges-strip">
+      <img src="Assets/g2 badges.svg" alt="G2 2026 Badges">
+    </div>
 
-  <!-- Also #1 in 2025 -->
-  <div class="sec-label l-also-label sec-label" style="position:absolute;top:354px;left:46px;letter-spacing:.5px">Also #1 in 2025</div>
-  <div class="sec-div" style="position:absolute;top:370px;left:28px;right:28px;height:1px;background:rgba(255,255,255,.1)"></div>
-  <div class="l-pills">
-    <div class="pill">#1 World — HCM Satisfaction</div>
-    <div class="pill">#1 India — Best HCM</div>
-    <div class="pill">#1 Asia-Pacific — Best HCM</div>
-    <div class="pill">#1 Indian Origin — Top 50</div>
-  </div>
+    <div class="sep" style="margin-top:12px"></div>
+    <div class="sec-lbl">Also #1 in 2025</div>
+    <div class="pills">
+      <span class="pill">#1 World — HCM Satisfaction</span>
+      <span class="pill">#1 India — Best HCM</span>
+      <span class="pill">#1 Asia-Pacific — Best HCM</span>
+      <span class="pill">#1 Indian Origin — Top 50</span>
+    </div>
+  </div><!-- /card-body -->
 
-  <!-- Footer -->
-  <div class="l-footer">
-    <span class="lf-val">4.8</span>
-    <span class="lf-arrow">→</span>
-    <span class="lf-val">4.9</span>
-    <span class="lf-climbed">&nbsp;Score Climbed</span>
-    <span class="lf-sub">&nbsp;on G2 in 2026</span>
+  <!-- dark green bottom bar -->
+  <div class="card-footer">
+    <span class="ft-v">4.8</span>
+    <span class="ft-arr">&nbsp;→&nbsp;</span>
+    <span class="ft-v">4.9</span>
+    <span class="ft-lbl">&nbsp;&nbsp;Score Climbed</span>
+    <span class="ft-sub">&nbsp;on G2 in 2026</span>
   </div>
 
 </div><!-- /card-left -->
 
-<!-- ══════════════════════════════════════
+<!-- ═══════════════════════════════
      RIGHT CARD — Gartner
-═══════════════════════════════════════ -->
+═══════════════════════════════ -->
 <div class="card card-right">
 
-  <!-- Header -->
+  <!-- dark green top bar -->
   <div class="card-hdr">
-    <img class="gartner-logo" src="Assets/gartner white logo.svg" alt="Gartner">
-    <div class="hdr-divider"></div>
+    <img class="gartner-wl" src="Assets/gartner white logo.svg" alt="Gartner">
+    <div class="hdr-div"></div>
     <span class="hdr-label">Peer Insights</span>
   </div>
 
-  <!-- Gartner badge (Customers' Choice) -->
-  <img class="gartner-badge" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwNSIgdmlld0JveD0iMCAwIDI0MiAyMDUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxtYXNrIGlkPSJtYXNrMF8xNTcxXzIyMjIiIHN0eWxlPSJtYXNrLXR5cGU6bHVtaW5hbmNlIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwNSI+CjxwYXRoIGQ9Ik0yNDEuNjA3IDBILTYuMTAzNTJlLTA1VjIwNUgyNDEuNjA3VjBaIiBmaWxsPSJ3aGl0ZSIvPgo8L21hc2s+CjxnIG1hc2s9InVybCgjbWFzazBfMTU3MV8yMjIyKSI+CjxwYXRoIGQ9Ik02Mi45NDg3IDE3OS4xN0M1NS41NDg5IDE3Mi4wOTcgNTIuNTA3OSAxNjkuMDIyIDQ5LjQ2NjggMTY1Ljc0MkM1MS4wMzggMTYzLjQ4NyA1NS4wOTI3IDE1Ni44NzcgNTQuODM5MyAxNDguMzY5QzU0LjYzNjUgMTQwLjMyMiA1My4xNjY4IDEzMi41ODQgNTEuNTk1NSAxMjQuOTQ3QzQ2LjMyNDUgMTMxLjgxNSA0Mi41MjMyIDE0MC4yNzEgNDIuNTIzMiAxNDguMzE3QzQyLjUyMzIgMTUzLjI4OSA0My4xODIyIDE1Ni45MjcgNDQuMDQzOCAxNTkuNjQ0QzQxLjg2NDQgMTU3LjEzMiAzOS44ODc4IDE1NC40NjcgMzguMTY0NSAxNTEuNTk3QzM1LjUyOSAxNDcuMTM5IDMzLjI5ODggMTQyLjQ3NSAzMS4zNzI5IDEzNy42NTdDMzYuNDQxMyAxMzMuNjA5IDQwLjE0MTEgMTI4LjAyMiA0MS45NjU3IDEyMS43MTlDNDQuMTk1OCAxMTMuNjcyIDQ1LjIwOTUgMTA1LjUyNCA0Ni4xNzI0IDk3LjQyNjFDMzkuNDgyMyAxMDIuNSAzMy41NTIzIDEwOS42MjQgMzEuMTE5NiAxMTcuNTY3QzI5LjI0NDMgMTIzLjYxNSAyOC44ODk0IDEyOC4wNzQgMjkuMDkyMiAxMzEuMkMyNi4zNTUzIDEyMi43NDQgMjQuNjgyNyAxMTQuMDMxIDI0LjAyMzkgMTA1LjE2NUMyNS40NDMgMTA0LjYwMSAzMi44NDI4IDEwMi45NjEgMzcuNTU2MyA5NS4wMTc0QzQxLjU2MDMgODguMjUyNCA0My45OTMgNzkuNjkzNiA0Ni45MzI3IDcyLjUxODZDNDAuMDM5OCA3NS4yMzQ5IDMzLjI0ODIgODAuMDUyNCAyOS4wOTIyIDg2LjY2MzZDMjUuNzQ3MSA5MS45OTM2IDI0LjI3NzMgOTYuMTQ0OSAyMy42NjkgOTkuMTE3NEMyMy40MTU2IDg5LjM3OTkgMjQuMjc3MyA3OS42OTM2IDI2LjE1MjUgNzAuMTYxMUMyNy40MTk2IDcwLjAwNzQgMzQuODE5NCA2OC44Mjg2IDQxLjQwODIgNjEuNzA0OUM0Ni44ODIgNTUuODExMSA1MS41NDQ5IDQ5LjE0ODYgNTYuMTU3MSA0Mi40ODYxQzQ4LjkwOTMgNDMuNDA4NiA0MS4xMDQxIDQ1LjA0ODYgMzUuNTI5IDUwLjc4ODZDMzEuMzcyOSA1NS4wOTM2IDI5LjE0MjggNjAuMjE4NiAyNy43NzQ0IDYzLjAzNzRDMjkuNzUxMSA1NS4yNDc0IDMyLjMzNTkgNDcuNjYyNCAzNS41Nzk3IDQwLjMzMzZDMzcuOTExIDM4Ljc0NDkgNDAuMDkwNCAzNi45NTExIDQyLjA2NyAzNC45MDExQzUwLjY4MzMgMjUuNzc4NiA1NS42NTAyIDEzLjIyMjQgNTYuNDYxMiAxLjM4MzY3QzUwLjMyODUgNi43MTM2NyA0My4zMzQyIDEwLjQwMzcgMzguNzIyIDE3LjAxNDlDMzUuNzgyNSAyMS4yMTc0IDMzLjI5ODggMjkuMzY2MSAzMy4xOTc1IDM1LjA1NDlDMzMuMTk3NSAzNi40Mzg2IDMzLjQwMDMgMzcuNzcxMSAzMy43NTUgMzkuMDUyNEMzMS4xMTk2IDQ1LjA0ODYgMjguODM4NyA1MS4xOTg2IDI2Ljk2MzQgNTcuNTAyNEMyNy44NzU4IDQ2LjIyNzQgMjQuMjc3MyAzNS4zMTExIDE3Ljg0MDUgMjcuMzY3NEMxNS43MTE4IDM1LjI1OTkgMTMuNTgzMSA0My4zMDYxIDEzLjYzMzggNTEuMTQ3NEMxMy42ODQ1IDU2LjExODYgMTQuOTAwOCA2Mi45ODYxIDE4LjU1MDEgNjYuOTgzNkMyMC4yMjI3IDY4LjgyODYgMjMuNjY5IDcwLjM2NjEgMjMuNjY5IDcwLjM2NjFDMjMuNjY5IDcwLjM2NjEgMjMuNzcwNSA3MC4yMTI0IDIzLjg3MTggNjkuOTA0OUMyMi40MDIgNzcuMTMxMSAyMS41NDA0IDg0LjQwODYgMjEuMjg3IDkxLjczNzRDMTkuMTA3NiA4Mi40NjExIDEzLjQ4MTggNzQuMzYzNiA1LjU3NTE1IDY5LjA4NDlDNS4zNzI0MyA3Ni43NzI0IDUuMTY5NyA4NC41NjI0IDcuMDk1NjYgOTEuNTgzNkM4LjMxMjA1IDk2LjA0MjQgMTEuMTUwMyAxMDEuOTM2IDE1LjY2MTEgMTA0LjU1QzE3LjczOTIgMTA1Ljc4IDIxLjQ4OTYgMTA2LjI0MSAyMS40ODk2IDEwNi4yNDFMMjEuNTQwNCAxMDUuOTM0QzIyLjA0NzIgMTEyLjY5OSAyMy4xNjIzIDExOS4zNjEgMjQuODM0OSAxMjUuOTIxQzE5LjQxMTcgMTE3LjAwNCAxMC4yMzggMTEwLjkwNSAwIDEwOC40OTZDMi4yMzAwNiAxMTYuMTMyIDQuNTEwODIgMTIzLjg3MSA4LjgxODg5IDEzMC4xMjRDMTEuNjA2NSAxMzQuMDcgMTYuNTczNCAxMzguODg3IDIyLjQwMiAxMzkuOTEyQzI1LjAzNzUgMTQwLjM3NCAyOS4yNDQzIDEzOS42MDUgMjkuMzQ1NiAxMzkuNTU0QzMxLjIyMDkgMTQ0LjIxNyAzMy40NTEgMTQ4LjcyNyAzNS45ODUxIDE1My4wMzJDMzYuOTQ4MSAxNTQuNjcyIDM4LjMxNjYgMTU2LjcyMiAzOS44ODc4IDE1OC45MjdDMzEuNTI1IDE1MS41OTcgMTkuNDYyNCAxNDguNjc3IDcuNTAxMTMgMTUwLjA2QzEyLjExMzMgMTU2LjIxIDE2LjgyNjggMTYyLjUxNCAyMy4xNjIzIDE2Ni42NjVDMjcuMTY2MiAxNjkuMzMgMzMuNzU1IDE3MS45OTUgMzkuOTM4NSAxNzAuOTdDNDIuNzc2NyAxNzAuNTA5IDQ2LjkzMjcgMTY4LjMwNSA0Ni45MzI3IDE2OC4zMDVDNDYuOTMyNyAxNjguMzA1IDQ2LjgzMTQgMTY4LjEgNDYuNjc5MiAxNjcuNzQyQzUwLjY4MzMgMTcyLjc2NCA1NC44MzkzIDE3Ny41MyA2Mi43NDU5IDE4NS4wNjRMNjIuOTQ4NyAxNzkuMTdaIiBmaWxsPSIjQUQ5MTFBIi8+CjxwYXRoIGQ9Ik03Ni45MzU2IDcwLjE2MTNWNzAuMjYzOEM3Ni45MzU2IDc0LjIxIDczLjk5NiA3NS43OTg4IDcwLjQ5ODkgNzUuNzk4OEg2Ny41MDg2VjgzLjM4MzhINjUuMjc4NlY2NC43Mjg4SDcwLjQ5ODlDNzQuMDQ2OCA2NC43Mjg4IDc2LjkzNTYgNjYuMjY2MyA3Ni45MzU2IDcwLjE2MTNaTTc0LjcwNTYgNzAuMjYzOFY3MC4xNjEzQzc0LjcwNTYgNjcuNTQ3NSA3My4xMzQ0IDY2LjUyMjUgNzAuNjUwOSA2Ni41MjI1SDY3LjUwODZWNzMuOTUzOEg3MC42NTA5QzczLjI4NjUgNzMuOTUzOCA3NC43MDU2IDcyLjY3MjUgNzQuNzA1NiA3MC4yNjM4WiIgZmlsbD0iIzAwMjg1NiIvPgo8cGF0aCBkPSJNNzcuNTk0OCA3Ni42NzA4Vjc2LjQ2NThDNzcuNTk0OCA3Mi4zMTQ1IDgwLjIzMDIgNjkuNDQ0NSA4My45MzAyIDY5LjQ0NDVDODcuMDcyNSA2OS40NDQ1IDg5Ljk2MTUgNzEuMzQwOCA4OS45NjE1IDc2LjIwOTVWNzYuOTI3SDc5LjgyNDhDNzkuOTI2MSA4MC4wNTMzIDgxLjM5NiA4MS43NDQ1IDg0LjE4MzYgODEuNzQ0NUM4Ni4yNjE1IDgxLjc0NDUgODcuNDc4IDgwLjk3NTggODcuNzgyMSA3OS4zODdIODkuOTEwOEM4OS40NTQ2IDgyLjE1NDUgODcuMTczOSA4My41ODk1IDg0LjEzMjkgODMuNTg5NUM4MC4yODEgODMuNTg5NSA3Ny41OTQ4IDgwLjg3MzMgNzcuNTk0OCA3Ni42NzA4Wk04My45MzAyIDcxLjI4OTVDODEuNzUwOCA3MS4yODk1IDgwLjI4MSA3Mi43NzU4IDc5LjkyNjEgNzUuMjM1OEg4Ny43ODIxQzg3LjU3OTMgNzIuNDE3IDg2LjEwOTYgNzEuMjg5NSA4My45MzAyIDcxLjI4OTVaIiBmaWxsPSIjMDAyODU2Ii8+CjxwYXRoIGQ9Ik05MS45MzYyIDc2LjY3MDhWNzYuNDY1OEM5MS45MzYyIDcyLjMxNDUgOTQuNTIxIDY5LjQ0NDUgOTguMjcxNiA2OS40NDQ1QzEwMS40MTQgNjkuNDQ0NSAxMDQuMzAzIDcxLjM0MDggMTA0LjMwMyA3Ni4yMDk1Vjc2LjkyN0g5NC4xNjYzQzk0LjI2NzYgODAuMDUzMyA5NS43Mzc1IDgxLjc0NDUgOTguNTI1IDgxLjc0NDVDMTAwLjYwMyA4MS43NDQ1IDEwMS44MTkgODAuOTc1OCAxMDIuMTI0IDc5LjM4N0gxMDQuMjUyQzEwMy43OTYgODIuMTU0NSAxMDEuNTY2IDgzLjU4OTUgOTguNTI1IDgzLjU4OTVDOTQuNjczMSA4My41ODk1IDkxLjkzNjIgODAuODczMyA5MS45MzYyIDc2LjY3MDhaTTk4LjI3MTYgNzEuMjg5NUM5Ni4wOTIyIDcxLjI4OTUgOTQuNjIyNSA3Mi43NzU4IDk0LjI2NzYgNzUuMjM1OEgxMDIuMTc0QzEwMS45NzEgNzIuNDE3IDEwMC41MDIgNzEuMjg5NSA5OC4yNzE2IDcxLjI4OTVaIiBmaWxsPSIjMDAyODU2Ii8+CjxwYXRoIGQ9Ik0xMDkuMTczIDcyLjE2MDdDMTEwLjAzNCA3MC42MjMyIDExMS4yIDY5LjU0NyAxMTMuNjMzIDY5LjQ5NTdWNzEuNTQ1N0MxMTAuODk2IDcxLjY0ODIgMTA5LjE3MyA3Mi41MTk1IDEwOS4xNzMgNzUuOTAyVjgzLjM4NDVIMTA3LjA0NFY2OS43NTJIMTA5LjE3M1Y3Mi4xNjA3WiIgZmlsbD0iIzAwMjg1NiIvPgo8cGF0aCBkPSJNMTIzLjAwOCA4My4zODM4SDEyMC43NzhWNjQuNzI4OEgxMjMuMDA4VjgzLjM4MzhaIiBmaWxsPSIjMDAyODU2Ii8+CjxwYXRoIGQ9Ik0xMjguMjgxIDcxLjkwNDVDMTI4Ljg4OSA3MC42MjMyIDEzMC40MDkgNjkuNDk1NyAxMzIuNTg5IDY5LjQ5NTdDMTM1LjM3NiA2OS40OTU3IDEzNy4zNTMgNzEuMDMzMiAxMzcuMzUzIDc0Ljk3OTVWODMuMzg0NUgxMzUuMjI0Vjc0LjgyNTdDMTM1LjIyNCA3Mi40MTcgMTM0LjIxIDcxLjM0MDcgMTMyLjAzMSA3MS4zNDA3QzEzMC4wNTQgNzEuMzQwNyAxMjguMjgxIDcyLjYyMiAxMjguMjgxIDc1LjA4MlY4My4zMzMySDEyNi4xNTJWNjkuNzAwN0gxMjguMjgxVjcxLjkwNDVaIiBmaWxsPSIjMDAyODU2Ii8+CjxwYXRoIGQ9Ik0xMzkuMTI2IDc5LjE4MkgxNDEuMjA0QzE0MS4zNTcgODAuODIyIDE0Mi4yMTggODEuNzk1OCAxNDQuMzk4IDgxLjc5NThDMTQ2LjQyNSA4MS43OTU4IDE0Ny4zMzcgODEuMDc4MyAxNDcuMzM3IDc5LjY0MzNDMTQ3LjMzNyA3OC4yMDgzIDE0Ni4yNzMgNzcuNzQ3IDE0NC4xOTUgNzcuMzM3QzE0MC42OTggNzYuNjcwOCAxMzkuNDgxIDc1LjY5NyAxMzkuNDgxIDczLjI4ODNDMTM5LjQ4MSA3MC44Nzk1IDE0MS45MTQgNjkuNDQ0NSAxNDQuMDQzIDY5LjQ0NDVDMTQ2LjQ3NiA2OS40NDQ1IDE0OC41NTMgNzAuNDE4MyAxNDguOTA4IDczLjM5MDhIMTQ2LjgzQzE0Ni41MjYgNzEuOTA0NSAxNDUuNzE1IDcxLjIzODMgMTQzLjk5MiA3MS4yMzgzQzE0Mi40MjEgNzEuMjM4MyAxNDEuNDU4IDcyLjAwNyAxNDEuNDU4IDczLjE4NThDMTQxLjQ1OCA3NC4zNjQ1IDE0Mi4xMTcgNzQuOTI4MyAxNDQuNiA3NS4zMzgzQzE0Ny4zODggNzUuODUwOCAxNDkuMzY0IDc2LjQ2NTggMTQ5LjM2NCA3OS4zODdDMTQ5LjM2NCA4MS44NDcgMTQ3LjY5MiA4My41MzgzIDE0NC4zOTggODMuNTM4M0MxNDEuMTAzIDgzLjU4OTUgMTM5LjIyOCA4MS45NDk1IDEzOS4xMjYgNzkuMTgyWiIgZmlsbD0iIzAwMjg1NiIvPgo8cGF0aCBkPSJNMTUxLjM5MSA2NS40NDU4QzE1MS4zOTEgNjUuMTg5NiAxNTEuNDkyIDY0Ljg4MjEgMTUxLjY0NSA2NC42NzcxQzE1MS43OTcgNjQuNDIwOCAxNTIgNjQuMjY3MSAxNTIuMjUzIDY0LjE2NDZDMTUyLjUwNyA2NC4wNjIxIDE1Mi44MSA2NC4wMTA4IDE1My4wNjQgNjQuMDYyMUMxNTMuMzE4IDY0LjExMzMgMTUzLjU3MSA2NC4yNjcxIDE1My43NzQgNjQuNDcyMUMxNTMuOTc2IDY0LjY3NzEgMTU0LjA3NyA2NC45MzM0IDE1NC4xOCA2NS4xODk2QzE1NC4yMyA2NS40NDU5IDE1NC4yMyA2NS43NTMzIDE1NC4wNzcgNjYuMDA5NkMxNTMuOTc2IDY2LjI2NTggMTUzLjc3NCA2Ni40NzA5IDE1My41NzEgNjYuNjI0NkMxNTMuMzE4IDY2Ljc3ODQgMTUzLjA2NCA2Ni44ODA4IDE1Mi44MSA2Ni44ODA4QzE1Mi40NTcgNjYuODgwOCAxNTIuMTAxIDY2LjcyNzEgMTUxLjg0NyA2Ni40NzA5QzE1MS41NDMgNjYuMTYzNCAxNTEuMzkxIDY1LjgwNDYgMTUxLjM5MSA2NS40NDU4Wk0xNTMuOTI2IDgzLjM4MzNIMTUxLjc5N1Y2OS43NTA5SDE1My45MjZWODMuMzgzM1oiIGZpbGw9IiMwMDI4NTYiLz4KPHBhdGggZD0iTTE1Ni42MSA4NC4xNTI2SDE1OC43OUMxNTkuMDkzIDg1Ljc0MTMgMTYwLjQxMSA4Ni41MTAxIDE2Mi42OTMgODYuNTEwMUMxNjUuMzI4IDg2LjUxMDEgMTY3LjA1MSA4NS4yMjg4IDE2Ny4wNTEgODIuMzA3NlY4MC4zMDg4QzE2Ni41NDUgODEuMDc3NiAxNjUuODg1IDgxLjc0MzggMTY1LjA3NCA4Mi4xNTM4QzE2NC4yNjMgODIuNjE1MSAxNjMuNDAxIDgyLjg3MTMgMTYyLjQ4OSA4Mi44NzEzQzE1OC45NDIgODIuODcxMyAxNTYuMzU3IDgwLjE1NTEgMTU2LjM1NyA3Ni40MTM4Vjc2LjIwODhDMTU2LjM1NyA3Mi41MTg4IDE1OC45NDIgNjkuNDQzOCAxNjIuNjQyIDY5LjQ0MzhDMTYzLjUwNCA2OS4zOTI2IDE2NC40MTYgNjkuNTk3NiAxNjUuMTc1IDcwLjAwNzZDMTY1LjkzNiA3MC40MTc2IDE2Ni41OTUgNzEuMDgzOCAxNjcuMDUxIDcxLjg1MjZWNjkuNzAwMUgxNjkuMThWODIuNDYxM0MxNjkuMTggODYuNDA3NiAxNjYuNDk0IDg4LjM1NTEgMTYyLjc0MyA4OC4zNTUxQzE1OC43MzggODguMzU1MSAxNTYuOTY1IDg2LjQ1ODggMTU2LjYxIDg0LjE1MjZaTTE2Ny4xMDIgNzYuMzExM1Y3Ni4xMDYzQzE2Ny4xMDIgNzMuMDMxMyAxNjUuNDI5IDcxLjI4ODggMTYyLjg0NCA3MS4yODg4QzE2MC4yNiA3MS4yODg4IDE1OC41MzYgNzMuMjg3NiAxNTguNTM2IDc2LjE1NzZWNzYuMzYyNkMxNTguNTM2IDc5LjMzNTEgMTYwLjQxMSA4MS4xMjg4IDE2Mi42OTMgODEuMTI4OEMxNjUuMjI3IDgxLjEyODggMTY3LjEwMiA3OS4zMzUxIDE2Ny4xMDIgNzYuMzExM1oiIGZpbGw9IiMwMDI4NTYiLz4KPHBhdGggZD0iTTE3NC42NTUgNzEuOTAzNUMxNzUuMjYzIDcwLjYyMjMgMTc2Ljc4NCA2OS40OTQ4IDE3OS4wMTMgNjkuNDk0OEMxODEuOCA2OS40OTQ4IDE4My43NzcgNzEuMDMyMyAxODMuNzc3IDc0Ljk3ODVWODMuMzgzNUgxODEuNjQ5Vjc0LjgyNDhDMTgxLjY0OSA3Mi40MTYgMTgwLjYzNiA3MS4zMzk4IDE3OC40NTYgNzEuMzM5OEMxNzYuNDc5IDcxLjMzOTggMTc0LjcwNSA3Mi42MjEgMTc0LjcwNSA3NS4wODFWODMuMzMyM0gxNzIuNTc3VjYzLjEzOThIMTc0LjcwNUwxNzQuNjU1IDcxLjkwMzVaIiBmaWxsPSIjMDAyODU2Ii8+CjxwYXRoIGQ9Ik0xODcuMjI2IDc5Ljk1VjcxLjU0NUgxODUuMjk5VjY5LjdIMTg3LjIyNlY2Ni42MjVIMTg5LjM1NFY2OS43NTEySDE5Mi40OTZWNzEuNTk2M0gxODkuMzU0Vjc5Ljc5NjJDMTg5LjM1NCA4MS4xMjg3IDE4OS45NjIgODEuNzk1IDE5MS4wMjcgODEuNzk1QzE5MS41ODQgODEuNzk1IDE5Mi4xNDEgODEuNjkyNSAxOTIuNyA4MS40ODc1VjgzLjMzMjVDMTkyLjA5MSA4My41Mzc1IDE5MS40ODMgODMuNjQgMTkwLjg3NCA4My42NEMxODguMzkyIDgzLjUzNzUgMTg3LjIyNiA4Mi4xMDI1IDE4Ny4yMjYgNzkuOTVaIiBmaWxsPSIjMDAyODU2Ii8+CjxwYXRoIGQ9Ik0xOTMuNzEzIDc5LjE4MkgxOTUuNzkxQzE5NS45NDQgODAuODIyIDE5Ni44MDYgODEuNzk1OCAxOTguOTg1IDgxLjc5NThDMjAxLjAxMSA4MS43OTU4IDIwMS45MjUgODEuMDc4MyAyMDEuOTI1IDc5LjY0MzNDMjAxLjkyNSA3OC4yMDgzIDIwMC44NTkgNzcuNzQ3IDE5OC43ODEgNzcuMzM3QzE5NS4yODQgNzYuNjcwOCAxOTQuMDY4IDc1LjY5NyAxOTQuMDY4IDczLjI4ODNDMTk0LjA2OCA3MC44Nzk1IDE5Ni41MDEgNjkuNDQ0NSAxOTguNjMgNjkuNDQ0NUMyMDEuMDYzIDY5LjQ0NDUgMjAzLjE0IDcwLjQxODMgMjAzLjQ5NSA3My4zOTA4SDIwMS40MTdDMjAxLjExNCA3MS45MDQ1IDIwMC4zMDIgNzEuMjM4MyAxOTguNTc5IDcxLjIzODNDMTk3LjA1OCA3MS4yMzgzIDE5Ni4wNDUgNzIuMDA3IDE5Ni4wNDUgNzMuMTg1OEMxOTYuMDQ1IDc0LjM2NDUgMTk2LjcwMyA3NC45MjgzIDE5OS4xODcgNzUuMzM4M0MyMDEuOTc1IDc1Ljg1MDggMjAzLjk1MSA3Ni40NjU4IDIwMy45NTEgNzkuMzg3QzIwMy45NTEgODEuODQ3IDIwMi4yNzggODMuNTM4MyAxOTguOTg1IDgzLjUzODNDMTk1Ljc0IDgzLjU4OTUgMTkzLjg2NiA4MS45NDk1IDE5My43MTMgNzkuMTgyWiIgZmlsbD0iIzAwMjg1NiIvPgo8cGF0aCBkPSJNNjQuMTE0NiA5OS4xMTc3Vjk4LjkxMjdDNjQuMTE0NiA5My4zMjY1IDY3LjkxNTcgODkuMzgwMiA3My4wODU1IDg5LjM4MDJDNzcuMjkyMyA4OS4zODAyIDgwLjU4NjcgOTEuNTMyNyA4MC45OTIxIDk1Ljg4OUg3Ny40OTQ5Qzc3LjA4OTUgOTMuNDI5IDc1LjcyMSA5Mi4xNDc4IDczLjA4NTUgOTIuMTQ3OEM2OS44NDE3IDkyLjE0NzggNjcuNzEzMSA5NC43MTAyIDY3LjcxMzEgOTguODYxNVY5OS4wNjY1QzY3LjcxMzEgMTAzLjI2OSA2OS42ODk3IDEwNS43MjkgNzMuMTM2MSAxMDUuNzI5Qzc1LjY3MDQgMTA1LjcyOSA3Ny40OTQ5IDEwNC40NDggNzcuODQ5OCAxMDEuNzgzSDgxLjE5NDhDODAuNjM3MyAxMDYuMjkzIDc3LjQ5NDkgMTA4LjU0OCA3My4xMzYxIDEwOC41NDhDNjcuMzU4MiAxMDguNTk5IDY0LjExNDYgMTA0Ljg1OCA2NC4xMTQ2IDk5LjExNzdaIiBmaWxsPSIjQUQ5MTFBIi8+CjxwYXRoIGQ9Ik04My40NzU5IDEwMy40MjJWOTQuNjU4NEg4Ni42MTgyVjEwMy4wMTJDODYuNjE4MiAxMDUuMDYyIDg3LjQ3OTggMTA2LjAzNiA4OS4yNTM4IDEwNi4wMzZDOTAuOTI2MyAxMDYuMDM2IDkyLjM5NjEgMTA0Ljk2IDkyLjM5NjEgMTAyLjc1NlY5NC42NTg0SDk1LjUzODVWMTA4LjI5MUg5Mi4zOTYxVjEwNi4xMzhDOTEuNzM3MiAxMDcuNDcxIDkwLjMxODEgMTA4LjU0NyA4OC4wODc5IDEwOC41NDdDODUuNTAzMiAxMDguNTk4IDgzLjQ3NTkgMTA3LjA2MSA4My40NzU5IDEwMy40MjJaIiBmaWxsPSIjQUQ5MTFBIi8+CjxwYXRoIGQ9Ik05Ny44MjAxIDEwNC4wOUgxMDAuNzZDMTAwLjkxMiAxMDUuNDczIDEwMS42MjEgMTA2LjI5MyAxMDMuNDQ2IDEwNi4yOTNDMTA1LjExOSAxMDYuMjkzIDEwNS44NzkgMTA1LjY3OCAxMDUuODc5IDEwNC41NTFDMTA1Ljg3OSAxMDMuNDIzIDEwNC45NjYgMTAzLjAxMyAxMDIuOTkgMTAyLjY1NUM5OS40NDE5IDEwMi4wOTEgOTguMTI0MSAxMDEuMDY2IDk4LjEyNDEgOTguNTAzM0M5OC4xMjQxIDk1LjczNTggMTAwLjY1OCA5NC40MDMzIDEwMy4xOTMgOTQuNDAzM0MxMDUuOTI5IDk0LjQwMzMgMTA4LjE1OSA5NS40MjgzIDEwOC40NjQgOTguNTAzM0gxMDUuNTc1QzEwNS4zMjEgOTcuMjczMyAxMDQuNjEyIDk2LjY1ODMgMTAzLjE5MyA5Ni42NTgzQzEwMS43NzMgOTYuNjU4MyAxMDEuMDY0IDk3LjMyNDUgMTAxLjA2NCA5OC4yOTgzQzEwMS4wNjQgOTkuMjcyIDEwMS43MjMgOTkuNjgyIDEwMy44NTEgMTAwLjA0MUMxMDcuMDQ0IDEwMC41NTMgMTA4LjkyIDEwMS4zMjIgMTA4LjkyIDEwNC4yNDNDMTA4LjkyIDEwNy4wMTEgMTA2Ljk5NCAxMDguNiAxMDMuNTQ3IDEwOC42QzEwMC4xMDEgMTA4LjYgOTcuOTcyMiAxMDYuOTYgOTcuODIwMSAxMDQuMDlaIiBmaWxsPSIjQUQ5MTFBIi8+CjxwYXRoIGQ9Ik0xMTEuNzA5IDEwNC40OTlWOTcuMDE2M0gxMDkuODg0Vjk0LjY1ODhIMTExLjcwOVY5MS42MzVIMTE0Ljg1MVY5NC42NTg4SDExNy44NDFWOTcuMDE2M0gxMTQuODUxVjEwNC4xOTFDMTE0Ljg1MSAxMDUuMzcgMTE1LjQwOCAxMDUuOTM0IDExNi40MjIgMTA1LjkzNEMxMTYuOTI5IDEwNS45MzQgMTE3LjQzNiAxMDUuODgzIDExNy45NDMgMTA1LjY3OFYxMDguMTg5QzExNy4yODQgMTA4LjQ0NSAxMTYuNTIzIDEwOC41NDggMTE1LjgxNCAxMDguNTQ4QzExMy4xMjggMTA4LjU0OCAxMTEuNzA5IDEwNy4wNjEgMTExLjcwOSAxMDQuNDk5WiIgZmlsbD0iI0FEOTExQSIvPgo8cGF0aCBkPSJNMTE5LjAwNiAxMDEuNjI5VjEwMS40MjRDMTE5LjAwNiA5Ny4xNzAzIDEyMS45OTcgOTQuMzUxNiAxMjUuOTUgOTQuMzUxNkMxMjkuOTAzIDk0LjM1MTYgMTMyLjg5NCA5Ny4xMTkxIDEzMi44OTQgMTAxLjMyMlYxMDEuNTI3QzEzMi44OTQgMTA1Ljc4IDEyOS45MDMgMTA4LjU0OCAxMjUuOTUgMTA4LjU0OEMxMjEuOTk3IDEwOC41NDggMTE5LjAwNiAxMDUuNzggMTE5LjAwNiAxMDEuNjI5Wk0xMjkuNjUgMTAxLjU3OFYxMDEuNDI0QzEyOS42NSA5OC42MDUzIDEyOC4yMzEgOTYuODYyOCAxMjUuOTUgOTYuODYyOEMxMjMuNjY5IDk2Ljg2MjggMTIyLjI1IDk4LjU1NDEgMTIyLjI1IDEwMS4zNzNWMTAxLjU3OEMxMjIuMjUgMTA0LjM0NSAxMjMuNjE5IDEwNi4xMzkgMTI1Ljk1IDEwNi4xMzlDMTI4LjI4MSAxMDYuMTM5IDEyOS42NSAxMDQuMzk3IDEyOS42NSAxMDEuNTc4WiIgZmlsbD0iI0FEOTExQSIvPgo8cGF0aCBkPSJNMTM4LjMxNyA5Ni43NTk4QzEzOC43MjIgOTYuMDQyMyAxMzkuMzMgOTUuNDI3MyAxNDAuMDQgOTUuMDE3M0MxNDAuNzQ5IDk0LjYwNzMgMTQxLjYxMSA5NC40MDIzIDE0Mi40MjIgOTQuNDAyM0MxNDQuMTk2IDk0LjQwMjMgMTQ1LjU2NCA5NS4xNzExIDE0Ni4yMjMgOTYuODYyM0MxNDYuNzMgOTYuMDkzNiAxNDcuMzg5IDk1LjQ3ODYgMTQ4LjIgOTUuMDE3M0MxNDkuMDEgOTQuNjA3MyAxNDkuODcyIDk0LjM1MTEgMTUwLjc4NSA5NC40MDIzQzE1My4yNjggOTQuNDAyMyAxNTUuMjk1IDk1LjkzOTggMTU1LjI5NSA5OS42ODExVjEwOC4zNDJIMTUyLjE1M1Y5OS44ODYxQzE1Mi4xNTMgOTcuODg3MyAxNTEuMjkyIDk3LjAxNjEgMTQ5Ljc3MSA5Ny4wMTYxQzE0OC4yNSA5Ny4wMTYxIDE0Ni43ODEgOTguMDQxMSAxNDYuNzgxIDEwMC4xNDJWMTA4LjI5MUgxNDMuNjM4Vjk5LjgzNDhDMTQzLjYzOCA5Ny44MzYxIDE0Mi43NzcgOTYuOTY0OCAxNDEuMjU2IDk2Ljk2NDhDMTM5LjczNiA5Ni45NjQ4IDEzOC4yNjYgOTcuOTg5OCAxMzguMjY2IDEwMC4wOTFWMTA4LjI0SDEzNS4xMjNWOTQuNjA3M0gxMzguMjY2Vjk2Ljc1OThIMTM4LjMxN1oiIGZpbGw9IiNBRDkxMUEiLz4KPHBhdGggZD0iTTE1Ny42MjUgMTAxLjYyOVYxMDEuNDI0QzE1Ny42MjUgOTcuMTcwMyAxNjAuNTE1IDk0LjM1MTYgMTY0LjMxNiA5NC4zNTE2QzE2Ny42NjIgOTQuMzUxNiAxNzAuNzAyIDk2LjM1MDMgMTcwLjcwMiAxMDEuMjE5VjEwMi4xNDJIMTYwLjgxOUMxNjAuOTIgMTA0LjcwNCAxNjIuMjM4IDEwNi4xOSAxNjQuNTE4IDEwNi4xOUMxNjYuMzk0IDEwNi4xOSAxNjcuMzU3IDEwNS40MjIgMTY3LjYxMSAxMDQuMDg5SDE3MC42NTJDMTcwLjE5NiAxMDYuOTU5IDE2Ny45MTQgMTA4LjU0OCAxNjQuNDY4IDEwOC41NDhDMTYwLjQ2NCAxMDguNTk5IDE1Ny42MjUgMTA1LjkzNCAxNTcuNjI1IDEwMS42MjlaTTE2NC4zMTYgOTYuNjU3OEMxNjIuNDQxIDk2LjY1NzggMTYxLjE3NCA5Ny45MzkxIDE2MC44NyAxMDAuMDRIMTY3LjYxMUMxNjcuNDU4IDk3LjczNDEgMTY2LjI5MyA5Ni42NTc4IDE2NC4zMTYgOTYuNjU3OFoiIGZpbGw9IiNBRDkxMUEiLz4KPHBhdGggZD0iTTE3Ni4yNzkgOTcuMjIxNUMxNzcuMTQxIDk1LjQ3OSAxNzguNDA4IDk0LjUwNTIgMTgwLjY4OCA5NC40NTRWOTcuMzc1MkMxNzcuOTUyIDk3LjQyNjUgMTc2LjI3OSA5OC4yOTc3IDE3Ni4yNzkgMTAxLjE2OFYxMDguMjkxSDE3My4xMzdWOTQuNjU5SDE3Ni4yNzlWOTcuMjIxNVoiIGZpbGw9IiNBRDkxMUEiLz4KPHBhdGggZD0iTTE4MS45MDIgMTA0LjA5SDE4NC44NDJDMTg0Ljk5MyAxMDUuNDczIDE4NS43MDQgMTA2LjI5MyAxODcuNTI4IDEwNi4yOTNDMTg5LjIgMTA2LjI5MyAxODkuOTYxIDEwNS42NzggMTg5Ljk2MSAxMDQuNTUxQzE4OS45NjEgMTAzLjQyMyAxODkuMDQ5IDEwMy4wMTMgMTg3LjA3MiAxMDIuNjU1QzE4My41MjQgMTAyLjA5MSAxODIuMjA3IDEwMS4wNjYgMTgyLjIwNyA5OC41MDMzQzE4Mi4yMDcgOTUuNzM1OCAxODQuNzQxIDk0LjQwMzMgMTg3LjI3NSA5NC40MDMzQzE5MC4wNjIgOTQuNDAzMyAxOTIuMjQxIDk1LjQyODMgMTkyLjU0NiA5OC41MDMzSDE4OS42NTZDMTg5LjQwNCA5Ny4yNzMzIDE4OC43NDQgOTYuNjU4MyAxODcuMjc1IDk2LjY1ODNDMTg1Ljk1OCA5Ni42NTgzIDE4NS4xNDYgOTcuMzI0NSAxODUuMTQ2IDk4LjI5ODNDMTg1LjE0NiA5OS4yNzIgMTg1LjgwNSA5OS42ODIgMTg3LjkzMyAxMDAuMDQxQzE5MS4xMjcgMTAwLjU1MyAxOTMuMDAyIDEwMS4zMjIgMTkzLjAwMiAxMDQuMjQzQzE5My4wMDIgMTA3LjAxMSAxOTEuMDc3IDEwOC42IDE4Ny42MyAxMDguNkMxODQuMTg0IDEwOC42IDE4Mi4wNTUgMTA2Ljk2IDE4MS45MDIgMTA0LjA5WiIgZmlsbD0iI0FEOTExQSIvPgo8cGF0aCBkPSJNMTk2LjM0OCA5Mi45NjgxQzE5NS4yMzMgOTIuOTY4MSAxOTQuNTIzIDkyLjMwMTggMTk0LjUyMyA5MS4yMjU2QzE5NC41MjMgOTAuOTY5MyAxOTQuNTczIDkwLjc2NDMgMTk0LjY3NiA5MC41MDgxQzE5NC43NzcgOTAuMzAzMSAxOTQuOTI4IDkwLjA5ODEgMTk1LjA4MSA4OS45NDQzQzE5NS4yMzMgODkuNzkwNiAxOTUuNDM1IDg5LjYzNjggMTk1LjY4OSA4OS41ODU2QzE5NS44OTEgODkuNDgzMSAxOTYuMTQ1IDg5LjQ4MzEgMTk2LjM5OSA4OS40ODMxQzE5Ny41NjQgODkuNDgzMSAxOTguNDI1IDkwLjM1NDMgMTk4LjQyNSA5MS42ODY4VjkyLjA5NjhDMTk4LjQyNSA5NC40NTQzIDE5Ny4wMDcgOTUuNjg0MyAxOTQuNjc2IDk1LjczNTZWOTQuMzAwNkMxOTUuNzkgOTQuMTk4MSAxOTYuMzQ4IDkzLjczNjggMTk2LjM0OCA5Mi45NjgxWiIgZmlsbD0iI0FEOTExQSIvPgo8cGF0aCBkPSJNNjQuMTE0NiAxMjUuMjA0VjEyNC45OTlDNjQuMTE0NiAxMTkuMzYxIDY3LjkxNTcgMTE1LjQ2NiA3My4wODU1IDExNS40NjZDNzcuMjkyMyAxMTUuNDY2IDgwLjU4NjcgMTE3LjYxOSA4MC45OTIxIDEyMS45NzVINzcuNDk0OUM3Ny4wODk1IDExOS41MTUgNzUuNzIxIDExOC4yMzQgNzMuMDg1NSAxMTguMjM0QzY5Ljg0MTcgMTE4LjIzNCA2Ny43MTMxIDEyMC43OTYgNjcuNzEzMSAxMjQuOTQ3VjEyNS4xNTJDNjcuNzEzMSAxMjkuMzU1IDY5LjY4OTcgMTMxLjgxNSA3My4xMzYxIDEzMS44MTVDNzUuNjcwNCAxMzEuODE1IDc3LjQ5NDkgMTMwLjUzNCA3Ny44NDk4IDEyNy44NjlIODEuMTk0OEM4MC42MzczIDEzMi4zNzkgNzcuNDk0OSAxMzQuNjM0IDczLjEzNjEgMTM0LjYzNEM2Ny4zNTgyIDEzNC42ODUgNjQuMTE0NiAxMzAuOTQ0IDY0LjExNDYgMTI1LjIwNFoiIGZpbGw9IiNBRDkxMUEiLz4KPHBhdGggZD0iTTg2LjcxODIgMTIyLjk0OUM4Ny4zNzcxIDEyMS42MTYgODguODQ2OSAxMjAuNDg5IDkxLjA3NjkgMTIwLjQ4OUM5My43NjMyIDEyMC40ODkgOTUuNjg5MSAxMjIuMDc4IDk1LjY4OTEgMTI1LjgxOVYxMzQuNDI5SDkyLjU0NjhWMTI2LjEyNkM5Mi41NDY4IDEyNC4wNzYgOTEuNzM1OSAxMjMuMTAzIDg5Ljg2MDYgMTIzLjEwM0M4OC4wODY2IDEyMy4xMDMgODYuNjY3NSAxMjQuMTc5IDg2LjY2NzUgMTI2LjM4M1YxMzQuNDI5SDgzLjUyNTJWMTE0LjQ0MUg4Ni42Njc1VjEyMi45NDlIODYuNzE4MloiIGZpbGw9IiNBRDkxMUEiLz4KPHBhdGggZD0iTTk3Ljk3MDkgMTI3LjcxNVYxMjcuNTFDOTcuOTcwOSAxMjMuMjU3IDEwMC45NjEgMTIwLjQzOCAxMDQuOTE0IDEyMC40MzhDMTA4Ljg2OCAxMjAuNDM4IDExMS44MDcgMTIzLjI1NyAxMTEuODA3IDEyNy40MDhWMTI3LjYxM0MxMTEuODA3IDEzMS44NjcgMTA4LjgxNyAxMzQuNjM0IDEwNC44NjQgMTM0LjYzNEMxMDAuOTEgMTM0LjYzNCA5Ny45NzA5IDEzMS44NjcgOTcuOTcwOSAxMjcuNzE1Wk0xMDguNjE0IDEyNy42NjRWMTI3LjQ1OUMxMDguNjE0IDEyNC42NCAxMDcuMTk1IDEyMi44OTggMTA0LjkxNCAxMjIuODk4QzEwMi42MzQgMTIyLjg5OCAxMDEuMjE1IDEyNC41ODkgMTAxLjIxNSAxMjcuNDA4VjEyNy42MTNDMTAxLjIxNSAxMzAuMzggMTAyLjU4MyAxMzIuMTc0IDEwNC45MTQgMTMyLjE3NEMxMDcuMjQ2IDEzMi4yMjUgMTA4LjYxNCAxMzAuNDgzIDEwOC42MTQgMTI3LjY2NFoiIGZpbGw9IiNBRDkxMUEiLz4KPHBhdGggZD0iTTExMy44MzYgMTE2LjY5NkMxMTMuODM2IDExNi4zMzggMTEzLjkzNyAxMTUuOTI4IDExNC4wODkgMTE1LjYyQzExNC4yOTIgMTE1LjMxMyAxMTQuNTQ1IDExNS4wNTYgMTE0LjkgMTE0LjkwM0MxMTUuMjU1IDExNC43NDkgMTE1LjYxIDExNC42OTggMTE1Ljk2NCAxMTQuNzQ5QzExNi4zMTkgMTE0LjggMTE2LjY3NCAxMTUuMDA1IDExNi45MjcgMTE1LjI2MUMxMTcuMTgxIDExNS41MTggMTE3LjM4NCAxMTUuODc2IDExNy40MzQgMTE2LjIzNUMxMTcuNTM1IDExNi41OTQgMTE3LjQ4NSAxMTcuMDA0IDExNy4zMzMgMTE3LjMxMUMxMTcuMTgxIDExNy42NyAxMTYuOTc4IDExNy45NzggMTE2LjY3NCAxMTguMTgzQzExNi4zNyAxMTguMzg4IDExNi4wMTUgMTE4LjQ5IDExNS42MSAxMTguNDlDMTE1LjM1NiAxMTguNDkgMTE1LjE1MyAxMTguNDM5IDExNC45IDExOC4zODhDMTE0LjY0NyAxMTguMzM2IDExNC40OTUgMTE4LjE4MyAxMTQuMjkyIDExNy45NzhDMTE0LjE0IDExNy44MjQgMTEzLjk4OCAxMTcuNjE5IDExMy44ODYgMTE3LjM2M0MxMTMuODg2IDExNy4yMDkgMTEzLjgzNiAxMTYuOTUzIDExMy44MzYgMTE2LjY5NlpNMTE3LjMzMyAxMzQuNDI5SDExNC4xOVYxMjAuNzk2SDExNy4zMzNWMTM0LjQyOVoiIGZpbGw9IiNBRDkxMUEiLz4KPHBhdGggZD0iTTExOS42MTIgMTI3Ljc2NlYxMjcuNTYxQzExOS42MTIgMTIzLjIwNSAxMjIuNjUzIDEyMC40ODkgMTI2LjQwMyAxMjAuNDg5QzEyOS4zOTMgMTIwLjQ4OSAxMzIuMjMyIDEyMS44MjEgMTMyLjU4NyAxMjUuNjE0SDEyOS41NDZDMTI5LjI5MiAxMjMuNzY5IDEyOC4wNzYgMTIzLjA1MSAxMjYuNDU0IDEyMy4wNTFDMTI0LjMyNSAxMjMuMDUxIDEyMi44MDUgMTI0Ljc0MiAxMjIuODA1IDEyNy41NjFWMTI3Ljc2NkMxMjIuODA1IDEzMC43MzkgMTI0LjIyNCAxMzIuMzI3IDEyNi41MDQgMTMyLjMyN0MxMjguMTc3IDEzMi4zMjcgMTI5LjU5NiAxMzEuMzU0IDEyOS43NDggMTI5LjQwNkgxMzIuNjM3QzEzMi4zODQgMTMyLjUzMiAxMzAuMDUyIDEzNC43MzYgMTI2LjQwMyAxMzQuNzM2QzEyMi41NTEgMTM0LjY4NSAxMTkuNjEyIDEzMi4xMjIgMTE5LjYxMiAxMjcuNzY2WiIgZmlsbD0iI0FEOTExQSIvPgo8cGF0aCBkPSJNMTM0LjE2MSAxMjcuNzE1VjEyNy41MUMxMzQuMTYxIDEyMy4yNTcgMTM3LjA1IDEyMC40MzggMTQwLjg1MSAxMjAuNDM4QzE0NC4xOTYgMTIwLjQzOCAxNDcuMjM3IDEyMi40MzcgMTQ3LjIzNyAxMjcuMzA1VjEyOC4yMjhIMTM3LjM1NEMxMzcuNDU1IDEzMC43OSAxMzguNzczIDEzMi4yNzcgMTQxLjA1NCAxMzIuMjc3QzE0Mi45MjkgMTMyLjI3NyAxNDMuOTQzIDEzMS41MDggMTQ0LjE0NSAxMzAuMTc1SDE0Ny4xMzZDMTQ2LjY3OSAxMzMuMDQ1IDE0NC4zOTkgMTM0LjYzNCAxNDAuOTUyIDEzNC42MzRDMTM3LjA1IDEzNC42ODUgMTM0LjE2MSAxMzIuMDIgMTM0LjE2MSAxMjcuNzE1Wk0xNDAuOTAyIDEyMi43OTVDMTM5LjAyNiAxMjIuNzk1IDEzNy43NTkgMTI0LjA3NyAxMzcuNDU1IDEyNi4xNzhIMTQ0LjE5NkMxNDMuOTkzIDEyMy44MiAxNDIuODI4IDEyMi43OTUgMTQwLjkwMiAxMjIuNzk1WiIgZmlsbD0iI0FEOTExQSIvPgo8cGF0aCBkPSJNMTY1LjA2IDEzMS4xMjRWMTMzLjAwNkgxNTQuNTE3QzE1NC41MDIgMTMyLjUzNSAxNTQuNTc4IDEzMi4wODIgMTU0Ljc0NSAxMzEuNjQ2QzE1NS4wMTQgMTMwLjkyOCAxNTUuNDQyIDEzMC4yMjEgMTU2LjAyOSAxMjkuNTI1QzE1Ni42MjQgMTI4LjgyOCAxNTcuNDggMTI4LjAyMyAxNTguNTk3IDEyNy4xMDlDMTYwLjMzIDEyNS42ODggMTYxLjUwMiAxMjQuNTYzIDE2Mi4xMTEgMTIzLjczN0MxNjIuNzIgMTIyLjkwMiAxNjMuMDI1IDEyMi4xMTUgMTYzLjAyNSAxMjEuMzc2QzE2My4wMjUgMTIwLjU5OSAxNjIuNzQ2IDExOS45NDcgMTYyLjE4NyAxMTkuNDE3QzE2MS42MzYgMTE4Ljg4IDE2MC45MTQgMTE4LjYxMiAxNjAuMDIyIDExOC42MTJDMTU5LjA3OSAxMTguNjEyIDE1OC4zMjUgMTE4Ljg5NSAxNTcuNzU5IDExOS40NjFDMTU3LjE5MyAxMjAuMDI2IDE1Ni45MDcgMTIwLjgxIDE1Ni44OTkgMTIxLjgxMUwxNTQuODg3IDEyMS42MDRDMTU1LjAyNCAxMjAuMTAzIDE1NS41NDMgMTE4Ljk2IDE1Ni40NDMgMTE4LjE3N0MxNTcuMzQyIDExNy4zODYgMTU4LjU1IDExNi45OTEgMTYwLjA2NiAxMTYuOTkxQzE2MS41OTYgMTE2Ljk5MSAxNjIuODA3IDExNy40MTUgMTYzLjcgMTE4LjI2NEMxNjQuNTkyIDExOS4xMTIgMTY1LjAzOCAxMjAuMTY0IDE2NS4wMzggMTIxLjQxOUMxNjUuMDM4IDEyMi4wNTcgMTY0LjkwNyAxMjIuNjg1IDE2NC42NDYgMTIzLjMwMUMxNjQuMzg1IDEyMy45MTggMTYzLjk1IDEyNC41NjcgMTYzLjM0MSAxMjUuMjQ5QzE2Mi43MzkgMTI1LjkzMSAxNjEuNzM0IDEyNi44NjYgMTYwLjMyNyAxMjguMDU2QzE1OS4xNTIgMTI5LjA0MiAxNTguMzk3IDEyOS43MTMgMTU4LjA2NCAxMzAuMDY5QzE1Ny43MyAxMzAuNDE3IDE1Ny40NTQgMTMwLjc2OSAxNTcuMjM3IDEzMS4xMjRIMTY1LjA2Wk0xNjcuMTcgMTI1LjE0QzE2Ny4xNyAxMjMuMjU0IDE2Ny4zNjMgMTIxLjczOCAxNjcuNzQ3IDEyMC41OTJDMTY4LjEzOSAxMTkuNDM5IDE2OC43MTUgMTE4LjU1IDE2OS40NzcgMTE3LjkyN0MxNzAuMjQ2IDExNy4zMDMgMTcxLjIxMSAxMTYuOTkxIDE3Mi4zNzEgMTE2Ljk5MUMxNzMuMjI3IDExNi45OTEgMTczLjk3OCAxMTcuMTY1IDE3NC42MjMgMTE3LjUxM0MxNzUuMjY5IDExNy44NTQgMTc1LjgwMiAxMTguMzUxIDE3Ni4yMjMgMTE5LjAwNEMxNzYuNjQzIDExOS42NDkgMTc2Ljk3MyAxMjAuNDQgMTc3LjIxMyAxMjEuMzc2QzE3Ny40NTIgMTIyLjMwNCAxNzcuNTcyIDEyMy41NTkgMTc3LjU3MiAxMjUuMTRDMTc3LjU3MiAxMjcuMDExIDE3Ny4zOCAxMjguNTI0IDE3Ni45OTUgMTI5LjY3N0MxNzYuNjExIDEzMC44MjMgMTc2LjAzNCAxMzEuNzEyIDE3NS4yNjUgMTMyLjM0M0MxNzQuNTA0IDEzMi45NjcgMTczLjUzOSAxMzMuMjc4IDE3Mi4zNzEgMTMzLjI3OEMxNzAuODMzIDEzMy4yNzggMTY5LjYyNiAxMzIuNzI3IDE2OC43NDggMTMxLjYyNUMxNjcuNjk2IDEzMC4yOTcgMTY3LjE3IDEyOC4xMzYgMTY3LjE3IDEyNS4xNFpNMTY5LjE4MyAxMjUuMTRDMTY5LjE4MyAxMjcuNzU5IDE2OS40ODggMTI5LjUwMyAxNzAuMDk3IDEzMC4zNzNDMTcwLjcxNCAxMzEuMjM3IDE3MS40NzIgMTMxLjY2OCAxNzIuMzcxIDEzMS42NjhDMTczLjI3MSAxMzEuNjY4IDE3NC4wMjUgMTMxLjIzMyAxNzQuNjM0IDEzMC4zNjNDMTc1LjI1MSAxMjkuNDkyIDE3NS41NTkgMTI3Ljc1MSAxNzUuNTU5IDEyNS4xNEMxNzUuNTU5IDEyMi41MTQgMTc1LjI1MSAxMjAuNzcgMTc0LjYzNCAxMTkuOTA3QzE3NC4wMjUgMTE5LjA0NCAxNzMuMjYzIDExOC42MTIgMTcyLjM0OSAxMTguNjEyQzE3MS40NSAxMTguNjEyIDE3MC43MzIgMTE4Ljk5MyAxNzAuMTk1IDExOS43NTRDMTY5LjUyMSAxMjAuNzI2IDE2OS4xODMgMTIyLjUyMiAxNjkuMTgzIDEyNS4xNFpNMTg5Ljg2NiAxMzEuMTI0VjEzMy4wMDZIMTc5LjMyNEMxNzkuMzA5IDEzMi41MzUgMTc5LjM4NSAxMzIuMDgyIDE3OS41NTIgMTMxLjY0NkMxNzkuODIgMTMwLjkyOCAxODAuMjQ4IDEzMC4yMjEgMTgwLjgzNiAxMjkuNTI1QzE4MS40MzEgMTI4LjgyOCAxODIuMjg3IDEyOC4wMjMgMTgzLjQwNCAxMjcuMTA5QzE4NS4xMzcgMTI1LjY4OCAxODYuMzA5IDEyNC41NjMgMTg2LjkxOCAxMjMuNzM3QzE4Ny41MjcgMTIyLjkwMiAxODcuODMyIDEyMi4xMTUgMTg3LjgzMiAxMjEuMzc2QzE4Ny44MzIgMTIwLjU5OSAxODcuNTUzIDExOS45NDcgMTg2Ljk5NCAxMTkuNDE3QzE4Ni40NDMgMTE4Ljg4IDE4NS43MjEgMTE4LjYxMiAxODQuODI5IDExOC42MTJDMTgzLjg4NiAxMTguNjEyIDE4My4xMzIgMTE4Ljg5NSAxODIuNTY2IDExOS40NjFDMTgyIDEyMC4wMjYgMTgxLjcxNCAxMjAuODEgMTgxLjcwNiAxMjEuODExTDE3OS42OTMgMTIxLjYwNEMxNzkuODMxIDEyMC4xMDMgMTgwLjM1IDExOC45NiAxODEuMjQ5IDExOC4xNzdDMTgyLjE0OSAxMTcuMzg2IDE4My4zNTYgMTE2Ljk5MSAxODQuODcyIDExNi45OTFDMTg2LjQwMyAxMTYuOTkxIDE4Ny42MTQgMTE3LjQxNSAxODguNTA2IDExOC4yNjRDMTg5LjM5OSAxMTkuMTEyIDE4OS44NDUgMTIwLjE2NCAxODkuODQ1IDEyMS40MTlDMTg5Ljg0NSAxMjIuMDU3IDE4OS43MTQgMTIyLjY4NSAxODkuNDUzIDEyMy4zMDFDMTg5LjE5MiAxMjMuOTE4IDE4OC43NTcgMTI0LjU2NyAxODguMTQ3IDEyNS4yNDlDMTg3LjU0NSAxMjUuOTMxIDE4Ni41NDEgMTI2Ljg2NiAxODUuMTM0IDEyOC4wNTZDMTgzLjk1OSAxMjkuMDQyIDE4My4yMDQgMTI5LjcxMyAxODIuODcgMTMwLjA2OUMxODIuNTM3IDEzMC40MTcgMTgyLjI2MSAxMzAuNzY5IDE4Mi4wNDQgMTMxLjEyNEgxODkuODY2Wk0xOTEuOTc3IDEyOC44MjhMMTk0LjAzNCAxMjguNjU0QzE5NC4xODYgMTI5LjY1NSAxOTQuNTM4IDEzMC40MSAxOTUuMDg5IDEzMC45MTdDMTk1LjY0NyAxMzEuNDE4IDE5Ni4zMTggMTMxLjY2OCAxOTcuMTAyIDEzMS42NjhDMTk4LjA0NSAxMzEuNjY4IDE5OC44NDMgMTMxLjMxMyAxOTkuNDk1IDEzMC42MDJDMjAwLjE0OCAxMjkuODkxIDIwMC40NzUgMTI4Ljk0OCAyMDAuNDc1IDEyNy43NzNDMjAwLjQ3NSAxMjYuNjU2IDIwMC4xNTkgMTI1Ljc3NSAxOTkuNTI4IDEyNS4xMjlDMTk4LjkwNCAxMjQuNDg0IDE5OC4wODUgMTI0LjE2MSAxOTcuMDY5IDEyNC4xNjFDMTk2LjQzOCAxMjQuMTYxIDE5NS44NjkgMTI0LjMwNiAxOTUuMzYxIDEyNC41OTZDMTk0Ljg1MyAxMjQuODc5IDE5NC40NTQgMTI1LjI0OSAxOTQuMTY0IDEyNS43MDZMMTkyLjMyNSAxMjUuNDY3TDE5My44NyAxMTcuMjc0SDIwMS44MDJWMTE5LjE0NUgxOTUuNDM3TDE5NC41NzggMTIzLjQzMkMxOTUuNTM1IDEyMi43NjUgMTk2LjU0IDEyMi40MzEgMTk3LjU5MSAxMjIuNDMxQzE5OC45ODQgMTIyLjQzMSAyMDAuMTU5IDEyMi45MTMgMjAxLjExNyAxMjMuODc4QzIwMi4wNzQgMTI0Ljg0MyAyMDIuNTUzIDEyNi4wODMgMjAyLjU1MyAxMjcuNTk5QzIwMi41NTMgMTI5LjA0MiAyMDIuMTMyIDEzMC4yOSAyMDEuMjkxIDEzMS4zNDJDMjAwLjI2OCAxMzIuNjMzIDE5OC44NzIgMTMzLjI3OCAxOTcuMTAyIDEzMy4yNzhDMTk1LjY1MSAxMzMuMjc4IDE5NC40NjUgMTMyLjg3MiAxOTMuNTQ0IDEzMi4wNkMxOTIuNjMgMTMxLjI0OCAxOTIuMTA4IDEzMC4xNyAxOTEuOTc3IDEyOC44MjhaIiBmaWxsPSIjQUQ5MTFBIi8+CjxwYXRoIGQ9Ik0xMzMuNjAxIDQxLjY2NjJMMTMzLjM5OCA0NC4xMjYySDEzMi4zODRDMTMyLjA4IDQ0LjEyNjIgMTMxLjcyNSA0NC4xNzc1IDEzMS40NzIgNDQuMzMxMkMxMzEuMjE4IDQ0LjQ4NSAxMzAuOTE0IDQ0LjYzODcgMTMwLjY2MSA0NC44OTVDMTMwLjQ1OCA0NS4xNTEyIDEzMC4yNTUgNDUuNDA3NSAxMzAuMTU0IDQ1LjcxNUMxMzAuMDUzIDQ2LjAyMjUgMTMwLjAwMiA0Ni4zMyAxMzAuMDAyIDQ2LjY4ODdWNTIuMjIzN0gxMjcuMjE0VjQxLjY2NjJIMTI5Ljg1TDEyOS45MDEgNDIuOTQ3NUMxMzAuNDU4IDQyLjA3NjIgMTMxLjQyMSA0MS42NjYyIDEzMi42MzcgNDEuNjY2MkgxMzMuNjAxWiIgZmlsbD0iIzAwMjg1NiIvPgo8cGF0aCBkPSJNMTE0LjI0MSA1Mi4xMjE1SDExMS40NTNWNDYuNTg2NUMxMTEuNDUzIDQ1LjQ1OSAxMTEuMzUyIDQzLjk3MjcgMTA5LjczIDQzLjk3MjdDMTA4LjEwOCA0My45NzI3IDEwNy41NSA0NS4xMDAyIDEwNy41NSA0Ni40MzI3VjUyLjEyMTVIMTA0Ljc2M1Y0MS42NjY1SDEwNy4zNDhMMTA3LjM5OCA0Mi45OTlDMTA3Ljc1MyA0Mi40ODY1IDEwOC4yMDkgNDIuMDc2NSAxMDguNzY3IDQxLjc2OUMxMDkuMzI0IDQxLjUxMjcgMTA5LjkzMiA0MS4zNTkgMTEwLjU0MSA0MS40MTAyQzExMy4zMjggNDEuNDEwMiAxMTQuMjQxIDQzLjQ2MDIgMTE0LjI0MSA0NS41NjE1VjUyLjEyMTVaIiBmaWxsPSIjMDAyODU2Ii8+CjxwYXRoIGQ9Ik0xMDMuNTk0IDQ5LjY2MDZMMTAzLjM5MiA1Mi4wMTgxQzEwMi43MzMgNTIuMTcxOSAxMDIuMDc0IDUyLjI3NDQgMTAxLjQxNSA1Mi4yNzQ0Qzk4Ljc3OTYgNTIuMjc0NCA5OC4wMTkzIDUxLjA0NDQgOTguMDE5MyA0OC41ODQ0VjM4LjY5MzFIMTAwLjgwN1Y0MS42NjU2SDEwMy41OTRMMTAzLjM5MiA0NC4xMjU2SDEwMC44MDdWNDguNDMwNkMxMDAuODA3IDQ5LjQwNDQgMTAxLjA2IDQ5Ljk2ODEgMTAyLjA3NCA0OS45NjgxQzEwMi41ODEgNDkuOTE2OSAxMDMuMDg4IDQ5Ljg2NTYgMTAzLjU5NCA0OS42NjA2WiIgZmlsbD0iIzAwMjg1NiIvPgo8cGF0aCBkPSJNOTcuMTEwNCA0MS42NjYyTDk2LjkwNzcgNDQuMTI2Mkg5Ni4xNDc0Qzk1Ljg0MzMgNDQuMTI2MiA5NS40ODg2IDQ0LjE3NzUgOTUuMjM1MSA0NC4zMzEyQzk0LjkzMSA0NC40MzM3IDk0LjY3NzYgNDQuNjM4NyA5NC40NzQ4IDQ0Ljg5NUM5NC4yNzIxIDQ1LjE1MTIgOTQuMDY5MyA0NS40MDc1IDkzLjk2OCA0NS43MTVDOTMuODY2NyA0Ni4wMjI1IDkzLjgxNiA0Ni4zMyA5My44MTYgNDYuNjg4N1Y1Mi4yMjM3SDkxLjAyODNWNDEuNjY2Mkg5My42NjM5TDkzLjcxNDYgNDIuOTQ3NUM5NC4yNzIxIDQyLjA3NjIgOTUuMjM1MSA0MS42NjYyIDk2LjQ1MTUgNDEuNjY2Mkg5Ny4xMTA0WiIgZmlsbD0iIzAwMjg1NiIvPgo8cGF0aCBkPSJNNzguNDA4OCA1MC45NDMyQzc2LjQ4MjkgNTIuMDE5NCA3NC4zMDM1IDUyLjU4MzIgNzIuMTI0MSA1Mi40ODA3QzY3LjQ2MTIgNTIuMzI2OSA2NC4xNjY4IDQ5LjQ1NjkgNjQuMTY2OCA0NC41MzY5QzY0LjE2NjggMzkuNjE2OSA2Ny41MTE5IDM2LjU0MTkgNzIuMTI0MSAzNi40Mzk0Qzc0LjQ1NTYgMzYuMzg4MiA3Ni41MzM1IDM3LjAwMzIgNzguMTU1NCAzOC40MzgyTDc2LjE3ODggNDAuNDM2OUM3NC45NjI0IDM5LjQ2MzIgNzMuNDQxOSAzOS4wMDE5IDcxLjkyMTMgMzkuMTU1N0M2OS4wMzI0IDM5LjMwOTQgNjcuMjU4NCA0MS40MTA3IDY3LjI1ODQgNDQuMzMxOUM2Ny4yMDc4IDQ3LjUwOTQgNjkuMTMzNyA0OS42NjE5IDcyLjEyNDEgNDkuNzY0NEM3My4yMzkxIDQ5LjgxNTcgNzQuNDA0OCA0OS42NjE5IDc1LjQxODUgNDkuMjAwN1Y0NS45NzE5SDcyLjI3NjJMNzIuNDc4OCA0My4zMDY5SDc4LjM1ODJWNTAuOTQzMkg3OC40MDg4WiIgZmlsbD0iIzAwMjg1NiIvPgo8cGF0aCBkPSJNMTIzLjE1OSA0NS43MTUyQzEyMy4xNTkgNDUuNDA3NyAxMjMuMDU4IDQ1LjEwMDIgMTIyLjk1NyA0NC44NDM5QzEyMi44MDQgNDQuNTg3NyAxMjIuNjUzIDQ0LjMzMTQgMTIyLjM5OSA0NC4xMjY0QzEyMi4xOTYgNDMuOTIxNCAxMjEuODkyIDQzLjc2NzcgMTIxLjYzOSA0My43MTY0QzEyMS4zMzUgNDMuNjEzOSAxMjEuMDMxIDQzLjYxMzkgMTIwLjc3NyA0My42MTM5QzEyMC4xNjkgNDMuNjEzOSAxMTkuNjEyIDQzLjgxODkgMTE5LjE1NSA0NC4yMjg5QzExOC42OTkgNDQuNjM4OSAxMTguMzk1IDQ1LjE1MTQgMTE4LjI5NCA0NS43NjY0SDEyMy4xNTlWNDUuNzE1MlpNMTI1Ljk0NyA0Ny44Njc3SDExOC4yOTRDMTE4LjM5NSA0OC40ODI3IDExOC42OTkgNDkuMDQ2NCAxMTkuMTU1IDQ5LjQ1NjRDMTE5LjYxMiA0OS44NjY0IDEyMC4yMiA1MC4wNzE0IDEyMC44MjggNTAuMDcxNEMxMjIuMDk1IDUwLjEyMjcgMTIyLjgwNCA0OS43MTI3IDEyMy43MTcgNDguNzkwMkwxMjUuNTQxIDUwLjIyNTJDMTI0Ljk4NCA1MC45NDI3IDEyNC4yNzQgNTEuNTA2NCAxMjMuNTE0IDUxLjg2NTJDMTIyLjcwMyA1Mi4yMjM5IDEyMS44NDIgNTIuNDI4OSAxMjAuOTI5IDUyLjM3NzdDMTE3LjgzOCA1Mi4zNzc3IDExNS41MDYgNTAuMTczOSAxMTUuNTA2IDQ2Ljg5MzlDMTE1LjUwNiA0My42MTM5IDExNy44MzggNDEuNDEwMiAxMjAuODI4IDQxLjQxMDJDMTI0LjEyMiA0MS40MTAyIDEyNS45NDcgNDMuNDYwMiAxMjUuOTQ3IDQ3LjA0NzdWNDcuODY3N1oiIGZpbGw9IiMwMDI4NTYiLz4KPHBhdGggZD0iTTg2LjUxNDEgNDcuNTU5OUg4Ni4xMDg2Qzg0Ljc5MDggNDcuNTU5OSA4Mi40NTk0IDQ3LjYxMTIgODIuNDU5NCA0OS4wNDYyQzgyLjQ1OTQgNTAuOTkzNyA4Ni40NjMzIDUwLjM3ODcgODYuNDYzMyA0OC4wMjEyVjQ3LjU1OTlIODYuNTE0MVpNODkuMjAwMiA0NS4yNTM3VjUyLjA2OTlIODYuNzY3Nkw4Ni43MTY4IDUxLjA0NDlDODUuOTU2NiA1MS45Njc0IDg0Ljc0MDEgNTIuMzI2MiA4My40NzMxIDUyLjMyNjJDODEuNTk3OCA1Mi4zMjYyIDc5Ljc3MzIgNTEuNDAzNyA3OS43NzMyIDQ5LjE0ODdDNzkuNzIyNSA0NS42NjM3IDgzLjYyNTEgNDUuNDU4NyA4Ni4xMDg2IDQ1LjQ1ODdIODYuNjE1NFY0NS4zMDQ5Qzg2LjYxNTQgNDQuMTc3NCA4NS44NTUyIDQzLjUxMTIgODQuNDM2MSA0My41MTEyQzgzLjQyMjMgNDMuNTExMiA4Mi40MDg4IDQzLjkyMTIgODEuNjk5MiA0NC42Mzg3TDgwLjA3NzMgNDIuOTk4N0M4MS4zNDQ0IDQxLjkyMjQgODMuMDE2OSA0MS4zMDc0IDg0LjY4OTUgNDEuMzU4N0M4Ny44MzE4IDQxLjQwOTkgODkuMjAwMiA0Mi44OTYyIDg5LjIwMDIgNDUuMjUzN1oiIGZpbGw9IiMwMDI4NTYiLz4KPHBhdGggZD0iTTIxMC40ODggMjA1QzIxMC4xODMgMjA1IDIwOS45MjkgMjA0Ljg5OCAyMDkuNjc3IDIwNC42OTNMMTc4LjEwMSAxNzMuNDNDMTYyLjIzNyAxNzkuNjMyIDE0Ni4wMTggMTgyLjY1NSAxMjkuOCAxODIuMzQ4QzEwMC42MDYgMTgxLjgzNSA3NC42MDU3IDE3NC4xNDcgNTQuNjM2NSAxNjAuMTU2TDU1Ljk1NDMgMTU4LjI2Qzc1LjU2ODYgMTcxLjk5NSAxMDEuMTEzIDE3OS41MjggMTI5Ljg1IDE4MC4wNDFDMTQ1Ljk2OCAxODAuMzQ4IDE2Mi4xODcgMTc3LjI3NCAxNzcuOTQ5IDE3MS4wMjJDMTc4LjE1MSAxNzAuOTE5IDE3OC4zNTUgMTcwLjkxOSAxNzguNjA3IDE3MC45N0MxNzguODExIDE3MS4wMjIgMTc5LjAxMyAxNzEuMTI0IDE3OS4xNjYgMTcxLjI3OEwyMDkuMzIyIDIwMS4xMDVMMjA5LjI3MSAxNTIuODI3QzIwOS4yNzEgMTUyLjY3NCAyMDkuMzIyIDE1Mi41MiAyMDkuMzcyIDE1Mi4zNjZDMjA5LjQyMyAxNTIuMjEzIDIwOS41MjUgMTUyLjA1OCAyMDkuNjc3IDE1MS45NTdDMjI4Ljc4NSAxMzUuNDU0IDIzOS4zMjYgMTEzLjg3OCAyMzkuMzI2IDkxLjIyNUMyMzkuMzI2IDcwLjk4MTIgMjMwLjc2MSA1MS4yNSAyMTUuMTUxIDM1LjUxNjNDMTk0LjI2OSAxNC40MDEzIDE2My4zMDEgMi4zMDYyNSAxMzAuMTA0IDIuMzA2MjVIMTI5Ljg1QzEwNy44NTQgMi4zNTc1IDg4LjQ5MjggNS44OTM3NSA3Mi4yMjM1IDEyLjg2MzhDNTUuNjUwMiAxOS45ODc1IDQyLjc3NjYgMzAuNDkzNyAzNC4wMDg0IDQ0LjA3NUwzMi4wODI1IDQyLjc5MzhDNDEuMTAzOSAyOC44NTM4IDU0LjMzMjQgMTguMDQgNzEuMzYxOSAxMC43NjI1Qzg3Ljg4NDYgMy42OSAxMDcuNTUgMC4wNTEyNSAxMjkuODUgMEgxMzAuMTA0QzE2My44NTkgMCAxOTUuNDM1IDEyLjMgMjE2Ljc3MiAzMy44MjVDMjMyLjc4OCA0OS45Njg4IDI0MS42MDggNzAuMzY2MiAyNDEuNjA4IDkxLjE3MzhDMjQxLjYwOCAxMTQuMzM5IDIzMC45NjQgMTM2LjQyOCAyMTEuNjAyIDE1My4zNEwyMTEuNjUyIDIwMy44MkMyMTEuNjUyIDIwMy45NzUgMjExLjYwMiAyMDQuMTI4IDIxMS41NTEgMjA0LjI4M0MyMTEuNTAxIDIwNC40MzYgMjExLjQgMjA0LjUzOCAyMTEuMjk5IDIwNC42NDFDMjExLjE5NiAyMDQuNzQzIDIxMS4wNDUgMjA0Ljg0NiAyMTAuOTQ0IDIwNC44OThDMjEwLjc5MSAyMDUgMjEwLjYzOSAyMDUgMjEwLjQ4OCAyMDVaIiBmaWxsPSIjQUQ5MTFBIi8+CjxwYXRoIGQ9Ik0yMTQuMDM1IDE1NC42NzNIMjE3LjQ4MVYxNTUuMzlIMjE2LjE2NFYxNTkuMzg4SDIxNS4zMDJWMTU1LjM5SDIxMy45ODVWMTU0LjY3M0gyMTQuMDM1WiIgZmlsbD0iI0FEOTExQSIvPgo8cGF0aCBkPSJNMjIwLjUyMiAxNTcuOTAyTDIyMS43MzggMTU0LjY3M0gyMjIuOTA0VjE1OS4zODhIMjIyLjA0M1YxNTUuOEwyMjAuNjI0IDE1OS4zMzdIMjIwLjMyTDIxOC44OTkgMTU1LjhWMTU5LjMzN0gyMTguMTRWMTU0LjYyMkgyMTkuMzA1TDIyMC41MjIgMTU3LjkwMloiIGZpbGw9IiNBRDkxMUEiLz4KPC9nPgo8L3N2Zz4K" alt="Gartner Peer Insights Customers Choice 2025">
+  <!-- white body: badge + rating side-by-side -->
+  <div class="r-top">
 
-  <!-- Rating (Gartner) -->
-  <div class="r-rating-big">4.8</div>
-  <div class="r-stars">★★★★★</div>
-  <div class="r-reviews">698+ Total Ratings</div>
-
-  <!-- By Company Size -->
-  <div class="r-bysize-div"></div>
-  <div class="r-bysize-label">By Company Size</div>
-
-  <!-- Row 1 -->
-  <div class="r-company-row" style="top:234px">
-    <span class="r-co-name">Under 1,000 employees</span>
-    <div class="r-co-bar-wrap"><div class="r-co-bar" style="width:96%"></div></div>
-    <span class="r-co-score">4.8</span>
-    <span class="r-co-reviews">★ 422 ratings</span>
-  </div>
-  <!-- Row 2 -->
-  <div class="r-company-row" style="top:270px">
-    <span class="r-co-name">1,000+ employees</span>
-    <div class="r-co-bar-wrap"><div class="r-co-bar" style="width:94%"></div></div>
-    <span class="r-co-score">4.7</span>
-    <span class="r-co-reviews">★ 245 ratings</span>
-  </div>
-
-  <!-- Customer Experience section -->
-  <div class="r-cx-div"></div>
-  <div class="r-cx-label">Customer Experience</div>
-
-  <div class="r-cx-items">
-    <div class="r-cx-row">
-      <span class="r-cx-name">Evaluation &amp; Contracting</span>
-      <span class="r-cx-score">4.7</span>
-      <div class="r-cx-bar-wrap"><div class="r-cx-bar" style="width:94%"></div></div>
+    <!-- Gartner badge image -->
+    <div class="r-badge">
+      <img id="gBadge" src="Assets/gartnerbadge.png" alt="Gartner Customers Choice 2025">
     </div>
-    <div class="r-cx-row">
-      <span class="r-cx-name">Integration &amp; Deployment</span>
-      <span class="r-cx-score">4.6</span>
-      <div class="r-cx-bar-wrap"><div class="r-cx-bar" style="width:92%"></div></div>
-    </div>
-    <div class="r-cx-row">
-      <span class="r-cx-name">Service &amp; Support</span>
-      <span class="r-cx-score">4.8</span>
-      <div class="r-cx-bar-wrap"><div class="r-cx-bar" style="width:96%"></div></div>
-    </div>
-    <div class="r-cx-row">
-      <span class="r-cx-name">Product Capabilities</span>
-      <span class="r-cx-score">4.6</span>
-      <div class="r-cx-bar-wrap"><div class="r-cx-bar" style="width:92%"></div></div>
-    </div>
-  </div>
 
-  <!-- 96% Likelihood box -->
-  <div class="r-rec-box">
-    <div class="r-rec-label">Likelihood to Recommend</div>
-    <div class="r-rec-pct">96%</div>
-    <div class="r-rec-sub">of customers recommend</div>
-  </div>
+    <!-- Rating + company size (right of badge) -->
+    <div class="r-side">
+      <div class="rating-row">
+        <span class="r-num">4.8</span>
+      </div>
+      <div class="stars">★★★★★</div>
+      <div class="rev-count">698+ Total Ratings</div>
 
-  <!-- Footer -->
-  <div class="r-footer">
+      <div class="sep" style="margin-top:12px"></div>
+      <div class="sec-lbl">By Company Size</div>
+      <div class="co-rows">
+        <div class="co-row">
+          <span class="co-name">Under 1,000 employees</span>
+          <div class="co-bar-bg"><div class="co-bar-fg" style="width:96%"></div></div>
+          <span class="co-score">4.8</span>
+          <span class="co-rev">★ 422 ratings</span>
+        </div>
+        <div class="co-row">
+          <span class="co-name">1,000+ employees</span>
+          <div class="co-bar-bg"><div class="co-bar-fg" style="width:94%"></div></div>
+          <span class="co-score">4.7</span>
+          <span class="co-rev">★ 245 ratings</span>
+        </div>
+      </div>
+    </div>
+  </div><!-- /r-top -->
+
+  <!-- separator -->
+  <div class="sep" style="margin:12px 24px 10px"></div>
+
+  <!-- CX rows + 96% box side-by-side -->
+  <div class="r-bottom">
+    <div class="r-cx">
+      <div class="sec-lbl">Customer Experience</div>
+      <div class="cx-row">
+        <span class="cx-name">Evaluation &amp; Contracting</span>
+        <span class="cx-score">4.7</span>
+        <div class="cx-bar-bg"><div class="cx-bar-fg" style="width:94%"></div></div>
+      </div>
+      <div class="cx-row">
+        <span class="cx-name">Integration &amp; Deployment</span>
+        <span class="cx-score">4.6</span>
+        <div class="cx-bar-bg"><div class="cx-bar-fg" style="width:92%"></div></div>
+      </div>
+      <div class="cx-row">
+        <span class="cx-name">Service &amp; Support</span>
+        <span class="cx-score">4.8</span>
+        <div class="cx-bar-bg"><div class="cx-bar-fg" style="width:96%"></div></div>
+      </div>
+      <div class="cx-row">
+        <span class="cx-name">Product Capabilities</span>
+        <span class="cx-score">4.6</span>
+        <div class="cx-bar-bg"><div class="cx-bar-fg" style="width:92%"></div></div>
+      </div>
+    </div>
+
+    <!-- 96% recommend box -->
+    <div class="r-rec">
+      <div class="r-rec-lbl">Likelihood to Recommend</div>
+      <div class="r-rec-pct">96%</div>
+      <div class="r-rec-sub">of customers recommend</div>
+    </div>
+  </div><!-- /r-bottom -->
+
+  <!-- dark green bottom bar -->
+  <div class="card-footer">
     <span class="rf-q">Quadrant Position</span>
-    <span class="rf-val">Customers' Choice · alongside Oracle, Workday, Darwinbox</span>
+    <div class="rf-div"></div>
+    <span class="rf-sub">Customers' Choice · alongside Oracle, Workday, Darwinbox</span>
   </div>
 
 </div><!-- /card-right -->
 
-<!-- ── Nav ── -->
+<!-- Nav -->
 <div class="nav">
-  <span class="nav-count" id="slideCount">4 / 5</span>
+  <span class="nav-count">4 / 5</span>
   <button class="nav-btn" id="prevBtn" aria-label="Previous">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
   </button>
@@ -344,13 +366,24 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 
 </div><!-- /stage -->
 </div><!-- /viewport -->
-
 <script>
+/* gartnerbadge.png is actually SVG — load via blob to override MIME */
+(function(){
+  var img=document.getElementById('gBadge');
+  if(!img)return;
+  fetch(img.src).then(function(r){return r.blob();}).then(function(b){
+    var blob=new Blob([b],{type:'image/svg+xml'});
+    img.src=URL.createObjectURL(blob);
+  }).catch(function(){});
+})();
+
 function fit(){
   var s=Math.min(window.innerWidth/1920,window.innerHeight/1080);
   document.getElementById('stage').style.transform='scale('+s+')';
 }
-fit();window.addEventListener('resize',fit);
+fit();
+window.addEventListener('resize',fit);
+
 document.getElementById('prevBtn').addEventListener('click',function(){
   if(window.parent!==window)window.parent.postMessage({type:'nav-key',key:'ArrowLeft'},'*');
 });
