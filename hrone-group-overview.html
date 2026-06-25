@@ -54,28 +54,28 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 
 /* ── Cards shared ── */
 .card-left,.card-right{
-  position:absolute;top:448px;
+  position:absolute;top:440px;
   background:#fff;border-radius:16px;border:1.5px solid #e8e0d4;
   box-shadow:0 4px 24px rgba(0,0,0,.07);overflow:hidden}
-.card-left{left:79px;width:496px;height:462px;display:flex;flex-direction:column;
+.card-left{left:79px;width:496px;height:384px;display:flex;flex-direction:column;
   opacity:0;animation:slideRight .55s 1.0s ease forwards}
-.card-right{left:597px;width:1244px;height:462px;
+.card-right{left:597px;width:1244px;height:384px;
   opacity:0;animation:slideLeft .55s 1.05s ease forwards}
 
 /* ── Left card ── */
-.entity-block{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 40px}
-.entity-divider{height:1px;background:#f0ebe3;flex-shrink:0;margin:0 40px}
+.entity-block{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 38px}
+.entity-divider{height:1px;background:#eee8e0;flex-shrink:0}
 .entity-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .entity-title{font-size:19px;font-weight:700;color:#013a29}
-.entity-desc{font-size:14px;font-weight:400;color:#5b5b5b;line-height:1.6;max-width:380px}
+.entity-desc{font-size:14px;font-weight:400;color:#5b5b5b;line-height:1.6;max-width:390px}
 
 /* ── Right card ── */
 .rc-inner{position:relative;display:flex;width:100%;height:100%}
-.rc-left{width:310px;flex-shrink:0;padding:0 0 0 52px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:20px}
+.rc-left{width:264px;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:0 0 0 44px;gap:16px}
 .rc-label{font-size:13px;font-weight:600;color:#5b5b5b;letter-spacing:.04em}
 .rc-logo-wrap{display:flex;align-items:center}
-.rc-vdivider{position:absolute;left:310px;top:32px;width:1px;height:calc(100% - 64px);background:#e8e0d4}
-.rc-right{flex:1;padding:0 56px;display:flex;flex-direction:column;justify-content:center;gap:28px}
+.rc-vdivider{position:absolute;left:264px;top:0;width:1px;height:100%;background:#eee8e0}
+.rc-right{flex:1;padding:0 52px;display:flex;flex-direction:column;justify-content:center;gap:26px}
 .bullet-item{display:flex;align-items:flex-start;gap:16px}
 .bullet-text{font-size:15.5px;font-weight:400;color:#0e0e0e;line-height:1.58}
 .bullet-text b{font-weight:700}
