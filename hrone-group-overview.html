@@ -42,11 +42,11 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 /* ── Stat columns ── */
 .stat-col{position:absolute;top:0;width:200px;display:flex;flex-direction:column;align-items:center;
   text-align:center;opacity:0;animation:slideUp .5s ease forwards}
-.stat-icon-wrap{margin-top:268px;display:flex;align-items:center;justify-content:center;
+.stat-icon-wrap{margin-top:252px;display:flex;align-items:center;justify-content:center;
   width:48px;height:48px;flex-shrink:0}
-.stat-number{margin-top:14px;font-size:26px;font-weight:600;color:#0e0e0e;line-height:1.15;white-space:nowrap}
+.stat-number{margin-top:12px;font-size:26px;font-weight:600;color:#0e0e0e;line-height:1.15;white-space:nowrap}
 .stat-number em{font-style:normal;font-weight:800;color:#ee5a3c}
-.stat-sub{margin-top:8px;font-size:13.5px;font-weight:400;color:#5b5b5b;line-height:1.45;white-space:normal}
+.stat-sub{margin-top:6px;font-size:13px;font-weight:400;color:#5b5b5b;line-height:1.4;white-space:normal}
 
 /* ── Timeline ── */
 .timeline-svg{position:absolute;inset:0;pointer-events:none;z-index:2;
@@ -54,7 +54,7 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 
 /* ── Cards shared ── */
 .card-left,.card-right{
-  position:absolute;top:440px;
+  position:absolute;top:428px;
   background:#fff;border-radius:16px;border:1.5px solid #e8e0d4;
   box-shadow:0 4px 24px rgba(0,0,0,.07);overflow:hidden}
 .card-left{left:79px;width:496px;height:384px;display:flex;flex-direction:column;
@@ -66,8 +66,8 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 .entity-block{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 38px}
 .entity-divider{height:1px;background:#eee8e0;flex-shrink:0}
 .entity-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.entity-title{font-size:19px;font-weight:700;color:#013a29}
-.entity-desc{font-size:14px;font-weight:400;color:#5b5b5b;line-height:1.6;max-width:390px}
+.entity-title{font-size:22px;font-weight:700;color:#013a29}
+.entity-desc{font-size:16px;font-weight:400;color:#5b5b5b;line-height:1.6;max-width:390px}
 
 /* ── Right card ── */
 .rc-inner{position:relative;display:flex;width:100%;height:100%}
@@ -202,21 +202,21 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 
 <!-- ── Timeline SVG ── -->
 <svg class="timeline-svg" width="1920" height="1080" viewBox="0 0 1920 1080">
-  <!-- Dotted connector line -->
-  <line x1="100" y1="415" x2="1820" y2="415"
-        stroke="#ee5a3c" stroke-width="1.5" stroke-dasharray="5 7" opacity=".4"/>
+  <!-- Dotted connector line — spans full card width -->
+  <line x1="79" y1="397" x2="1841" y2="397"
+        stroke="#ee5a3c" stroke-width="1.5" stroke-dasharray="5 8" opacity=".4"/>
   <!-- Node 1 at x=240 -->
-  <circle cx="240" cy="415" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
-  <circle cx="240" cy="415" r="3.5" fill="#ee5a3c"/>
+  <circle cx="240" cy="397" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
+  <circle cx="240" cy="397" r="3.5" fill="#ee5a3c"/>
   <!-- Node 2 at x=720 -->
-  <circle cx="720" cy="415" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
-  <circle cx="720" cy="415" r="3.5" fill="#ee5a3c"/>
+  <circle cx="720" cy="397" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
+  <circle cx="720" cy="397" r="3.5" fill="#ee5a3c"/>
   <!-- Node 3 at x=1200 -->
-  <circle cx="1200" cy="415" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
-  <circle cx="1200" cy="415" r="3.5" fill="#ee5a3c"/>
+  <circle cx="1200" cy="397" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
+  <circle cx="1200" cy="397" r="3.5" fill="#ee5a3c"/>
   <!-- Node 4 at x=1650 -->
-  <circle cx="1650" cy="415" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
-  <circle cx="1650" cy="415" r="3.5" fill="#ee5a3c"/>
+  <circle cx="1650" cy="397" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
+  <circle cx="1650" cy="397" r="3.5" fill="#ee5a3c"/>
 </svg>
 
 <!-- ── Left Card ── -->
