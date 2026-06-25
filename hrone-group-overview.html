@@ -19,7 +19,6 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 @keyframes slideUp   {from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideRight{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:translateX(0)}}
 @keyframes slideLeft {from{opacity:0;transform:translateX(18px)} to{opacity:1;transform:translateX(0)}}
-@keyframes dotPulse  {0%,100%{transform:scale(1);opacity:1}50%{transform:scale(2.2);opacity:.35}}
 
 /* ── Eyebrow ── */
 .eyebrow{position:absolute;left:79px;top:62px;display:flex;align-items:center;gap:10px;
@@ -52,33 +51,31 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 /* ── Timeline ── */
 .timeline-svg{position:absolute;inset:0;pointer-events:none;z-index:2;
   opacity:0;animation:fadeIn .5s .88s ease forwards}
-.tl-dot-pulse{transform-origin:center;animation:dotPulse 2.4s ease-in-out infinite}
 
 /* ── Cards shared ── */
 .card-left,.card-right{
-  position:absolute;top:455px;
+  position:absolute;top:452px;
   background:#fff;border-radius:16px;border:1.5px solid #e8e0d4;
   box-shadow:0 4px 24px rgba(0,0,0,.07);overflow:hidden}
-.card-left{left:79px;width:496px;height:524px;
+.card-left{left:79px;width:496px;height:304px;display:flex;flex-direction:column;
   opacity:0;animation:slideRight .55s 1.0s ease forwards}
-.card-right{left:597px;width:1244px;height:524px;
+.card-right{left:597px;width:1244px;height:304px;
   opacity:0;animation:slideLeft .55s 1.05s ease forwards}
 
 /* ── Left card ── */
-.entity-block{padding:40px 36px 32px}
-.entity-block+.entity-block{padding-top:32px}
-.entity-divider{height:1px;background:#f0ebe3}
-.entity-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.entity-title{font-size:20px;font-weight:700;color:#013a29}
-.entity-desc{font-size:13.5px;font-weight:400;color:#5b5b5b;line-height:1.58;max-width:360px}
+.entity-block{padding:28px 36px 22px;flex:1}
+.entity-divider{height:1px;background:#f0ebe3;flex-shrink:0}
+.entity-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.entity-title{font-size:19px;font-weight:700;color:#013a29}
+.entity-desc{font-size:13.5px;font-weight:400;color:#5b5b5b;line-height:1.55;max-width:380px}
 
 /* ── Right card ── */
 .rc-inner{position:relative;display:flex;width:100%;height:100%}
-.rc-left{width:310px;flex-shrink:0;padding:44px 0 44px 52px;display:flex;flex-direction:column;gap:0}
-.rc-label{font-size:13px;font-weight:600;color:#5b5b5b;letter-spacing:.04em;margin-bottom:24px}
+.rc-left{width:310px;flex-shrink:0;padding:0 0 0 52px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:18px}
+.rc-label{font-size:13px;font-weight:600;color:#5b5b5b;letter-spacing:.04em}
 .rc-logo-wrap{display:flex;align-items:center}
-.rc-vdivider{position:absolute;left:310px;top:44px;width:1px;height:calc(100% - 88px);background:#e8e0d4}
-.rc-right{flex:1;padding:0 60px;display:flex;flex-direction:column;justify-content:center;gap:38px}
+.rc-vdivider{position:absolute;left:310px;top:28px;width:1px;height:calc(100% - 56px);background:#e8e0d4}
+.rc-right{flex:1;padding:0 52px;display:flex;flex-direction:column;justify-content:center;gap:22px}
 .bullet-item{display:flex;align-items:flex-start;gap:16px}
 .bullet-text{font-size:15.5px;font-weight:400;color:#0e0e0e;line-height:1.55}
 .bullet-text b{font-weight:700}
@@ -168,17 +165,19 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 <!-- ── Stat col 3: Entities ── -->
 <div class="stat-col" style="left:1200px;transform:translateX(-50%);animation-delay:.68s">
   <div class="stat-icon-wrap">
-    <!-- Org hierarchy -->
-    <svg width="36" height="32" viewBox="0 0 36 32" fill="none" stroke="#ee5a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="12" y="1" width="12" height="8" rx="1.5"/>
-      <line x1="18" y1="9" x2="18" y2="16"/>
-      <line x1="7" y1="16" x2="29" y2="16"/>
-      <line x1="7"  y1="16" x2="7"  y2="22"/>
-      <line x1="18" y1="16" x2="18" y2="22"/>
-      <line x1="29" y1="16" x2="29" y2="22"/>
-      <rect x="1"  y="22" width="12" height="8" rx="1.5"/>
-      <rect x="12" y="22" width="12" height="8" rx="1.5"/>
-      <rect x="23" y="22" width="12" height="8" rx="1.5"/>
+    <!-- 3 buildings representing 3 entities -->
+    <svg width="42" height="32" viewBox="0 0 42 32" fill="none" stroke="#ee5a3c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="1" y="10" width="12" height="21" rx="1.5"/>
+      <rect x="15" y="1" width="12" height="30" rx="1.5"/>
+      <rect x="29" y="10" width="12" height="21" rx="1.5"/>
+      <line x1="3"  y1="31" x2="41" y2="31"/>
+      <rect x="4"  y="14" width="3" height="3" rx=".5" fill="#ee5a3c" stroke="none"/>
+      <rect x="4"  y="20" width="3" height="3" rx=".5" fill="#ee5a3c" stroke="none"/>
+      <rect x="18" y="5"  width="3" height="3" rx=".5" fill="#ee5a3c" stroke="none"/>
+      <rect x="18" y="11" width="3" height="3" rx=".5" fill="#ee5a3c" stroke="none"/>
+      <rect x="18" y="17" width="3" height="3" rx=".5" fill="#ee5a3c" stroke="none"/>
+      <rect x="32" y="14" width="3" height="3" rx=".5" fill="#ee5a3c" stroke="none"/>
+      <rect x="32" y="20" width="3" height="3" rx=".5" fill="#ee5a3c" stroke="none"/>
     </svg>
   </div>
   <div class="stat-number"><em>03</em> Entities</div>
@@ -188,9 +187,13 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
 <!-- ── Stat col 4: Experience ── -->
 <div class="stat-col" style="left:1680px;transform:translateX(-50%);animation-delay:.80s">
   <div class="stat-icon-wrap">
-    <!-- 4-pointed sparkle diamond -->
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#ee5a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M17 2 C17 10 24 17 32 17 C24 17 17 24 17 32 C17 24 10 17 2 17 C10 17 17 10 17 2Z" fill="none"/>
+    <!-- Trophy / award -->
+    <svg width="30" height="34" viewBox="0 0 30 34" fill="none" stroke="#ee5a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 2h12v10a6 6 0 01-12 0V2Z"/>
+      <path d="M3 4H9v6A6 6 0 013 4Z"/>
+      <path d="M27 4H21v6a6 6 0 006-6Z"/>
+      <line x1="15" y1="18" x2="15" y2="26"/>
+      <rect x="7" y="26" width="16" height="6" rx="2"/>
     </svg>
   </div>
   <div class="stat-number"><em>30+</em> Year Experience</div>
@@ -204,16 +207,16 @@ html,body{width:100%;height:100%;background:#1a1210;overflow:hidden;display:flex
         stroke="#ee5a3c" stroke-width="1.5" stroke-dasharray="5 7" opacity=".4"/>
   <!-- Node 1 at x=240 -->
   <circle cx="240" cy="415" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
-  <circle cx="240" cy="415" r="3.5" fill="#ee5a3c" class="tl-dot-pulse" style="animation-delay:0s"/>
+  <circle cx="240" cy="415" r="3.5" fill="#ee5a3c"/>
   <!-- Node 2 at x=720 -->
   <circle cx="720" cy="415" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
-  <circle cx="720" cy="415" r="3.5" fill="#ee5a3c" class="tl-dot-pulse" style="animation-delay:.6s"/>
+  <circle cx="720" cy="415" r="3.5" fill="#ee5a3c"/>
   <!-- Node 3 at x=1200 -->
   <circle cx="1200" cy="415" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
-  <circle cx="1200" cy="415" r="3.5" fill="#ee5a3c" class="tl-dot-pulse" style="animation-delay:1.2s"/>
+  <circle cx="1200" cy="415" r="3.5" fill="#ee5a3c"/>
   <!-- Node 4 at x=1680 -->
   <circle cx="1680" cy="415" r="7" stroke="#ee5a3c" stroke-width="1.5" fill="#fdf5e7"/>
-  <circle cx="1680" cy="415" r="3.5" fill="#ee5a3c" class="tl-dot-pulse" style="animation-delay:1.8s"/>
+  <circle cx="1680" cy="415" r="3.5" fill="#ee5a3c"/>
 </svg>
 
 <!-- ── Left Card ── -->
