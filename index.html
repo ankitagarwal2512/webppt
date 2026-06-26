@@ -386,7 +386,7 @@ const GROUPS = [
     slides:[
       { n:5,  t:'The Comprehensive HCM Suite', f:'hrone-slide5.html' },
       { n:6,  t:'Payroll Outsourcing',          f:'hrone-payroll-outsourcing.html' },
-      { n:7,  t:'InboxforHR',                  f:'hrone-inboxforhr.html' },
+      { n:7,  t:'InboxforHR', html:'InboxforHR<sup style="font-size:.55em;vertical-align:super;line-height:0">TM</sup>', f:'hrone-inboxforhr.html' },
       { n:8,  t:'Two Problems, One Inbox',     f:'hrone-what-it-kills.html' },
       { n:9,  t:'Platform Architecture',        f:null },
     ]},
@@ -468,7 +468,7 @@ GROUPS.forEach(g => {
          `<div class="slide-row${s.f ? '' : ' stub'}"
                data-n="${s.n}" data-q="${s.t.toLowerCase()}" data-file="${s.f || ''}">
             <span class="slide-num">${String(s.n).padStart(2,'0')}</span>
-            <span class="slide-name">${s.t}</span>
+            <span class="slide-name">${s.html || s.t}</span>
           </div>`
        ).join('')}
      </div>`;
