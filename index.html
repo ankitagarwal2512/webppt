@@ -353,7 +353,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#013a29;font-family:
         </svg>
         <span class="btn-present-lbl">Present</span>
       </button>
-      <span class="slide-ctr" id="slideCtr">05 / 34</span>
+      <span class="slide-ctr" id="slideCtr">05 / 35</span>
     </div>
 
   </nav>
@@ -388,50 +388,51 @@ const GROUPS = [
       { n:6,  t:'Payroll Outsourcing',          f:'hrone-payroll-outsourcing.html' },
       { n:7,  t:'InboxforHR', html:'InboxforHR<sup style="font-size:.55em;vertical-align:super;line-height:0">TM</sup>', f:'hrone-inboxforhr.html' },
       { n:8,  t:'Two Problems, One Inbox',     f:'hrone-what-it-kills.html' },
-      { n:9,  t:'Platform Architecture',        f:null },
+      { n:9,  t:'The Facts',                   f:'hrone-the-facts.html' },
+      { n:10, t:'Platform Architecture',       f:null },
     ]},
   { id:'mobile', label:'Mobile & AI', icon:'M4.5 1h5a1 1 0 011 1v10a1 1 0 01-1 1h-5a1 1 0 01-1-1V2a1 1 0 011-1zM6 11.5h2',
     slides:[
-      { n:10, t:'Mobile-First Experience',     f:null },
-      { n:11, t:'OneAI Voice Agent',           f:null },
-      { n:12, t:'AI-Powered Insights',         f:null },
+      { n:11, t:'Mobile-First Experience',     f:null },
+      { n:12, t:'OneAI Voice Agent',           f:null },
+      { n:13, t:'AI-Powered Insights',         f:null },
     ]},
   { id:'build', label:'Build & Extend', icon:'M4 2.5L2 7l2 4.5M10 2.5l2 4.5-2 4.5',
     slides:[
-      { n:13, t:'HROne Studio',                f:null },
-      { n:14, t:'Custom Apps & Workflows',     f:null },
-      { n:15, t:'Reporting & Analytics',       f:null },
-      { n:16, t:'Role-Based Access Control',   f:null },
+      { n:14, t:'HROne Studio',                f:null },
+      { n:15, t:'Custom Apps & Workflows',     f:null },
+      { n:16, t:'Reporting & Analytics',       f:null },
+      { n:17, t:'Role-Based Access Control',   f:null },
     ]},
   { id:'analytics', label:'Analytics & Trust', icon:'M1.5 11l3-4.5 3 2.5 3.5-5 2.5 2',
     slides:[
-      { n:17, t:'Compliance Dashboard',        f:null },
-      { n:18, t:'Audit & Security',            f:null },
-      { n:19, t:'Data Residency',              f:null },
-      { n:20, t:'Enterprise Trust',            f:null },
+      { n:18, t:'Compliance Dashboard',        f:null },
+      { n:19, t:'Audit & Security',            f:null },
+      { n:20, t:'Data Residency',              f:null },
+      { n:21, t:'Enterprise Trust',            f:null },
     ]},
   { id:'modules', label:'Modules', icon:'M2 3h10M2 7h10M2 11h10',
     slides:[
-      { n:21, t:'Core HR',                     f:null },
-      { n:22, t:'Recruitment',                 f:'hrone-recruitment.html' },
-      { n:23, t:'Onboarding',                  f:null },
-      { n:24, t:'Workforce Management',        f:null },
-      { n:25, t:'Time Office',                 f:null },
-      { n:26, t:'Payroll',                     f:null },
-      { n:27, t:'Performance',                 f:null },
-      { n:28, t:'Engagement',                  f:null },
-      { n:29, t:'Expense',                     f:null },
-      { n:30, t:'Helpdesk',                    f:null },
+      { n:22, t:'Core HR',                     f:null },
+      { n:23, t:'Recruitment',                 f:'hrone-recruitment.html' },
+      { n:24, t:'Onboarding',                  f:null },
+      { n:25, t:'Workforce Management',        f:null },
+      { n:26, t:'Time Office',                 f:null },
+      { n:27, t:'Payroll',                     f:null },
+      { n:28, t:'Performance',                 f:null },
+      { n:29, t:'Engagement',                  f:null },
+      { n:30, t:'Expense',                     f:null },
+      { n:31, t:'Helpdesk',                    f:null },
     ]},
   { id:'market', label:'Marketplace', icon:'M2 5h10l-1.5 7H3.5L2 5zM5.5 5V3.5a1.5 1.5 0 013 0V5',
     slides:[
-      { n:31, t:'Add-Ons Overview',            f:null },
-      { n:32, t:'Integrations Ecosystem',      f:null },
-      { n:33, t:'API Marketplace',             f:null },
+      { n:32, t:'Add-Ons Overview',            f:null },
+      { n:33, t:'Integrations Ecosystem',      f:null },
+      { n:34, t:'API Marketplace',             f:null },
     ]},
   { id:'close', label:'Close', icon:'M2 7l3.5 3.5 6.5-6.5',
     slides:[
-      { n:34, t:'Next Steps & Demo',           f:null },
+      { n:35, t:'Next Steps & Demo',           f:null },
     ]},
 ];
 
@@ -492,7 +493,7 @@ let   current  = 1;
 
 function setActive(n) {
   current = n;
-  slideCtr.textContent = `${String(n).padStart(2,'0')} / 34`;
+  slideCtr.textContent = `${String(n).padStart(2,'0')} / 35`;
 
   document.querySelectorAll('.slide-row').forEach(r => {
     r.classList.toggle('active', +r.dataset.n === n);
@@ -518,7 +519,7 @@ function goTo(n, file) {
 }
 
 // Slides that manage their own nav buttons — shell buttons hidden for these
-const SELF_NAV = new Set(['hrone-slide5.html','hrone-slide6.html','hrone-recruitment.html','hrone-payroll-outsourcing.html','hrone-inboxforhr.html','hrone-what-it-kills.html','hrone-group-overview.html','hrone-why-hrone.html','hrone-recognised.html']);
+const SELF_NAV = new Set(['hrone-slide5.html','hrone-slide6.html','hrone-recruitment.html','hrone-payroll-outsourcing.html','hrone-inboxforhr.html','hrone-what-it-kills.html','hrone-the-facts.html','hrone-group-overview.html','hrone-why-hrone.html','hrone-recognised.html']);
 
 function updateShellNav(file) {
   const selfNav = SELF_NAV.has(file);
