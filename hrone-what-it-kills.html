@@ -26,22 +26,13 @@ html,body{width:100%;height:100%;background:#e8e0d4;overflow:hidden;display:flex
 
 /* ── inbox hero animations ── */
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes ring-out{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
-@keyframes glow-breathe{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.75;transform:scale(1.12)}}
-@keyframes shine{0%{transform:translateX(-160%) rotate(20deg)}100%{transform:translateX(220%) rotate(20deg)}}
+@keyframes ring-out{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.6);opacity:0}}
 @keyframes icon-pop{0%{transform:translate(-50%,-50%) scale(.8);opacity:0}70%{transform:translate(-50%,-50%) scale(1.08)}100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
 
-/* hero wrapper (floats) */
-#inbox-hero{animation:float 3.2s ease-in-out .8s infinite}
-/* soft outer glow behind everything */
-#inbox-glow{animation:glow-breathe 3s ease-in-out infinite}
-/* expanding rings */
-.inbox-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(50,213,131,.55);animation:ring-out 2.4s ease-out infinite}
+.inbox-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(50,213,131,.5);animation:ring-out 2.4s ease-out infinite}
 #ring1{width:140px;height:140px;left:50%;top:50%;margin:-70px 0 0 -70px;animation-delay:0s}
 #ring2{width:140px;height:140px;left:50%;top:50%;margin:-70px 0 0 -70px;animation-delay:.8s}
 #ring3{width:140px;height:140px;left:50%;top:50%;margin:-70px 0 0 -70px;animation-delay:1.6s}
-/* shine sweep */
-#inbox-shine{animation:shine 3.5s linear 1.4s infinite}
 </style>
 </head>
 <body>
@@ -165,11 +156,6 @@ html,body{width:100%;height:100%;background:#e8e0d4;overflow:hidden;display:flex
      Overlay the static SVG box with animated hero, sized 120×120 centered there
      (original SVG box is 96×96, we go slightly bigger for the hero treatment)
 -->
-<!-- Soft wide glow halo -->
-<div id="inbox-glow" class="a" style="left:764px;top:889px;width:400px;height:200px;
-  background:radial-gradient(ellipse at center, rgba(50,213,131,0.28) 0%, transparent 65%);
-  border-radius:50%;pointer-events:none"></div>
-
 <!-- Float wrapper (everything inside floats together) -->
 <div id="inbox-hero" class="a" style="left:904px;top:929px;width:120px;height:120px;z-index:10;animation:float 3.2s ease-in-out .8s infinite">
 
@@ -178,26 +164,11 @@ html,body{width:100%;height:100%;background:#e8e0d4;overflow:hidden;display:flex
   <div class="inbox-ring" id="ring2"></div>
   <div class="inbox-ring" id="ring3"></div>
 
-  <!-- Main box: radial gradient, glow shadow -->
+  <!-- Main box: flat dark green, subtle shadow only -->
   <div style="position:absolute;inset:0;border-radius:28px;
-    background:radial-gradient(circle at 35% 28%, #3ef08a 0%, #1aac68 28%, #02563d 58%, #012b1f 100%);
-    box-shadow:
-      0 0 0 1px rgba(50,213,131,0.25),
-      0 0 20px rgba(50,213,131,0.45),
-      0 0 50px rgba(50,213,131,0.25),
-      0 12px 40px rgba(1,43,31,0.6),
-      inset 0 1px 0 rgba(255,255,255,0.18);
+    background:#02563d;
+    box-shadow:0 8px 32px rgba(1,43,31,0.35);
     overflow:hidden">
-
-    <!-- Shine sweep layer -->
-    <div id="inbox-shine" style="position:absolute;top:-20px;left:0;width:60px;height:160px;
-      background:linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.18) 50%, transparent 80%);
-      pointer-events:none"></div>
-
-    <!-- Top-left highlight dot -->
-    <div style="position:absolute;top:14px;left:14px;width:22px;height:22px;
-      background:radial-gradient(circle at 40% 40%, rgba(255,255,255,0.35) 0%, transparent 70%);
-      border-radius:50%"></div>
 
     <!-- Inbox icon -->
     <img src="Assets/icons/inboxicon.svg"
