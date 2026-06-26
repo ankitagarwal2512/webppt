@@ -33,6 +33,14 @@ html,body{width:100%;height:100%;background:#e8e0d4;overflow:hidden;display:flex
 #ring1{width:140px;height:140px;left:50%;top:50%;margin:-70px 0 0 -70px;animation-delay:0s}
 #ring2{width:140px;height:140px;left:50%;top:50%;margin:-70px 0 0 -70px;animation-delay:.8s}
 #ring3{width:140px;height:140px;left:50%;top:50%;margin:-70px 0 0 -70px;animation-delay:1.6s}
+
+/* flowing dashed lines — period = dasharray gap sum = 6+6 = 12px */
+@keyframes dash-fwd{to{stroke-dashoffset:-12}}   /* flows in drawn direction */
+@keyframes dash-bwd{to{stroke-dashoffset:12}}    /* flows opposite */
+#conn-left-h {animation:dash-fwd .55s linear infinite}   /* rightward → toward center ✓ */
+#conn-left-v {animation:dash-fwd .55s linear infinite}   /* SVG-upward = visual-downward → toward h-line ✓ */
+#conn-right-h{animation:dash-bwd .55s linear infinite}   /* leftward → toward center ✓ */
+#conn-right-v{animation:dash-fwd .55s linear infinite}   /* same as left-v ✓ */
 </style>
 </head>
 <body>
@@ -147,9 +155,27 @@ html,body{width:100%;height:100%;background:#e8e0d4;overflow:hidden;display:flex
   <strong style="font-weight:700">127+ workflows </strong><span style="font-weight:500">do the routing, automatically</span>
 </p>
 
-<!-- ══ BOTTOM CONNECTOR (Figma asset, flipped vertically) ══ -->
-<img class="a" src="Assets/inbox-connector.svg"
-  style="left:616px;top:899px;width:689px;height:147px;transform:scaleY(-1);transform-origin:center center;display:block;animation:fi .5s .6s ease both">
+<!-- ══ BOTTOM CONNECTOR (inline SVG for animatable dashed lines) ══ -->
+<svg class="a" viewBox="0 0 689 147" width="689" height="147" fill="none" overflow="visible"
+  style="left:616px;top:899px;transform:scaleY(-1);transform-origin:center center;animation:fi .5s .6s ease both"
+  xmlns="http://www.w3.org/2000/svg">
+  <!-- left horizontal — flows right toward center -->
+  <path id="conn-left-h"  d="M8 59H291"            stroke="#004A36" stroke-opacity=".75" stroke-width="2" stroke-dasharray="6 6"/>
+  <!-- right horizontal — flows left toward center -->
+  <path id="conn-right-h" d="M406 59H681"           stroke="#F45137" stroke-opacity=".75" stroke-width="2" stroke-dasharray="6 6"/>
+  <!-- left vertical drop -->
+  <line id="conn-left-v"  x1="7"   y1="130" x2="7"   y2="60" stroke="#004A36" stroke-opacity=".75" stroke-width="2" stroke-dasharray="6 6"/>
+  <!-- right vertical drop -->
+  <line id="conn-right-v" x1="680" y1="130" x2="680" y2="60" stroke="#F45137" stroke-opacity=".75" stroke-width="2" stroke-dasharray="6 6"/>
+  <!-- dots -->
+  <circle cx="8"   cy="139" r="8" fill="#004A36"/>
+  <circle cx="681" cy="139" r="8" fill="#F45137"/>
+  <!-- static box (hero overlay covers it) -->
+  <rect opacity=".1" x="291" width="114" height="114" rx="30" fill="#062A1C"/>
+  <rect x="300" y="9" width="96" height="96" rx="30" fill="#02563D"/>
+  <path d="M371 57H357.5L353 50.25H344L339.5 57H326" stroke="#B3CCC5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M333.762 72.503L326 57V43.5C326 42.307 326.474 41.162 327.318 40.318C328.162 39.474 329.307 39 330.5 39H366.5C367.693 39 368.838 39.474 369.682 40.318C370.526 41.162 371 42.307 371 43.5V57L363.237 72.503C362.865 73.252 362.291 73.884 361.579 74.325C360.868 74.766 360.047 75 359.21 75H337.79C336.953 75 336.132 74.766 335.421 74.325C334.709 73.884 334.135 73.252 333.762 72.503Z" stroke="#B3CCC5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 
 <!-- ══ INBOX HERO OVERLAY ══
      SVG box center in stage coords: left=616+348=964, top=899+(147-57)=989
