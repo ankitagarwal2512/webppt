@@ -70,26 +70,6 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 <body>
 <div id="vp"><div id="stage">
 
-<!-- ══ DIAGONAL BACKGROUND LINES ══ -->
-<svg class="a" style="left:0;top:0;width:540px;height:290px;pointer-events:none;overflow:visible">
-  <g transform="rotate(18,0,45)">
-    <line x1="-80" y1="45"  x2="380" y2="45"  stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="-60" y1="54"  x2="400" y2="54"  stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="-40" y1="63"  x2="420" y2="63"  stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="-20" y1="72"  x2="440" y2="72"  stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="0"   y1="81"  x2="460" y2="81"  stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="20"  y1="90"  x2="480" y2="90"  stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="40"  y1="99"  x2="500" y2="99"  stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="60"  y1="108" x2="520" y2="108" stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="80"  y1="117" x2="540" y2="117" stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="100" y1="126" x2="560" y2="126" stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="120" y1="135" x2="580" y2="135" stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="140" y1="144" x2="600" y2="144" stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="160" y1="153" x2="620" y2="153" stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-    <line x1="180" y1="162" x2="640" y2="162" stroke="rgba(170,148,112,0.25)" stroke-width="1.2"/>
-  </g>
-</svg>
-
 <!-- ══ EYEBROW ══ -->
 <div class="a" style="left:79px;top:106px;width:38px;height:3px;background:#ee5a3c;border-radius:2px;animation:fi .4s .1s ease both"></div>
 <p class="a" style="left:132px;top:96px;font-size:22px;font-weight:500;color:#ee5a3c;white-space:nowrap;animation:fi .4s .15s ease both">India's First Voice-powered AI Agent</p>
@@ -138,20 +118,31 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
   <circle cx="0"    cy="120" r="7" fill="#02563d"/>
   <circle cx="600"  cy="120" r="7" fill="#02563d"/>
   <circle cx="1200" cy="120" r="7" fill="#02563d"/>
-
-  <!-- Static brain circle — masks connector gap; animated hero floats on top -->
-  <circle cx="600" cy="48" r="44" fill="#02563d"/>
 </svg>
 
-<!-- ══ BRAIN HERO (floating + expanding rings — same system as Two Problems One Inbox) ══ -->
+<!-- ══ BRAIN HERO ══
+     Two-circle design: outer translucent halo (120×120) + inner solid orb (76×76).
+     Both float together so they never misalign.
+     The outer halo (r=60) fully covers the 88-px connector gap below it.
+-->
 <div class="a" style="left:900px;top:313px;width:120px;height:120px;z-index:10;animation:fi .4s .4s ease both,float 3.2s .8s ease-in-out infinite">
   <!-- Expanding pulse rings -->
   <div class="oa-ring" style="animation-delay:0s"></div>
   <div class="oa-ring" style="animation-delay:.8s"></div>
   <div class="oa-ring" style="animation-delay:1.6s"></div>
-  <!-- Main circle -->
-  <div style="position:absolute;left:20px;top:20px;width:80px;height:80px;border-radius:50%;background:#02563d;box-shadow:0 8px 28px rgba(1,43,31,0.4);display:flex;align-items:center;justify-content:center">
-    <img src="Assets/oneai_brain_icon.svg" style="width:46px;height:40px;object-fit:contain">
+
+  <!-- Outer halo circle — translucent teal, serves as the "back" circle -->
+  <div style="position:absolute;inset:0;border-radius:50%;
+              background:rgba(2,86,61,0.13);
+              border:1.5px solid rgba(2,86,61,0.38);
+              backdrop-filter:blur(2px)"></div>
+
+  <!-- Inner orb — solid gradient with depth shadow -->
+  <div style="position:absolute;left:22px;top:22px;width:76px;height:76px;border-radius:50%;
+              background:linear-gradient(145deg,#0a8e5f 0%,#02563d 60%,#013d2b 100%);
+              box-shadow:0 6px 24px rgba(1,43,31,0.55),0 0 0 2px rgba(10,142,95,0.25);
+              display:flex;align-items:center;justify-content:center">
+    <img src="Assets/oneai_brain_icon.svg" style="width:42px;height:36px;object-fit:contain;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.3))">
   </div>
 </div>
 
