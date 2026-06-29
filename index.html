@@ -393,7 +393,7 @@ const GROUPS = [
   { id:'mobile', label:'Mobile & AI', icon:'M4.5 1h5a1 1 0 011 1v10a1 1 0 01-1 1h-5a1 1 0 01-1-1V2a1 1 0 011-1zM6 11.5h2',
     slides:[
       { n:10, t:'Mobile-First Experience',     f:'hrone-mobile.html' },
-      { n:11, t:'OneAI Voice Agent',           f:null },
+      { n:11, t:'OneAI Voice Agent',           f:'hrone-oneai.html' },
       { n:12, t:'AI-Powered Insights',         f:null },
     ]},
   { id:'build', label:'Build & Extend', icon:'M4 2.5L2 7l2 4.5M10 2.5l2 4.5-2 4.5',
@@ -518,7 +518,7 @@ function goTo(n, file) {
 }
 
 // Slides that manage their own nav buttons — shell buttons hidden for these
-const SELF_NAV = new Set(['hrone-slide5.html','hrone-slide6.html','hrone-recruitment.html','hrone-payroll-outsourcing.html','hrone-inboxforhr.html','hrone-what-it-kills.html','hrone-the-facts.html','hrone-mobile.html','hrone-group-overview.html','hrone-why-hrone.html','hrone-recognised.html']);
+const SELF_NAV = new Set(['hrone-slide5.html','hrone-slide6.html','hrone-recruitment.html','hrone-payroll-outsourcing.html','hrone-inboxforhr.html','hrone-what-it-kills.html','hrone-the-facts.html','hrone-mobile.html','hrone-group-overview.html','hrone-why-hrone.html','hrone-recognised.html','hrone-oneai.html']);
 
 function updateShellNav(file) {
   const selfNav = SELF_NAV.has(file);
