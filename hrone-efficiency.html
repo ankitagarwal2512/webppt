@@ -54,20 +54,9 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 ══════════════════════════════════════════════════════════════════════ -->
 <div class="a" style="left:79px;top:365px;width:835px;height:360px;background:#f8fbf7;border:1px solid #cbe2d6;border-radius:18px;animation:fu .5s .32s ease both"></div>
 
-<!-- Kiosk logo circle + face overlay -->
-<div class="a" style="left:107px;top:410px;width:128px;height:128px;border-radius:50%;background:#005139;overflow:hidden;animation:scIn .5s .38s ease both">
-  <!-- biometric scan ring decoration -->
-  <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 128 128" fill="none">
-    <circle cx="64" cy="64" r="56" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-dasharray="4 4"/>
-    <circle cx="64" cy="64" r="42" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
-    <!-- corner scan marks -->
-    <path d="M32 20 L20 20 L20 32" stroke="rgba(50,213,131,0.9)" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M96 20 L108 20 L108 32" stroke="rgba(50,213,131,0.9)" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M32 108 L20 108 L20 96" stroke="rgba(50,213,131,0.9)" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M96 108 L108 108 L108 96" stroke="rgba(50,213,131,0.9)" stroke-width="2.5" stroke-linecap="round"/>
-  </svg>
-  <!-- face photo centered -->
-  <img src="Assets/eff-kiosk-face.png" style="position:absolute;left:27px;top:26px;width:74px;height:77px;object-fit:cover;border-radius:4px">
+<!-- Kiosk logo circle + updated kiosk icon PNG -->
+<div class="a" style="left:107px;top:410px;width:128px;height:128px;border-radius:50%;background:#005139;display:flex;align-items:center;justify-content:center;overflow:hidden;animation:scIn .5s .38s ease both">
+  <img src="Assets/HROne Kiosk ICON.png" style="width:80px;height:74px;object-fit:contain">
 </div>
 
 <!-- Kiosk title + subtitle -->
@@ -78,7 +67,7 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 <div class="a" style="left:107px;top:570px;width:410px;height:1px;background:#cbe2d6;animation:fi .4s .48s ease both"></div>
 
 <!-- Feature tags -->
-<div class="a" style="left:107px;top:597px;animation:fi .4s .5s ease both">
+<div class="a" style="left:107px;top:606px;animation:fi .4s .5s ease both">
   <p style="font-size:14px;font-weight:600;color:#303a35;line-height:16px;letter-spacing:-0.1px">Proxy attendance<br>eliminated</p>
 </div>
 <div class="a" style="left:207px;top:600px;width:1px;height:44px;background:#cbe2d6;animation:fi .4s .5s ease both"></div>
@@ -119,26 +108,12 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 <!-- Card background -->
 <div class="a" style="left:941px;top:365px;width:885px;height:360px;background:#fff1ee;border:1px solid #f0d0c7;border-radius:18px;animation:fsr .5s .34s ease both"></div>
 
-<!-- AI Interviewer icon bg (dark green square with HROne bracket logo) -->
-<div class="a" style="left:981px;top:410px;width:110px;height:110px;background:#005139;border-radius:16px;display:flex;align-items:center;justify-content:center;animation:scIn .5s .4s ease both">
-  <svg viewBox="0 0 110 110" width="110" height="110" fill="white">
-    <!-- Left vertical bar -->
-    <rect x="25" y="25" width="7.7" height="60"/>
-    <!-- Left top corner -->
-    <rect x="32.7" y="25" width="7.7" height="7.7"/>
-    <!-- Left bottom corner -->
-    <rect x="32.7" y="77.3" width="7.7" height="7.7"/>
-    <!-- Right vertical bar -->
-    <rect x="77.3" y="25" width="7.7" height="60"/>
-    <!-- Right top corner -->
-    <rect x="69.6" y="25" width="7.7" height="7.7"/>
-    <!-- Right bottom corner -->
-    <rect x="69.6" y="77.3" width="7.7" height="7.7"/>
-    <!-- Three center dots forming an arc -->
-    <circle cx="40" cy="55" r="3.9"/>
-    <circle cx="55" cy="51" r="3.9"/>
-    <circle cx="70" cy="55" r="3.9"/>
-  </svg>
+<!-- AI Interviewer icon bg (dark green square with Studio logo icon mark) -->
+<div class="a" style="left:981px;top:410px;width:110px;height:110px;background:#005139;border-radius:16px;display:flex;align-items:center;justify-content:center;overflow:hidden;animation:scIn .5s .4s ease both">
+  <!-- Clip to icon mark portion only (first 90×88px of the 520×89 Studio logo SVG) -->
+  <div style="width:88px;height:86px;overflow:hidden;flex-shrink:0">
+    <img src="Assets/Studio logo.svg" style="width:520px;height:86px;max-width:none;display:block">
+  </div>
 </div>
 
 <!-- AI Interviewer title + subtitle -->
@@ -296,9 +271,6 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 
 <!-- Card 6: Performance  left:1287 -->
 <div class="a" style="left:1287px;top:800px;width:216px;height:145px;background:white;border:1px solid #ddd3c2;border-radius:12px;animation:fu .45s .64s ease both"></div>
-<!-- Sparkle decoration (Vector1/2 in Figma) -->
-<div class="a" style="left:1381px;top:808px;font-size:18px;color:#23a578;line-height:1;animation:fi .4s .68s ease both">✦</div>
-<div class="a" style="left:1395px;top:815px;font-size:11px;color:#23a578;opacity:0.6;line-height:1;animation:fi .4s .7s ease both">✦</div>
 <div class="a" style="left:1395px;top:824px;width:28px;height:28px;animation:fi .4s .68s ease both">
   <!-- Performance icon: trending up arrow -->
   <svg viewBox="0 0 28 28" fill="none" width="28" height="28">
@@ -324,12 +296,8 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
      BOTTOM ONEAI ENGINE BAR   left:77 top:968  1750×70
 ══════════════════════════════════════════════════════════════════════ -->
 <div class="a" style="left:77px;top:968px;width:1750px;height:70px;background:#005139;border-radius:10px;display:flex;align-items:center;animation:fu .5s .7s ease both">
-  <!-- Spark icon (inline SVG — the ✦ sparkle from Figma) -->
-  <svg style="margin-left:457px;flex-shrink:0" width="28" height="28" viewBox="0 0 34 32" fill="none">
-    <path d="M17 4C17 14.5 9.5 20 17 28C24.5 20 17 14.5 17 4Z" fill="#32D583" opacity="0.7"/>
-    <path d="M17 4C17 14.5 24.5 20 17 28C9.5 20 17 14.5 17 4Z" fill="#32D583"/>
-  </svg>
-  <p style="margin-left:12px;font-size:24px;font-weight:500;color:white;line-height:34px;letter-spacing:-0.2px;white-space:nowrap">OneAI engine underneath it all - intelligent, secure, and built for scale.</p>
+  <img src="Assets/ONEAI APARK.svg" style="margin-left:453px;width:32px;height:32px;flex-shrink:0">
+  <p style="margin-left:16px;font-size:24px;font-weight:500;color:white;line-height:34px;letter-spacing:-0.2px;white-space:nowrap">OneAI engine underneath it all - intelligent, secure, and built for scale.</p>
 </div>
 
 <!-- ══ NAV ══ -->
