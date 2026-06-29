@@ -163,48 +163,49 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 <p class="a" style="left:191px;top:576px;width:411px;font-size:18px;font-weight:400;color:rgba(66,85,76,0.92);line-height:1.26;animation:fi .4s .55s ease both">Ask MIS questions in plain language.<br>It summarises numbers and builds the chart.</p>
 
 <!-- ── Analytics screenshot shell ── -->
-<div class="a" style="left:115px;top:668px;width:490px;height:280px;background:#f9f5ef;border:1.5px solid #dcd2c0;border-radius:10px;overflow:hidden;animation:fi .5s .6s ease both">
+<div class="a" style="left:115px;top:652px;width:490px;height:320px;background:#f9f5ef;border:1.5px solid #dcd2c0;border-radius:10px;overflow:hidden;animation:fi .5s .6s ease both">
   <!-- Browser chrome bar -->
   <div style="height:32px;background:#ede7dc;border-bottom:1px solid #d8cebc;display:flex;align-items:center;padding:0 14px;gap:6px;flex-shrink:0">
     <div style="width:12px;height:12px;border-radius:50%;background:#ff6059"></div>
     <div style="width:12px;height:12px;border-radius:50%;background:#ffbc2e"></div>
     <div style="width:12px;height:12px;border-radius:50%;background:#29c740"></div>
   </div>
-  <!-- Content: left panel + arrow + right chart panel -->
-  <div style="display:flex;height:248px">
+  <!-- Content: left panel + arrow + right chart panel — fills remaining 288px -->
+  <div style="display:flex;height:288px">
     <!-- Left: You ask panel -->
-    <div style="width:224px;background:#fff;border-right:1px solid #e4d9ca;padding:16px 16px 12px;flex-shrink:0">
-      <p style="font-size:13px;font-weight:700;color:#10231b;margin-bottom:18px">You ask</p>
-      <!-- query rows — these animate in -->
-      <div class="qrow" style="display:flex;align-items:center;gap:9px;background:#f5f0e8;border-radius:8px;padding:7px 10px;margin-bottom:8px;animation:btnUp .4s .7s ease both">
+    <div style="width:210px;background:#fff;border-right:1px solid #e4d9ca;padding:16px 14px 12px;flex-shrink:0;display:flex;flex-direction:column">
+      <p style="font-size:13px;font-weight:700;color:#10231b;margin-bottom:14px">You ask</p>
+      <div style="display:flex;align-items:center;gap:9px;background:#f5f0e8;border-radius:8px;padding:8px 10px;margin-bottom:8px;animation:btnUp .4s .7s ease both">
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="1" y="1" width="8" height="8" rx="1.5" stroke="#0a8e5f" stroke-width="1.2"/><line x1="3" y1="5" x2="7" y2="5" stroke="#0a8e5f" stroke-width="1.2"/></svg>
-        <span style="font-size:9px;font-weight:600;color:#42554c;white-space:nowrap">Show attrition by department</span>
+        <span style="font-size:9px;font-weight:600;color:#42554c">Show attrition by dept</span>
       </div>
-      <div class="qrow" style="display:flex;align-items:center;gap:9px;background:#f5f0e8;border-radius:8px;padding:7px 10px;margin-bottom:8px;animation:btnUp .4s .8s ease both">
+      <div style="display:flex;align-items:center;gap:9px;background:#f5f0e8;border-radius:8px;padding:8px 10px;margin-bottom:8px;animation:btnUp .4s .8s ease both">
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="1" y="1" width="8" height="8" rx="1.5" stroke="#0a8e5f" stroke-width="1.2"/><line x1="3" y1="5" x2="7" y2="5" stroke="#0a8e5f" stroke-width="1.2"/></svg>
-        <span style="font-size:9px;font-weight:600;color:#42554c;white-space:nowrap">Sites with high overtime</span>
+        <span style="font-size:9px;font-weight:600;color:#42554c">Sites with high overtime</span>
       </div>
-      <div class="qrow" style="display:flex;align-items:center;gap:9px;background:#f5f0e8;border-radius:8px;padding:7px 10px;animation:btnUp .4s .9s ease both">
+      <div style="display:flex;align-items:center;gap:9px;background:#f5f0e8;border-radius:8px;padding:8px 10px;animation:btnUp .4s .9s ease both">
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="1" y="1" width="8" height="8" rx="1.5" stroke="#0a8e5f" stroke-width="1.2"/><line x1="3" y1="5" x2="7" y2="5" stroke="#0a8e5f" stroke-width="1.2"/></svg>
-        <span style="font-size:9px;font-weight:600;color:#42554c;white-space:nowrap">Summarise payroll cost</span>
+        <span style="font-size:9px;font-weight:600;color:#42554c">Summarise payroll cost</span>
       </div>
     </div>
     <!-- Arrow -->
-    <div style="width:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:fi .4s .95s ease both">
-      <span style="font-size:24px;font-weight:900;color:#0a8e5f;line-height:1">→</span>
+    <div style="width:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:fi .4s .95s ease both">
+      <span style="font-size:22px;font-weight:900;color:#0a8e5f;line-height:1">→</span>
     </div>
-    <!-- Right: chart panel -->
-    <div style="flex:1;background:#fbf8f1;border:1px solid #ded4c2;margin:14px 14px 14px 0;border-radius:10px;padding:12px 14px;display:flex;flex-direction:column">
-      <p style="font-size:12px;font-weight:700;color:#10231b;margin-bottom:8px">Attrition by department</p>
-      <!-- Bar chart with grow-from-bottom animation -->
-      <div style="flex:1;display:flex;align-items:flex-end;gap:5px;padding-bottom:10px">
-        <div style="width:20px;height:20px;background:rgba(40,185,121,0.72);border-radius:3px 3px 0 0;transform-origin:bottom center;animation:barGrow .6s .85s ease-out both"></div>
-        <div style="width:20px;height:57px;background:rgba(40,185,121,0.72);border-radius:3px 3px 0 0;transform-origin:bottom center;animation:barGrow .6s .95s ease-out both"></div>
-        <div style="width:20px;height:36px;background:rgba(40,185,121,0.72);border-radius:3px 3px 0 0;transform-origin:bottom center;animation:barGrow .6s 1.05s ease-out both"></div>
-        <div style="width:20px;height:95px;background:rgba(244,81,55,0.72);border-radius:3px 3px 0 0;transform-origin:bottom center;animation:barGrow .6s 1.15s ease-out both"></div>
-        <div style="width:20px;height:58px;background:rgba(40,185,121,0.72);border-radius:3px 3px 0 0;transform-origin:bottom center;animation:barGrow .6s 1.25s ease-out both"></div>
+    <!-- Right: chart panel — tighter margin so bars have room to breathe -->
+    <div style="flex:1;background:#fbf8f1;border:1px solid #ded4c2;margin:12px 12px 12px 0;border-radius:10px;padding:12px 14px 10px;display:flex;flex-direction:column">
+      <p style="font-size:11px;font-weight:700;color:#10231b;margin-bottom:10px;flex-shrink:0">Attrition by department</p>
+      <!-- Explicit 160px chart area so bars grow to nearly full height -->
+      <div style="height:160px;display:flex;align-items:flex-end;gap:8px">
+        <div style="width:26px;height:48px; background:rgba(40,185,121,0.72);border-radius:4px 4px 0 0;transform-origin:bottom center;animation:barGrow .6s .85s ease-out both"></div>
+        <div style="width:26px;height:112px;background:rgba(40,185,121,0.72);border-radius:4px 4px 0 0;transform-origin:bottom center;animation:barGrow .6s .93s ease-out both"></div>
+        <div style="width:26px;height:74px; background:rgba(40,185,121,0.72);border-radius:4px 4px 0 0;transform-origin:bottom center;animation:barGrow .6s 1.01s ease-out both"></div>
+        <div style="width:26px;height:152px;background:rgba(244,81,55,0.82); border-radius:4px 4px 0 0;transform-origin:bottom center;animation:barGrow .6s 1.09s ease-out both"></div>
+        <div style="width:26px;height:96px; background:rgba(40,185,121,0.72);border-radius:4px 4px 0 0;transform-origin:bottom center;animation:barGrow .6s 1.17s ease-out both"></div>
       </div>
-      <p style="font-size:10px;font-weight:700;color:#0a8e5f;animation:fi .5s 1.3s ease both">↓ 12% <span style="color:#999;font-weight:400">QoQ — summary ready</span></p>
+      <!-- Axis baseline -->
+      <div style="height:1px;background:#d4ccbf;margin-bottom:8px;flex-shrink:0"></div>
+      <p style="font-size:10px;font-weight:700;color:#0a8e5f;flex-shrink:0;animation:fi .5s 1.3s ease both">↓ 12% <span style="color:#999;font-weight:400">QoQ — summary ready</span></p>
     </div>
   </div>
 </div>
