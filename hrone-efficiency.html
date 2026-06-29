@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>HROne — One AI: Efficiency in Every Module</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:'Public Sans',sans-serif}
+#vp{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center}
+#stage{position:relative;width:1920px;height:1080px;background:#fdf5e7;flex-shrink:0;transform-origin:center;overflow:hidden}
+.a{position:absolute}
+@keyframes fi  {from{opacity:0}to{opacity:1}}
+@keyframes fd  {from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fu  {from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fsl {from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fsr {from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scIn{from{opacity:0;transform:scale(0.88)}to{opacity:1;transform:scale(1)}}
+.nav{position:fixed;bottom:26px;right:30px;display:flex;align-items:center;gap:12px;z-index:200;background:rgba(1,58,41,.84);backdrop-filter:blur(6px);padding:8px 14px 8px 16px;border-radius:40px}
+.nav-cnt{color:rgba(255,255,255,.6);font-size:14px;font-weight:500;letter-spacing:.5px;margin-right:4px}
+.nav-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.28);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s,transform .12s}
+.nav-btn:hover{background:rgba(35,165,120,.5)}
+.nav-btn:active{transform:scale(.92)}
+.nav-btn svg{width:20px;height:20px}
+</style>
+</head>
+<body>
+<div id="vp"><div id="stage">
+
+<!-- ══ EYEBROW ══ -->
+<div class="a" style="left:79px;top:116px;width:38px;height:3px;background:#ee5a3c;border-radius:2px;animation:fi .4s .08s ease both"></div>
+<p class="a" style="left:132px;top:107px;font-size:22px;color:#ee5a3c;white-space:nowrap;line-height:28px;animation:fi .4s .12s ease both">
+  <strong style="font-weight:700">One AI ·</strong> <span style="font-weight:500">efficiency in every module</span>
+</p>
+
+<!-- ══ HEADLINE ══ -->
+<p class="a" style="left:79px;top:146px;font-size:84px;font-weight:700;color:#0e0e0e;line-height:86px;animation:fd .65s .18s ease both">Hours of manual<br>work, gone<span style="color:#e56046">.</span></p>
+
+<!-- ══ DESCRIPTION ══ -->
+<p class="a" style="left:847px;top:181px;width:919px;font-size:28px;font-weight:500;color:rgba(37,48,44,0.95);line-height:36px;animation:fi .6s .28s ease both">Nothing new to learn — just the slow, manual parts of every module turned into minutes, on the <strong style="font-weight:700">OneAI</strong> engine underneath.​</p>
+
+<!-- ══ ONEAI LOGO TOP-RIGHT ══ -->
+<div class="a" style="left:1667px;top:64px;width:175px;height:51px;animation:fi .5s .08s ease both">
+  <img src="Assets/eff-logo-topright.svg" style="width:100%;height:100%;object-fit:contain">
+</div>
+<p class="a" style="left:1733px;top:120px;font-size:10px;font-weight:500;color:#6b7e75;line-height:14px;animation:fi .4s .1s ease both">Powered by</p>
+<div class="a" style="left:1789px;top:120px;width:41px;height:9px;animation:fi .4s .1s ease both">
+  <img src="Assets/eff-hrone-logo-powered.svg" style="width:100%;height:100%;object-fit:contain">
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     HRONE KIOSK CARD   left:79 top:365  835×360
+══════════════════════════════════════════════════════════════════════ -->
+<div class="a" style="left:79px;top:365px;width:835px;height:360px;background:#f8fbf7;border:1px solid #cbe2d6;border-radius:18px;animation:fu .5s .32s ease both"></div>
+
+<!-- Kiosk logo circle + face overlay -->
+<div class="a" style="left:107px;top:410px;width:128px;height:128px;border-radius:50%;background:#005139;overflow:hidden;animation:scIn .5s .38s ease both">
+  <!-- biometric scan ring decoration -->
+  <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 128 128" fill="none">
+    <circle cx="64" cy="64" r="56" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <circle cx="64" cy="64" r="42" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+    <!-- corner scan marks -->
+    <path d="M32 20 L20 20 L20 32" stroke="rgba(50,213,131,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M96 20 L108 20 L108 32" stroke="rgba(50,213,131,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M32 108 L20 108 L20 96" stroke="rgba(50,213,131,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M96 108 L108 108 L108 96" stroke="rgba(50,213,131,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>
+  <!-- face photo centered -->
+  <img src="Assets/eff-kiosk-face.png" style="position:absolute;left:27px;top:26px;width:74px;height:77px;object-fit:cover;border-radius:4px">
+</div>
+
+<!-- Kiosk title + subtitle -->
+<p class="a" style="left:251px;top:435px;font-size:32px;font-weight:700;color:#005139;line-height:40px;letter-spacing:-0.6px;width:265px;animation:fd .45s .4s ease both">HROne Kiosk</p>
+<p class="a" style="left:251px;top:480px;font-size:20px;font-weight:600;color:#303a35;line-height:28px;letter-spacing:-0.2px;width:315px;animation:fd .45s .43s ease both">Your HR assistant. Always on.</p>
+
+<!-- Kiosk divider -->
+<div class="a" style="left:107px;top:570px;width:410px;height:1px;background:#cbe2d6;animation:fi .4s .48s ease both"></div>
+
+<!-- Feature tags -->
+<div class="a" style="left:107px;top:597px;animation:fi .4s .5s ease both">
+  <p style="font-size:14px;font-weight:600;color:#303a35;line-height:16px;letter-spacing:-0.1px">Proxy attendance<br>eliminated</p>
+</div>
+<div class="a" style="left:207px;top:600px;width:1px;height:44px;background:#cbe2d6;animation:fi .4s .5s ease both"></div>
+<div class="a" style="left:224px;top:606px;animation:fi .4s .5s ease both">
+  <p style="font-size:14px;font-weight:600;color:#303a35;line-height:16px;letter-spacing:-0.1px">Facial,<br>multilingual</p>
+</div>
+<div class="a" style="left:333px;top:600px;width:1px;height:44px;background:#cbe2d6;animation:fi .4s .5s ease both"></div>
+<div class="a" style="left:350px;top:606px;animation:fi .4s .5s ease both">
+  <p style="font-size:14px;font-weight:600;color:#303a35;line-height:16px;letter-spacing:-0.1px">Instant<br>support</p>
+</div>
+<div class="a" style="left:432px;top:600px;width:1px;height:44px;background:#cbe2d6;animation:fi .4s .5s ease both"></div>
+<div class="a" style="left:449px;top:606px;animation:fi .4s .5s ease both">
+  <p style="font-size:14px;font-weight:600;color:#303a35;line-height:16px;letter-spacing:-0.1px">Always<br>available</p>
+</div>
+
+<!-- ── Kiosk tablet shell  left:558 top:415  330×250 ── -->
+<div class="a" style="left:558px;top:415px;width:330px;height:250px;background:#0b0f0e;border-radius:18px;box-shadow:0 6px 12px rgba(0,0,0,0.18);animation:fsr .48s .38s ease both">
+  <!-- Screen -->
+  <div style="position:absolute;left:10px;top:9px;right:10px;bottom:9px;background:#f9faf9;border-radius:12px;overflow:hidden">
+    <!-- Header text -->
+    <p style="position:absolute;left:44px;top:23px;font-size:12px;font-weight:700;color:#10231b;line-height:22px;letter-spacing:-0.2px;white-space:nowrap">Look at the camera to mark your attendance</p>
+    <p style="position:absolute;left:82px;top:42px;font-size:9px;font-weight:500;color:#33483f;opacity:0.8;line-height:16px;letter-spacing:-0.1px;white-space:nowrap">Please ensure your face is clearly visible</p>
+    <!-- Tablet content photo — offset from shell: (24,67) -->
+    <div style="position:absolute;left:14px;top:58px;right:8px;bottom:8px;border-radius:8px;overflow:hidden">
+      <img src="Assets/eff-tablet-content.png" style="width:100%;height:100%;object-fit:cover;object-position:center top">
+    </div>
+    <!-- Powered by overlay at bottom of screen (stage 670,620 → screen-relative 102,196) -->
+    <div style="position:absolute;bottom:12px;left:102px;display:flex;align-items:center;gap:6px">
+      <p style="font-size:10px;font-weight:500;color:#6b7e75;line-height:14px">Powered by</p>
+      <img src="Assets/eff-hrone-logo-powered.svg" style="width:41px;height:12px;object-fit:contain">
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     AI INTERVIEWER CARD   left:941 top:365  885×360
+══════════════════════════════════════════════════════════════════════ -->
+<!-- Card background -->
+<div class="a" style="left:941px;top:365px;width:885px;height:360px;background:#fff1ee;border:1px solid #f0d0c7;border-radius:18px;animation:fsr .5s .34s ease both"></div>
+
+<!-- AI Interviewer icon bg (dark green square with HROne bracket logo) -->
+<div class="a" style="left:981px;top:410px;width:110px;height:110px;background:#005139;border-radius:16px;display:flex;align-items:center;justify-content:center;animation:scIn .5s .4s ease both">
+  <svg viewBox="0 0 110 110" width="110" height="110" fill="white">
+    <!-- Left vertical bar -->
+    <rect x="25" y="25" width="7.7" height="60"/>
+    <!-- Left top corner -->
+    <rect x="32.7" y="25" width="7.7" height="7.7"/>
+    <!-- Left bottom corner -->
+    <rect x="32.7" y="77.3" width="7.7" height="7.7"/>
+    <!-- Right vertical bar -->
+    <rect x="77.3" y="25" width="7.7" height="60"/>
+    <!-- Right top corner -->
+    <rect x="69.6" y="25" width="7.7" height="7.7"/>
+    <!-- Right bottom corner -->
+    <rect x="69.6" y="77.3" width="7.7" height="7.7"/>
+    <!-- Three center dots forming an arc -->
+    <circle cx="40" cy="55" r="3.9"/>
+    <circle cx="55" cy="51" r="3.9"/>
+    <circle cx="70" cy="55" r="3.9"/>
+  </svg>
+</div>
+
+<!-- AI Interviewer title + subtitle -->
+<p class="a" style="left:1116px;top:435px;font-size:32px;font-weight:700;color:#005139;line-height:40px;letter-spacing:-0.6px;width:310px;animation:fd .45s .42s ease both">AI Interviewer</p>
+<p class="a" style="left:1116px;top:480px;font-size:20px;font-weight:400;color:#303a35;line-height:28px;letter-spacing:-0.2px;width:280px;animation:fd .45s .45s ease both">First rounds run themselves, <strong style="font-weight:600">bulk · voice · proctored</strong></p>
+
+<!-- AI card divider -->
+<div class="a" style="left:981px;top:570px;width:390px;height:1px;background:rgba(0,81,57,0.22);animation:fi .4s .5s ease both"></div>
+
+<!-- AI Interviewer feature tags -->
+<div class="a" style="left:981px;top:606px;animation:fi .4s .52s ease both">
+  <p style="font-size:14px;font-weight:600;color:#303a35;line-height:18px">AI-led<br>interviews</p>
+</div>
+<div class="a" style="left:1076px;top:600px;width:1px;height:44px;background:rgba(0,81,57,0.22);animation:fi .4s .52s ease both"></div>
+<div class="a" style="left:1093px;top:606px;animation:fi .4s .52s ease both">
+  <p style="font-size:14px;font-weight:600;color:#303a35;line-height:18px">Voice<br>analysis</p>
+</div>
+<div class="a" style="left:1184px;top:600px;width:1px;height:44px;background:rgba(0,81,57,0.22);animation:fi .4s .52s ease both"></div>
+<div class="a" style="left:1201px;top:606px;animation:fi .4s .52s ease both">
+  <p style="font-size:14px;font-weight:600;color:#303a35;line-height:18px">Bias<br>free</p>
+</div>
+<div class="a" style="left:1267px;top:600px;width:1px;height:44px;background:rgba(0,81,57,0.22);animation:fi .4s .52s ease both"></div>
+<div class="a" style="left:1284px;top:606px;animation:fi .4s .52s ease both">
+  <p style="font-size:14px;font-weight:600;color:#303a35;line-height:18px">Score &amp;<br>insights</p>
+</div>
+
+<!-- ── AI mockup shell  left:1437 top:397  345×285 ── -->
+<div class="a" style="left:1437px;top:397px;width:345px;height:285px;background:white;border:1px solid #e8d5d0;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,0.08);overflow:hidden;animation:fsr .48s .4s ease both">
+  <!-- Browser dots -->
+  <div style="position:absolute;left:20px;top:15px;width:8px;height:8px;border-radius:50%;background:#ff5f57"></div>
+  <div style="position:absolute;left:36px;top:15px;width:8px;height:8px;border-radius:50%;background:#ffbd2e"></div>
+  <div style="position:absolute;left:52px;top:15px;width:8px;height:8px;border-radius:50%;background:#28c840"></div>
+
+  <!-- Video area: offset (10,36) from shell -->
+  <div style="position:absolute;left:10px;top:36px;width:325px;height:235px;border-radius:4px;overflow:hidden">
+    <img src="Assets/eff-ai-video-bg.png" style="width:100%;height:100%;object-fit:cover;object-position:center">
+    <!-- Video bottom overlay gradient -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:43px;background:linear-gradient(to top,rgba(0,0,0,0.55),transparent)"></div>
+    <!-- Control buttons (mic/camera/end-call circles) -->
+    <div style="position:absolute;bottom:10px;right:10px;display:flex;gap:8px;align-items:center">
+      <div style="width:22px;height:22px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2e2e2e" stroke-width="2" stroke-linecap="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
+      </div>
+      <div style="width:22px;height:22px;border-radius:50%;background:#2e2e2e;display:flex;align-items:center;justify-content:center">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M15 10l4.553-2.276A1 1 0 0121 8.72v6.56a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+      </div>
+      <div style="width:22px;height:22px;border-radius:50%;background:#f24033;display:flex;align-items:center;justify-content:center">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating AI Interviewer card: offset from shell (234,50) -->
+  <div style="position:absolute;right:10px;top:50px;width:90px;height:89px;background:white;border-radius:7px;box-shadow:0 6px 7px rgba(4,8,15,0.14);padding:8px;opacity:0.92">
+    <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px">
+      <div style="width:10.5px;height:10.5px;background:#094c3a;border-radius:2px;flex-shrink:0"></div>
+      <p style="font-size:6.8px;font-weight:700;color:#04080f;line-height:8.7px">AI Interviewer</p>
+    </div>
+    <div style="background:#f0f0f5;border-radius:5px;padding:4px 5px;margin-bottom:6px">
+      <p style="font-size:6.2px;font-weight:400;color:#04080f;line-height:7.4px">Can you walk me through a time you handled a difficult customer?</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:3px">
+      <p style="font-size:6.2px;color:#04080f;line-height:7.4px">Listening</p>
+      <span style="display:inline-block;width:2.5px;height:2.5px;border-radius:50%;background:#0a8e5f"></span>
+      <span style="display:inline-block;width:2.5px;height:2.5px;border-radius:50%;background:#0a8e5f;opacity:0.7"></span>
+      <span style="display:inline-block;width:2.5px;height:2.5px;border-radius:50%;background:#0a8e5f;opacity:0.4"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     WORKFLOW SECTION
+══════════════════════════════════════════════════════════════════════ -->
+<!-- Section heading -->
+<p class="a" style="left:77px;top:765px;font-size:18px;color:#005139;line-height:26px;letter-spacing:2px;white-space:nowrap;animation:fi .5s .5s ease both"><span style="font-weight:800">ONE AI </span><span style="font-weight:700">ACROSS YOUR WORKFLOW</span></p>
+
+<!-- ── 7 workflow cards, each 216×145, gap 26px (arrow), step=242px ── -->
+
+<!-- Card 1: Recruitment  left:77 -->
+<div class="a" style="left:77px;top:800px;width:216px;height:145px;background:white;border:1px solid #ddd3c2;border-radius:12px;animation:fu .45s .54s ease both"></div>
+<div class="a" style="left:171px;top:823px;width:28px;height:28px;animation:fi .4s .58s ease both">
+  <!-- Recruitment icon: person + search (stroke #EE5A3C) -->
+  <svg viewBox="0 0 28 28" fill="none" width="28" height="28">
+    <path d="M11.67 12.83C14.24 12.83 16.33 10.74 16.33 8.17C16.33 5.59 14.24 3.5 11.67 3.5C9.09 3.5 7 5.59 7 8.17C7 10.74 9.09 12.83 11.67 12.83Z" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M12.02 17.5H8.17C6.93 17.5 5.74 17.99 4.87 18.87C3.99 19.74 3.5 20.93 3.5 22.17V24.5" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M19.83 23.33C21.77 23.33 23.33 21.77 23.33 19.83C23.33 17.9 21.77 16.33 19.83 16.33C17.9 16.33 16.33 17.9 16.33 19.83C16.33 21.77 17.9 23.33 19.83 23.33Z" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M24.5 24.5L22.28 22.28" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+<p class="a" style="left:185px;top:859px;width:176px;font-size:20px;font-weight:700;color:#10231b;line-height:26px;letter-spacing:-0.2px;text-align:center;transform:translateX(-50%);animation:fi .4s .58s ease both">Recruitment</p>
+<p class="a" style="left:185px;top:886px;width:180px;font-size:14px;font-weight:500;color:#33483f;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .58s ease both">Screening hours</p>
+<p class="a" style="left:185px;top:913px;width:176px;font-size:16px;font-weight:700;color:#f45137;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .58s ease both">→ minutes</p>
+<p class="a" style="left:299px;top:858px;font-size:20px;font-weight:500;color:#f45137;line-height:28px;animation:fi .3s .62s ease both">→</p>
+
+<!-- Card 2: Core HR  left:319 -->
+<div class="a" style="left:319px;top:800px;width:216px;height:145px;background:white;border:1px solid #ddd3c2;border-radius:12px;animation:fu .45s .56s ease both"></div>
+<div class="a" style="left:409px;top:826px;width:28px;height:28px;animation:fi .4s .6s ease both">
+  <!-- Core HR icon: person shape -->
+  <svg viewBox="0 0 28 28" fill="none" width="28" height="28">
+    <path d="M22.17 24.5V22.17C22.17 20.93 21.68 19.74 20.8 18.87C19.92 17.99 18.74 17.5 17.5 17.5H10.5C9.26 17.5 8.08 17.99 7.2 18.87C6.33 19.74 5.83 20.93 5.83 22.17V24.5" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 12.83C16.58 12.83 18.67 10.74 18.67 8.17C18.67 5.59 16.58 3.5 14 3.5C11.42 3.5 9.33 5.59 9.33 8.17C9.33 10.74 11.42 12.83 14 12.83Z" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+<p class="a" style="left:427px;top:859px;width:176px;font-size:20px;font-weight:700;color:#10231b;line-height:26px;letter-spacing:-0.2px;text-align:center;transform:translateX(-50%);animation:fi .4s .6s ease both">Core HR</p>
+<p class="a" style="left:427px;top:886px;width:180px;font-size:14px;font-weight:500;color:#33483f;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .6s ease both">Letters drafted</p>
+<p class="a" style="left:427px;top:913px;width:176px;font-size:16px;font-weight:700;color:#f45137;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .6s ease both">→ auto-generated</p>
+<p class="a" style="left:541px;top:858px;font-size:20px;font-weight:500;color:#f45137;line-height:28px;animation:fi .3s .64s ease both">→</p>
+
+<!-- Card 3: Workforce  left:562 -->
+<div class="a" style="left:562px;top:800px;width:216px;height:145px;background:white;border:1px solid #ddd3c2;border-radius:12px;animation:fu .45s .58s ease both"></div>
+<div class="a" style="left:655px;top:824px;width:28px;height:28px;animation:fi .4s .62s ease both">
+  <!-- Workforce icon: group/team -->
+  <svg viewBox="0 0 28 28" fill="none" width="28" height="28">
+    <path d="M18.67 24.5V22.17C18.67 20.93 18.18 19.74 17.3 18.87C16.42 17.99 15.24 17.5 14 17.5H7C5.76 17.5 4.58 17.99 3.7 18.87C2.83 19.74 2.33 20.93 2.33 22.17V24.5" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.67 3.65C19.67 3.91 20.55 4.49 21.19 5.31C21.82 6.13 22.16 7.13 22.16 8.17C22.16 9.2 21.82 10.21 21.19 11.02C20.55 11.84 19.67 12.42 18.67 12.68" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M25.67 24.5V22.17C25.67 21.13 25.32 20.13 24.69 19.31C24.05 18.49 23.17 17.91 22.17 17.65" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.5 12.83C13.08 12.83 15.17 10.74 15.17 8.17C15.17 5.59 13.08 3.5 10.5 3.5C7.92 3.5 5.83 5.59 5.83 8.17C5.83 10.74 7.92 12.83 10.5 12.83Z" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+<p class="a" style="left:669px;top:859px;width:176px;font-size:20px;font-weight:700;color:#10231b;line-height:26px;letter-spacing:-0.2px;text-align:center;transform:translateX(-50%);animation:fi .4s .62s ease both">Workforce</p>
+<p class="a" style="left:669px;top:886px;width:180px;font-size:14px;font-weight:500;color:#33483f;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .62s ease both">Onboarding paperwork</p>
+<p class="a" style="left:669px;top:913px;width:176px;font-size:16px;font-weight:700;color:#f45137;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .62s ease both">→ automated</p>
+<p class="a" style="left:783px;top:858px;font-size:20px;font-weight:500;color:#f45137;line-height:28px;animation:fi .3s .66s ease both">→</p>
+
+<!-- Card 4: Time Office  left:809 -->
+<div class="a" style="left:809px;top:800px;width:216px;height:145px;background:white;border:1px solid #ddd3c2;border-radius:12px;animation:fu .45s .6s ease both"></div>
+<div class="a" style="left:897px;top:825px;width:28px;height:28px;animation:fi .4s .64s ease both">
+  <!-- Time Office icon: clock -->
+  <svg viewBox="0 0 28 28" fill="none" width="28" height="28">
+    <path d="M14 25.67C20.44 25.67 25.67 20.44 25.67 14C25.67 7.56 20.44 2.33 14 2.33C7.56 2.33 2.33 7.56 2.33 14C2.33 20.44 7.56 25.67 14 25.67Z" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 7V14L18.67 16.33" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+<p class="a" style="left:911px;top:859px;width:176px;font-size:20px;font-weight:700;color:#10231b;line-height:26px;letter-spacing:-0.2px;text-align:center;transform:translateX(-50%);animation:fi .4s .64s ease both">Time Office</p>
+<p class="a" style="left:911px;top:886px;width:180px;font-size:14px;font-weight:500;color:#33483f;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .64s ease both">Attendance</p>
+<p class="a" style="left:911px;top:913px;width:176px;font-size:16px;font-weight:700;color:#f45137;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .64s ease both">→ verified instantly</p>
+<p class="a" style="left:1025px;top:858px;font-size:20px;font-weight:500;color:#f45137;line-height:28px;animation:fi .3s .68s ease both">→</p>
+
+<!-- Card 5: Payroll  left:1045 -->
+<div class="a" style="left:1045px;top:800px;width:216px;height:145px;background:white;border:1px solid #ddd3c2;border-radius:12px;animation:fu .45s .62s ease both"></div>
+<div class="a" style="left:1139px;top:824px;width:28px;height:28px;animation:fi .4s .66s ease both">
+  <!-- Payroll icon: Rupee / currency lines -->
+  <svg viewBox="0 0 28 28" fill="none" width="28" height="28">
+    <path d="M7 3.5H21" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M7 9.33H21" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M7 15.17L16.92 24.5" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M7 15.17H10.5" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10.5 15.17C18.28 15.17 18.28 3.5 10.5 3.5" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+<p class="a" style="left:1153px;top:859px;width:176px;font-size:20px;font-weight:700;color:#10231b;line-height:26px;letter-spacing:-0.2px;text-align:center;transform:translateX(-50%);animation:fi .4s .66s ease both">Payroll</p>
+<p class="a" style="left:1153px;top:886px;width:180px;font-size:14px;font-weight:500;color:#33483f;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .66s ease both">Manual checks</p>
+<p class="a" style="left:1153px;top:913px;width:176px;font-size:16px;font-weight:700;color:#f45137;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .66s ease both">→ automated</p>
+<p class="a" style="left:1267px;top:858px;font-size:20px;font-weight:500;color:#f45137;line-height:28px;animation:fi .3s .7s ease both">→</p>
+
+<!-- Card 6: Performance  left:1287 -->
+<div class="a" style="left:1287px;top:800px;width:216px;height:145px;background:white;border:1px solid #ddd3c2;border-radius:12px;animation:fu .45s .64s ease both"></div>
+<!-- Sparkle decoration (Vector1/2 in Figma) -->
+<div class="a" style="left:1381px;top:808px;font-size:18px;color:#23a578;line-height:1;animation:fi .4s .68s ease both">✦</div>
+<div class="a" style="left:1395px;top:815px;font-size:11px;color:#23a578;opacity:0.6;line-height:1;animation:fi .4s .7s ease both">✦</div>
+<div class="a" style="left:1395px;top:824px;width:28px;height:28px;animation:fi .4s .68s ease both">
+  <!-- Performance icon: trending up arrow -->
+  <svg viewBox="0 0 28 28" fill="none" width="28" height="28">
+    <polyline points="3.5,21 10.5,14 15.17,18.67 24.5,7" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="18.67,7 24.5,7 24.5,12.83" stroke="#EE5A3C" stroke-width="2.33" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+<p class="a" style="left:1395px;top:859px;width:176px;font-size:20px;font-weight:700;color:#10231b;line-height:26px;letter-spacing:-0.2px;text-align:center;transform:translateX(-50%);animation:fi .4s .68s ease both">Performance</p>
+<p class="a" style="left:1395px;top:886px;width:180px;font-size:14px;font-weight:500;color:#33483f;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .68s ease both">Reviews</p>
+<p class="a" style="left:1395px;top:913px;width:176px;font-size:16px;font-weight:700;color:#f45137;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .68s ease both">→ AI-drafted</p>
+<p class="a" style="left:1509px;top:858px;font-size:20px;font-weight:500;color:#f45137;line-height:28px;animation:fi .3s .72s ease both">→</p>
+
+<!-- Card 7: More Modules  left:1529 (dashed orange border, warm bg) -->
+<div class="a" style="left:1529px;top:800px;width:216px;height:145px;background:#fae4cd;border:1.73px dashed #e56046;border-radius:12px;animation:fu .45s .66s ease both"></div>
+<p class="a" style="left:1637px;top:832px;width:176px;font-size:20px;font-weight:700;color:#10231b;line-height:26px;letter-spacing:-0.2px;text-align:center;transform:translateX(-50%);animation:fi .4s .7s ease both">More Modules</p>
+<div class="a" style="left:1637px;top:862px;width:180px;font-size:14px;font-weight:500;color:#33483f;line-height:20px;text-align:center;transform:translateX(-50%);animation:fi .4s .7s ease both">
+  <p>Helpdesk, Expense,</p>
+  <p>Engagement, Asset</p>
+  <p>&amp; more</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     BOTTOM ONEAI ENGINE BAR   left:77 top:968  1750×70
+══════════════════════════════════════════════════════════════════════ -->
+<div class="a" style="left:77px;top:968px;width:1750px;height:70px;background:#005139;border-radius:10px;display:flex;align-items:center;animation:fu .5s .7s ease both">
+  <!-- Spark icon (inline SVG — the ✦ sparkle from Figma) -->
+  <svg style="margin-left:457px;flex-shrink:0" width="28" height="28" viewBox="0 0 34 32" fill="none">
+    <path d="M17 4C17 14.5 9.5 20 17 28C24.5 20 17 14.5 17 4Z" fill="#32D583" opacity="0.7"/>
+    <path d="M17 4C17 14.5 24.5 20 17 28C9.5 20 17 14.5 17 4Z" fill="#32D583"/>
+  </svg>
+  <p style="margin-left:12px;font-size:24px;font-weight:500;color:white;line-height:34px;letter-spacing:-0.2px;white-space:nowrap">OneAI engine underneath it all - intelligent, secure, and built for scale.</p>
+</div>
+
+<!-- ══ NAV ══ -->
+<div class="nav">
+  <span class="nav-cnt">12 / 34</span>
+  <button class="nav-btn" id="prevBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="nav-btn" id="nextBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+</div>
+
+</div></div>
+<script>
+function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);document.getElementById('stage').style.transform='scale('+s+')';}
+fit();addEventListener('resize',fit);
+document.getElementById('prevBtn').onclick=function(){if(parent!==window)parent.postMessage({type:'nav-key',key:'ArrowLeft'},'*');};
+document.getElementById('nextBtn').onclick=function(){if(parent!==window)parent.postMessage({type:'nav-key',key:'ArrowRight'},'*');};
+</script>
+</body>
+</html>
