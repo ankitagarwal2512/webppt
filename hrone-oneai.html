@@ -39,13 +39,23 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
   0%,100%{opacity:1;transform:scale(1)}
   50%    {opacity:0.5;transform:scale(0.88)}
 }
-@keyframes dotPulse {
-  0%,100%{transform:scale(1);opacity:1}
-  50%    {transform:scale(1.6);opacity:0.5}
-}
-@keyframes brainGlow {
-  0%,100%{box-shadow:0 0 0 6px rgba(10,142,95,0.15),0 0 24px rgba(10,142,95,0.3)}
-  50%    {box-shadow:0 0 0 10px rgba(10,142,95,0.08),0 0 40px rgba(10,142,95,0.5)}
+/* ── Connector line flow (same system as Two Problems One Inbox) ── */
+@keyframes dash-fwd { to { stroke-dashoffset: -12 } }
+@keyframes dash-bwd { to { stroke-dashoffset:  12 } }
+#oa-lh { animation: dash-fwd .55s linear infinite }
+#oa-rh { animation: dash-bwd .55s linear infinite }
+#oa-lv { animation: dash-fwd .55s linear infinite }
+#oa-rv { animation: dash-fwd .55s linear infinite }
+#oa-cv { animation: dash-fwd .55s linear infinite }
+
+/* ── Brain hero (same float + ring system) ── */
+@keyframes float   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes ring-out{ 0%{transform:scale(1);opacity:.6} 100%{transform:scale(2.6);opacity:0} }
+.oa-ring {
+  position:absolute;width:120px;height:120px;
+  left:50%;top:50%;margin:-60px 0 0 -60px;
+  border-radius:50%;border:1.5px solid rgba(50,213,131,.5);
+  animation:ring-out 2.4s ease-out infinite;
 }
 
 /* ── Nav ── */
@@ -98,28 +108,52 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 <!-- ══ DESCRIPTION ══ -->
 <p class="a" style="left:1111px;top:171px;width:640px;font-size:28px;font-weight:400;color:rgba(37,48,44,0.95);line-height:1.29;animation:fd .6s .3s ease both"><strong style="font-weight:700">One AI across the whole org</strong> - for the leader who needs to decide, the employee who needs it done, and everyone who just needs to ask.</p>
 
-<!-- ══ BRAIN CIRCLE ══ -->
-<div class="a" style="left:920px;top:333px;width:80px;height:80px;border-radius:50%;background:#0a8e5f;display:flex;align-items:center;justify-content:center;animation:fi .6s .35s ease both,brainGlow 3s 1s ease-in-out infinite">
-  <img src="Assets/oneai_brain_icon.svg" style="width:46px;height:40px;object-fit:contain">
-</div>
+<!-- ══ CONNECTOR SVG (flowing dashed lines — same system as Two Problems One Inbox) ══
+     SVG origin = stage (360, 325); covers left-card-centre → right-card-centre + brain area
+     Key coords in SVG-space:
+       x=0    → left card centre (stage 360)
+       x=600  → brain centre    (stage 960)
+       x=1200 → right card centre(stage 1560)
+       y=50   → horizontal line  (stage 375)
+       y=48   → brain centre     (stage 373)
+       y=90   → brain bottom     (stage 415)
+       y=120  → card tops        (stage 445)
+══ -->
+<svg class="a" viewBox="0 0 1200 130" width="1200" height="130" fill="none" overflow="visible"
+  style="left:360px;top:325px;animation:fi .5s .55s ease both"
+  xmlns="http://www.w3.org/2000/svg">
 
-<!-- ══ CONNECTORS ══ -->
-<!-- Left horizontal line (left card center → brain left edge) -->
-<div class="a" style="left:363px;top:375px;width:557px;height:1.5px;background:rgba(0,0,0,0.2);animation:fi .5s .55s ease both"></div>
-<!-- Right horizontal line (brain right edge → right card center) -->
-<div class="a" style="left:1000px;top:375px;width:560px;height:1.5px;background:rgba(0,0,0,0.2);animation:fi .5s .55s ease both"></div>
-<!-- Left vertical drop -->
-<div class="a" style="left:363px;top:375px;width:1.5px;height:70px;background:rgba(0,0,0,0.2);animation:fi .5s .6s ease both"></div>
-<!-- Left dot at card connection -->
-<div class="a" style="left:357px;top:438px;width:12px;height:12px;border-radius:50%;background:#02563d;animation:fi .4s .65s ease both,dotPulse 2.5s 1.2s ease-in-out infinite"></div>
-<!-- Center drop from brain -->
-<div class="a" style="left:960px;top:413px;width:1.5px;height:32px;background:rgba(0,0,0,0.2);animation:fi .5s .6s ease both"></div>
-<!-- Center dot -->
-<div class="a" style="left:954px;top:498px;width:12px;height:12px;border-radius:50%;background:#02563d;animation:fi .4s .65s ease both,dotPulse 2.5s 1.5s ease-in-out infinite"></div>
-<!-- Right vertical drop -->
-<div class="a" style="left:1559px;top:375px;width:1.5px;height:70px;background:rgba(0,0,0,0.2);animation:fi .5s .6s ease both"></div>
-<!-- Right dot -->
-<div class="a" style="left:1553px;top:438px;width:12px;height:12px;border-radius:50%;background:#02563d;animation:fi .4s .65s ease both,dotPulse 2.5s 1.8s ease-in-out infinite"></div>
+  <!-- Left horizontal → flows right toward brain -->
+  <path id="oa-lh" d="M0 50 H556"    stroke="#02563d" stroke-opacity=".75" stroke-width="2" stroke-dasharray="6 6"/>
+  <!-- Right horizontal → flows left toward brain -->
+  <path id="oa-rh" d="M644 50 H1200" stroke="#02563d" stroke-opacity=".75" stroke-width="2" stroke-dasharray="6 6"/>
+  <!-- Left vertical drop ↓ -->
+  <line id="oa-lv" x1="0"    y1="50"  x2="0"    y2="120" stroke="#02563d" stroke-opacity=".75" stroke-width="2" stroke-dasharray="6 6"/>
+  <!-- Right vertical drop ↓ -->
+  <line id="oa-rv" x1="1200" y1="50"  x2="1200" y2="120" stroke="#02563d" stroke-opacity=".75" stroke-width="2" stroke-dasharray="6 6"/>
+  <!-- Centre vertical drop ↓ (from brain bottom) -->
+  <line id="oa-cv" x1="600"  y1="90"  x2="600"  y2="120" stroke="#02563d" stroke-opacity=".75" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- Endpoint dots at each card -->
+  <circle cx="0"    cy="120" r="7" fill="#02563d"/>
+  <circle cx="600"  cy="120" r="7" fill="#02563d"/>
+  <circle cx="1200" cy="120" r="7" fill="#02563d"/>
+
+  <!-- Static brain circle — masks connector gap; animated hero floats on top -->
+  <circle cx="600" cy="48" r="44" fill="#02563d"/>
+</svg>
+
+<!-- ══ BRAIN HERO (floating + expanding rings — same system as Two Problems One Inbox) ══ -->
+<div class="a" style="left:900px;top:313px;width:120px;height:120px;z-index:10;animation:fi .4s .4s ease both,float 3.2s .8s ease-in-out infinite">
+  <!-- Expanding pulse rings -->
+  <div class="oa-ring" style="animation-delay:0s"></div>
+  <div class="oa-ring" style="animation-delay:.8s"></div>
+  <div class="oa-ring" style="animation-delay:1.6s"></div>
+  <!-- Main circle -->
+  <div style="position:absolute;left:20px;top:20px;width:80px;height:80px;border-radius:50%;background:#02563d;box-shadow:0 8px 28px rgba(1,43,31,0.4);display:flex;align-items:center;justify-content:center">
+    <img src="Assets/oneai_brain_icon.svg" style="width:46px;height:40px;object-fit:contain">
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════════════
      ANALYTICS AGENT CARD
