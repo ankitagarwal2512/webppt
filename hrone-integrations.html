@@ -22,6 +22,7 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 @keyframes ring-breathe{0%,100%{opacity:0.45;transform:scale(1)}50%{opacity:0.75;transform:scale(1.025)}}
 @keyframes hub-glow{0%,100%{box-shadow:0 0 0 8px rgba(2,86,61,0.06),0 0 0 18px rgba(2,86,61,0.03),0 24px 50px rgba(2,86,61,0.22)}50%{box-shadow:0 0 0 14px rgba(2,86,61,0.09),0 0 0 28px rgba(2,86,61,0.05),0 28px 60px rgba(2,86,61,0.30)}}
 @keyframes dot-pop{0%{r:0;opacity:0}70%{r:6px;opacity:1}100%{r:5px;opacity:1}}
+@keyframes line-breathe{0%,100%{filter:brightness(1)}50%{filter:brightness(2.2)}}
 
 /* Card base */
 .card{position:absolute;height:194px;width:469px}
@@ -93,32 +94,101 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 
 <!-- ══ CONNECTOR LINES ══ (hub center ≈ 938,607) -->
 <svg class="a" style="left:0;top:0;width:1920px;height:1080px;pointer-events:none;overflow:visible" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- KYC icon center (516,377) → hub left-ish -->
-  <path d="M516,377 C650,450 790,530 858,598" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
-        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:draw 1s .52s ease forwards"/>
-  <!-- BGV icon center (1403,382) → hub right-ish -->
-  <path d="M1403,382 C1230,445 1090,535 1019,590" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
-        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:draw 1s .54s ease forwards"/>
-  <!-- Financial (515,640) → hub left -->
-  <path d="M515,640 C650,635 790,628 858,618" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
-        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:draw 1s .56s ease forwards"/>
-  <!-- Identity (1409,684) → hub right -->
-  <path d="M1409,684 C1240,668 1080,648 1019,626" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
-        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:draw 1s .58s ease forwards"/>
-  <!-- Communication (469,862) → hub bottom-left -->
-  <path d="M469,862 C565,804 710,718 878,660" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
-        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:draw 1s .60s ease forwards"/>
-  <!-- Biometric (1031,866) → hub bottom-right -->
-  <path d="M1031,866 C1010,800 988,724 960,662" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
-        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:draw 1s .62s ease forwards"/>
+  <defs>
+    <filter id="pglow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
 
-  <!-- Dots at card-icon ends (pop in after lines finish) -->
+  <!-- Base lines (IDs for mpath reference) -->
+  <path id="lk" d="M516,377 C650,450 790,530 858,598" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
+        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"
+        style="animation:draw 1s .52s ease forwards,line-breathe 3.8s 1.52s ease-in-out infinite"/>
+  <path id="lb" d="M1403,382 C1230,445 1090,535 1019,590" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
+        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"
+        style="animation:draw 1s .54s ease forwards,line-breathe 3.8s 1.8s ease-in-out infinite"/>
+  <path id="lf" d="M515,640 C650,635 790,628 858,618" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
+        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"
+        style="animation:draw 1s .56s ease forwards,line-breathe 3.8s 2.1s ease-in-out infinite"/>
+  <path id="li" d="M1409,684 C1240,668 1080,648 1019,626" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
+        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"
+        style="animation:draw 1s .58s ease forwards,line-breathe 3.8s 2.4s ease-in-out infinite"/>
+  <path id="lc" d="M469,862 C565,804 710,718 878,660" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
+        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"
+        style="animation:draw 1s .60s ease forwards,line-breathe 3.8s 2.7s ease-in-out infinite"/>
+  <path id="lm" d="M1031,866 C1010,800 988,724 960,662" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
+        pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"
+        style="animation:draw 1s .62s ease forwards,line-breathe 3.8s 3.0s ease-in-out infinite"/>
+
+  <!-- Dots at card-icon ends -->
   <circle cx="516" cy="377" r="0" fill="#52b585" style="animation:dot-pop .35s 1.52s ease forwards"/>
   <circle cx="1403" cy="382" r="0" fill="#52b585" style="animation:dot-pop .35s 1.54s ease forwards"/>
   <circle cx="515" cy="640" r="0" fill="#52b585" style="animation:dot-pop .35s 1.56s ease forwards"/>
   <circle cx="1409" cy="684" r="0" fill="#52b585" style="animation:dot-pop .35s 1.58s ease forwards"/>
   <circle cx="469" cy="862" r="0" fill="#52b585" style="animation:dot-pop .35s 1.60s ease forwards"/>
   <circle cx="1031" cy="866" r="0" fill="#52b585" style="animation:dot-pop .35s 1.62s ease forwards"/>
+
+  <!-- ═══ FLOWING PARTICLES ═══ -->
+  <!-- KYC — dur 2.6s, two dots 1.3s apart -->
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="2.6s" begin="2.0s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#lk"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="2.6s" begin="2.0s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="2.6s" begin="3.3s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#lk"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="2.6s" begin="3.3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- BGV — dur 2.8s -->
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="2.8s" begin="2.3s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#lb"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="2.8s" begin="2.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="2.8s" begin="3.7s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#lb"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="2.8s" begin="3.7s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Financial — dur 2.4s -->
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="2.4s" begin="2.1s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#lf"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="2.4s" begin="2.1s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="2.4s" begin="3.3s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#lf"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="2.4s" begin="3.3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Identity — dur 2.7s -->
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="2.7s" begin="2.5s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#li"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="2.7s" begin="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="2.7s" begin="3.85s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#li"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="2.7s" begin="3.85s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Communication — dur 3.2s -->
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="3.2s" begin="2.7s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#lc"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="3.2s" begin="2.7s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="3.2s" begin="4.3s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#lc"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="3.2s" begin="4.3s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Biometric — dur 2.9s -->
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="2.9s" begin="2.9s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#lm"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="2.9s" begin="2.9s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="4" fill="#86efb8" opacity="0" filter="url(#pglow)">
+    <animateMotion dur="2.9s" begin="4.35s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".42 0 .18 1"><mpath href="#lm"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.86;1" dur="2.9s" begin="4.35s" repeatCount="indefinite"/>
+  </circle>
 </svg>
 
 <!-- ══ CENTER HUB ══ -->
