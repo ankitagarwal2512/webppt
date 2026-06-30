@@ -285,10 +285,10 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 <!-- ══ NAV ══ -->
 <nav class="nav">
   <span class="nav-cnt" id="nav-cnt">13 / 13</span>
-  <button class="nav-btn" onclick="parent.postMessage('prev','*')">
+  <button class="nav-btn" id="prevBtn">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
   </button>
-  <button class="nav-btn" onclick="parent.postMessage('next','*')">
+  <button class="nav-btn" id="nextBtn">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
   </button>
 </nav>
@@ -298,10 +298,8 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 const s=document.getElementById('stage'),v=document.getElementById('vp');
 function rs(){const sc=Math.min(v.clientWidth/1920,v.clientHeight/1080);s.style.transform=`scale(${sc})`}
 rs();window.addEventListener('resize',rs);
-window.addEventListener('message',e=>{
-  if(e.data==='prev')parent.postMessage('prev','*');
-  if(e.data==='next')parent.postMessage('next','*');
-});
+document.getElementById('prevBtn').onclick=function(){if(parent!==window)parent.postMessage({type:'nav-key',key:'ArrowLeft'},'*');};
+document.getElementById('nextBtn').onclick=function(){if(parent!==window)parent.postMessage({type:'nav-key',key:'ArrowRight'},'*');};
 </script>
 </body>
 </html>
