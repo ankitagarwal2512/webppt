@@ -426,7 +426,7 @@ const GROUPS = [
     ]},
   { id:'market', label:'Marketplace', icon:'M2 5h10l-1.5 7H3.5L2 5zM5.5 5V3.5a1.5 1.5 0 013 0V5',
     slides:[
-      { n:32, t:'Add-Ons Overview',            f:null },
+      { n:32, t:'Add-Ons Overview',            f:'hrone-marketplace.html' },
       { n:33, t:'Integrations Ecosystem',      f:null },
       { n:34, t:'API Marketplace',             f:null },
     ]},
@@ -519,7 +519,7 @@ function goTo(n, file) {
 }
 
 // Slides that manage their own nav buttons — shell buttons hidden for these
-const SELF_NAV = new Set(['hrone-slide5.html','hrone-slide6.html','hrone-recruitment.html','hrone-payroll-outsourcing.html','hrone-inboxforhr.html','hrone-what-it-kills.html','hrone-the-facts.html','hrone-mobile.html','hrone-group-overview.html','hrone-why-hrone.html','hrone-recognised.html','hrone-oneai.html','hrone-efficiency.html','hrone-integrations.html','hrone-studio.html','hrone-studio-inside.html']);
+const SELF_NAV = new Set(['hrone-slide5.html','hrone-slide6.html','hrone-recruitment.html','hrone-payroll-outsourcing.html','hrone-inboxforhr.html','hrone-what-it-kills.html','hrone-the-facts.html','hrone-mobile.html','hrone-group-overview.html','hrone-why-hrone.html','hrone-recognised.html','hrone-oneai.html','hrone-efficiency.html','hrone-integrations.html','hrone-studio.html','hrone-studio-inside.html','hrone-marketplace.html']);
 
 function updateShellNav(file) {
   const selfNav = SELF_NAV.has(file);
