@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>HROne — Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;background:#06261a;overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:'Public Sans',sans-serif}
+#vp{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center}
+#stage{position:relative;width:1920px;height:1080px;background:#06261a;flex-shrink:0;transform-origin:center;overflow:hidden}
+.a{position:absolute}
+
+@keyframes fi {from{opacity:0}to{opacity:1}}
+@keyframes fd {from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fu {from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fsr{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+
+.nav{position:fixed;bottom:26px;right:30px;display:flex;align-items:center;gap:12px;z-index:200;
+     background:rgba(1,58,41,.84);backdrop-filter:blur(6px);padding:8px 14px 8px 16px;border-radius:40px}
+.nav-cnt{color:rgba(255,255,255,.6);font-size:14px;font-weight:500;letter-spacing:.5px;margin-right:4px}
+.nav-btn{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.28);
+         background:rgba(255,255,255,.06);color:#fff;cursor:pointer;display:flex;
+         align-items:center;justify-content:center;transition:background .18s,transform .12s}
+.nav-btn:hover{background:rgba(35,165,120,.5)}
+.nav-btn:active{transform:scale(.92)}
+.nav-btn svg{width:20px;height:20px}
+</style>
+</head>
+<body>
+<div id="vp"><div id="stage">
+
+<!-- ══ BG GLOWS ══ -->
+<img class="a" src="Assets/studio-glow-topleft.png"  style="left:-385px;top:-284px;width:978px;height:397px;pointer-events:none;animation:fi .8s ease both">
+<img class="a" src="Assets/studio-glow-topright.png" style="left:1541px;top:-28px;width:832px;height:338px;pointer-events:none;animation:fi .8s ease both">
+<img class="a" src="Assets/studio-glow-bottom.png"   style="left:461px;top:1010px;width:978px;height:397px;pointer-events:none;animation:fi .8s ease both">
+
+<!-- ══ HROne LOGO TOP-RIGHT ══ -->
+<img class="a" src="Assets/oneai_logo.svg" style="left:1713px;top:64px;height:48px;width:auto;animation:fi .5s .06s ease both">
+
+<!-- ══ EYEBROW ══ -->
+<div class="a" style="left:72px;top:93px;width:38px;height:2px;background:rgba(255,255,255,.45);border-radius:2px;animation:fi .4s .08s ease both"></div>
+<p class="a" style="left:124px;top:80px;font-size:22px;font-weight:500;color:#e7efec;white-space:nowrap;animation:fi .4s .1s ease both">
+  Studio&nbsp;<span style="opacity:.5">·</span>&nbsp;Build your own app
+</p>
+
+<!-- ══ STUDIO LOGO ══ -->
+<div class="a" style="left:332px;top:200px;display:flex;align-items:center;gap:0;animation:fi .55s .14s ease both">
+  <img src="Assets/studio-logo-icon.png" style="width:90px;height:88px;object-fit:contain;flex-shrink:0">
+  <p style="margin-left:30px;font-size:58px;font-weight:900;color:white;letter-spacing:.6px;text-transform:uppercase;line-height:1">STUDIO</p>
+  <p style="margin-left:16px;font-size:32px;font-weight:400;color:#d9d9d9;line-height:1;align-self:flex-end;padding-bottom:6px">by HROne</p>
+</div>
+
+<!-- ══ HEADLINE ══ -->
+<p class="a" style="left:72px;top:339px;font-size:90px;font-weight:800;color:white;line-height:90px;letter-spacing:-1.5px;animation:fd .65s .2s ease both">
+  Build it in Studio<span style="color:#32d583">.</span>
+</p>
+
+<!-- ══ SUBHEAD ══ -->
+<p class="a" style="left:72px;top:548px;font-size:32px;font-weight:400;color:#bfe0d6;white-space:nowrap;animation:fi .5s .28s ease both">
+  Your team never leaves HROne.
+</p>
+
+<!-- ══ DIVIDER ══ -->
+<div class="a" style="left:72px;top:610px;width:250px;height:2px;background:linear-gradient(90deg,#32d583 0%,rgba(50,213,131,0) 100%);animation:fi .5s .32s ease both"></div>
+
+<!-- ══ BODY COPY ══ -->
+<p class="a" style="left:72px;top:645px;width:700px;font-size:28px;font-weight:400;color:#bfe0d6;line-height:40px;opacity:.93;animation:fi .6s .36s ease both">
+  Design the forms and approvals your processes need. Your employees act on them inside HROne — the form in their <strong style="color:white;font-weight:700">Request tab,</strong> the approval in their <strong style="color:white;font-weight:700">Inbox,</strong> web or mobile.
+</p>
+
+<!-- ══ BULLET LIST ══ -->
+<div class="a" style="left:72px;top:835px;animation:fu .45s .44s ease both">
+  <p style="font-size:30px;font-weight:700;color:#27d77c;line-height:56px">›&nbsp;<span style="font-weight:500;color:#b2d3c9">Visitor Management App</span></p>
+  <p style="font-size:30px;font-weight:700;color:#27d77c;line-height:56px">›&nbsp;<span style="font-weight:500;color:#b2d3c9">Incentive Management App</span></p>
+  <p style="font-size:30px;font-weight:700;color:#27d77c;line-height:56px">›&nbsp;<span style="font-weight:500;color:#b2d3c9">Task Management App, etc.</span></p>
+</div>
+
+<!-- ══ APP MOCKUP PANEL ══ -->
+<div class="a" style="left:862px;top:201px;width:1020px;height:829px;
+     background:rgba(255,255,255,0.08);border-radius:12px;
+     border:1px solid rgba(255,255,255,0.13);
+     overflow:hidden;
+     animation:fsr .7s .38s ease both">
+
+  <!-- Window chrome -->
+  <div style="position:absolute;inset:0;top:0;height:36px;background:rgba(0,0,0,0.25);
+              border-bottom:1px solid rgba(255,255,255,0.08);
+              display:flex;align-items:center;padding:0 14px;gap:7px">
+    <div style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></div>
+    <div style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></div>
+    <div style="width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.18)"></div>
+    <div style="flex:1;margin:0 16px;height:18px;background:rgba(255,255,255,0.07);border-radius:4px"></div>
+  </div>
+
+  <!-- Product screenshot -->
+  <img src="Assets/visitor_management.png"
+       style="position:absolute;left:0;top:36px;width:100%;height:calc(100% - 36px);object-fit:cover;object-position:top left;display:block">
+</div>
+
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <span class="nav-cnt">14 / 34</span>
+  <button class="nav-btn" id="prevBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="nav-btn" id="nextBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 6 15 12 9 18"/></svg>
+  </button>
+</nav>
+
+</div></div>
+<script>
+const s=document.getElementById('stage'),v=document.getElementById('vp');
+function rs(){const sc=Math.min(v.clientWidth/1920,v.clientHeight/1080);s.style.transform=`scale(${sc})`}
+rs();window.addEventListener('resize',rs);
+document.getElementById('prevBtn').onclick=function(){if(parent!==window)parent.postMessage({type:'nav-key',key:'ArrowLeft'},'*');};
+document.getElementById('nextBtn').onclick=function(){if(parent!==window)parent.postMessage({type:'nav-key',key:'ArrowRight'},'*');};
+</script>
+</body>
+</html>
