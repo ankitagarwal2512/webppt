@@ -93,14 +93,14 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 
 <!-- ══ CONNECTOR LINES ══ (hub center ≈ 938,607) -->
 <svg class="a" style="left:0;top:0;width:1920px;height:1080px;pointer-events:none;overflow:visible" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- KYC icon center (133,377) → hub left-ish -->
-  <path d="M133,377 C350,450 640,570 858,598" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
+  <!-- KYC icon center (516,377) → hub left-ish -->
+  <path d="M516,377 C650,450 790,530 858,598" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
         pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:draw 1s .52s ease forwards"/>
   <!-- BGV icon center (1403,382) → hub right-ish -->
   <path d="M1403,382 C1230,445 1090,535 1019,590" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
         pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:draw 1s .54s ease forwards"/>
-  <!-- Financial (132,675) → hub left -->
-  <path d="M132,675 C330,668 620,645 858,618" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
+  <!-- Financial (515,675) → hub left -->
+  <path d="M515,675 C650,668 790,645 858,618" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
         pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:draw 1s .56s ease forwards"/>
   <!-- Identity (1409,709) → hub right -->
   <path d="M1409,709 C1240,692 1080,660 1019,626" stroke="#339169" stroke-opacity=".45" stroke-width="1.5"
@@ -113,9 +113,9 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
         pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:draw 1s .62s ease forwards"/>
 
   <!-- Dots at card-icon ends (pop in after lines finish) -->
-  <circle cx="133" cy="377" r="0" fill="#52b585" style="animation:dot-pop .35s 1.52s ease forwards"/>
+  <circle cx="516" cy="377" r="0" fill="#52b585" style="animation:dot-pop .35s 1.52s ease forwards"/>
   <circle cx="1403" cy="382" r="0" fill="#52b585" style="animation:dot-pop .35s 1.54s ease forwards"/>
-  <circle cx="132" cy="675" r="0" fill="#52b585" style="animation:dot-pop .35s 1.56s ease forwards"/>
+  <circle cx="515" cy="675" r="0" fill="#52b585" style="animation:dot-pop .35s 1.56s ease forwards"/>
   <circle cx="1409" cy="709" r="0" fill="#52b585" style="animation:dot-pop .35s 1.58s ease forwards"/>
   <circle cx="469" cy="862" r="0" fill="#52b585" style="animation:dot-pop .35s 1.60s ease forwards"/>
   <circle cx="1031" cy="866" r="0" fill="#52b585" style="animation:dot-pop .35s 1.62s ease forwards"/>
@@ -126,20 +126,17 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
      animation:scIn .55s .32s ease both,hub-glow 3.5s 1s ease-in-out infinite">
   <!-- Inner border -->
   <div style="position:absolute;inset:5.4px;border-radius:30px;border:1px solid rgba(82,181,133,0.18)"></div>
-  <!-- HROne icon mark -->
-  <img src="Assets/int-hrone-center.png" style="position:absolute;left:53px;top:36px;width:53px;height:51px;object-fit:contain">
-  <!-- HROne wordmark -->
-  <img src="Assets/int-hrone-text.png" style="position:absolute;left:25px;top:100px;width:107px;height:22px;object-fit:contain">
+  <img src="Assets/Integrations/hrone-vertical-green.svg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:16px">
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
      01 — KYC    left:90  top:334  469×194
 ══════════════════════════════════════════════════════════ -->
 <div class="a card" style="left:90px;top:334px;animation:fsl .55s .72s ease both">
-  <div class="ci"><div class="ci-ring"></div><img src="Assets/int-ic-shield.svg"></div>
-  <span class="cn">01</span>
-  <span class="ct">KYC</span>
-  <span class="cs">Indian compliance, native</span>
+  <div class="ci" style="left:383px"><div class="ci-ring"></div><img src="Assets/int-ic-shield.svg"></div>
+  <span class="cn" style="left:0">01</span>
+  <span class="ct" style="left:0">KYC</span>
+  <span class="cs" style="left:0">Indian compliance, native</span>
   <div class="cd"></div>
   <div class="cb">
     <div class="tile" style="left:7.6px; background:white">        <img src="Assets/kyc-aadhaar.png"></div>
@@ -178,10 +175,10 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
      03 — Financial   left:89  top:632  469×194
 ══════════════════════════════════════════════════════════ -->
 <div class="a card" style="left:89px;top:632px;animation:fsl .55s .76s ease both">
-  <div class="ci"><div class="ci-ring"></div><img src="Assets/int-ic-banknote.svg"></div>
-  <span class="cn">03</span>
-  <span class="ct">Financial</span>
-  <span class="cs">Payroll &amp; accounting plumbing</span>
+  <div class="ci" style="left:383px"><div class="ci-ring"></div><img src="Assets/int-ic-banknote.svg"></div>
+  <span class="cn" style="left:0">03</span>
+  <span class="ct" style="left:0">Financial</span>
+  <span class="cs" style="left:0">Payroll &amp; accounting plumbing</span>
   <div class="cd"></div>
   <div class="cb">
     <div class="tile" style="left:7.6px; background:white"><img src="Assets/fin-tally.png"></div>
