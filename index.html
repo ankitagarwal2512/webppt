@@ -425,7 +425,7 @@ const GROUPS = [
     ]},
   { id:'close', label:'Close', icon:'M2 7l3.5 3.5 6.5-6.5',
     slides:[
-      { n:30, t:'Next Steps & Demo',           f:null },
+      { n:30, t:'Next Steps & Demo',           f:'hrone-next-steps.html' },
     ]},
 ];
 
@@ -508,16 +508,12 @@ function goTo(n, file) {
   if (!file) return;
   frame.src = file;
   setActive(n);
-  updateShellNav(file);
+  updateShellNav();
 }
 
-// Slides that manage their own nav buttons — shell buttons hidden for these
-const SELF_NAV = new Set(['hrone-slide5.html','hrone-slide6.html','hrone-recruitment.html','hrone-payroll-outsourcing.html','hrone-inboxforhr.html','hrone-what-it-kills.html','hrone-the-facts.html','hrone-mobile.html','hrone-group-overview.html','hrone-why-hrone.html','hrone-recognised.html','hrone-oneai.html','hrone-efficiency.html','hrone-integrations.html','hrone-studio.html','hrone-studio-inside.html','hrone-marketplace.html','hrone-dashboards.html','hrone-infosec.html','hrone-service.html']);
-
-function updateShellNav(file) {
-  const selfNav = SELF_NAV.has(file);
-  btnPrev.style.visibility = selfNav ? 'hidden' : '';
-  btnNext.style.visibility = selfNav ? 'hidden' : '';
+function updateShellNav() {
+  btnPrev.style.visibility = 'hidden';
+  btnNext.style.visibility = 'hidden';
 }
 
 // Sync when slide's own prev/next buttons are used
@@ -526,7 +522,7 @@ frame.addEventListener('load', () => {
     const file = frame.contentWindow.location.href.split('/').pop().split('?')[0];
     const s = FILE_MAP[file];
     if (s) setActive(s.n);
-    updateShellNav(file);
+    updateShellNav();
   } catch(e) {}
   try { frame.contentWindow.dispatchEvent(new Event('resize')); } catch(e) {}
 });
