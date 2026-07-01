@@ -62,52 +62,6 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
   </svg>
 </div>
 
-<!-- ══ SVG CONNECTOR LAYER ══ -->
-<svg class="a" style="left:0;top:0;width:1920px;height:1080px;pointer-events:none" viewBox="0 0 1920 1080">
-
-  <!-- Dot at Employee Profile bottom exit point -->
-  <circle cx="982" cy="400" r="4.5" fill="#8db5a2" opacity="0" style="animation:fi .3s .68s ease both"/>
-
-  <!-- Vertical line from Employee Profile bottom (y=400) to bus (y=432), x=982 -->
-  <line x1="982" y1="400" x2="982" y2="429" stroke="#8db5a2" stroke-width="1.5"
-        stroke-dasharray="29" stroke-dashoffset="29"
-        style="animation:dv29 .25s .7s ease both"/>
-  <!-- Arrowhead pointing down -->
-  <polygon points="982,437 977,429 987,429" fill="#8db5a2" opacity="0" style="animation:fi .2s .94s ease both"/>
-
-  <!-- ── Horizontal flowing bus line at y=432 ── -->
-  <line x1="259" y1="432" x2="1415" y2="432"
-        stroke="#8db5a2" stroke-width="1.5" stroke-dasharray="5,4" stroke-dashoffset="0"
-        opacity="0"
-        id="busLine"/>
-
-  <!-- Connection dots at each card top center -->
-  <circle cx="259"  cy="432" r="4" fill="#8db5a2" opacity="0" style="animation:fi .25s .96s ease both"/>
-  <circle cx="548"  cy="432" r="4" fill="#8db5a2" opacity="0" style="animation:fi .25s .97s ease both"/>
-  <circle cx="837"  cy="432" r="4" fill="#8db5a2" opacity="0" style="animation:fi .25s .98s ease both"/>
-  <circle cx="1126" cy="432" r="4" fill="#8db5a2" opacity="0" style="animation:fi .25s .99s ease both"/>
-  <circle cx="1415" cy="432" r="4" fill="#8db5a2" opacity="0" style="animation:fi .25s 1.0s ease both"/>
-
-  <!-- Short ↓ connectors from bus to each card top (y=432→y=462) -->
-  <line x1="259"  y1="432" x2="259"  y2="461" stroke="#8db5a2" stroke-width="1.5" opacity="0" style="animation:fi .2s .98s ease both"/>
-  <polygon points="259,469 254,461 264,461"  fill="#8db5a2" opacity="0" style="animation:fi .2s 1.02s ease both"/>
-  <line x1="548"  y1="432" x2="548"  y2="461" stroke="#8db5a2" stroke-width="1.5" opacity="0" style="animation:fi .2s 1.0s ease both"/>
-  <polygon points="548,469 543,461 553,461"  fill="#8db5a2" opacity="0" style="animation:fi .2s 1.04s ease both"/>
-  <line x1="837"  y1="432" x2="837"  y2="461" stroke="#8db5a2" stroke-width="1.5" opacity="0" style="animation:fi .2s 1.02s ease both"/>
-  <polygon points="837,469 832,461 842,461"  fill="#8db5a2" opacity="0" style="animation:fi .2s 1.06s ease both"/>
-  <line x1="1126" y1="432" x2="1126" y2="461" stroke="#8db5a2" stroke-width="1.5" opacity="0" style="animation:fi .2s 1.04s ease both"/>
-  <polygon points="1126,469 1121,461 1131,461" fill="#8db5a2" opacity="0" style="animation:fi .2s 1.08s ease both"/>
-  <line x1="1415" y1="432" x2="1415" y2="461" stroke="#8db5a2" stroke-width="1.5" opacity="0" style="animation:fi .2s 1.06s ease both"/>
-  <polygon points="1415,469 1410,461 1420,461" fill="#8db5a2" opacity="0" style="animation:fi .2s 1.10s ease both"/>
-
-  <!-- Coral ↓ arrow from Onboarding card bottom (y=633) to Inside Onboarding (y=699) -->
-  <line x1="1126" y1="634" x2="1126" y2="695" stroke="#ee5a3c" stroke-width="2"
-        stroke-dasharray="61" stroke-dashoffset="61"
-        style="animation:dv61 .35s 1.55s ease both"/>
-  <polygon points="1126,703 1120,695 1132,695" fill="#ee5a3c" opacity="0" style="animation:fi .2s 1.88s ease both"/>
-
-</svg>
-
 <!-- ══ EMPLOYEE PROFILE TRIGGER CARD ══ -->
 <div class="a" style="left:705px;top:284px;width:555px;height:116px;background:#013b2a;border-radius:14px;animation:scIn .4s .4s ease both">
   <div style="display:flex;align-items:center;height:100%;padding:0 28px">
@@ -162,7 +116,7 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 </div>
 
 <!-- Onboarding — highlighted (left=1011) — coral bg, solid coral icon circle with cream icon -->
-<div class="a" style="left:1011px;top:464px;width:231px;height:169px;background:rgba(238,90,60,0.1);border:1.5px dashed #ee5a3c;border-radius:14px;padding:18px 18px 14px;animation:fu .45s 1.26s ease both">
+<div class="a" style="left:1011px;top:464px;width:231px;height:169px;background:rgba(238,90,60,0.1);border:2px dashed #ee5a3c;border-radius:14px;padding:18px 18px 14px;animation:fu .45s 1.26s ease both">
   <div style="width:40px;height:40px;border-radius:50%;background:#ee5a3c;display:flex;align-items:center;justify-content:center;margin-bottom:11px">
     <svg width="22" height="26" viewBox="0 0 24 28" fill="none">
       <path d="M19.6455 1.15564H3.46677C2.1903 1.15564 1.15552 2.19042 1.15552 3.46689V24.2681C1.15552 25.5446 2.1903 26.5794 3.46677 26.5794H19.6455C20.922 26.5794 21.9568 25.5446 21.9568 24.2681V3.46689C21.9568 2.19042 20.922 1.15564 19.6455 1.15564Z" stroke="#FFFAF0" stroke-width="2.31125"/>
@@ -199,7 +153,7 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
 
 <!-- ══ INSIDE ONBOARDING BOX ══ -->
 <!-- Box: left=144, top=699, width=1524, height=287 -->
-<div class="a" style="left:144px;top:699px;width:1524px;height:287px;border:1.5px dashed #ee5a3c;border-radius:16px;position:relative;animation:fu .5s 1.72s ease both">
+<div class="a" style="left:144px;top:699px;width:1524px;height:287px;border:2px dashed #ee5a3c;border-radius:16px;position:relative;animation:fu .5s 1.72s ease both">
 
   <!-- Badge on top border -->
   <div style="position:absolute;top:-16px;left:43px;background:#ee5a3c;color:#fff;font-size:11px;font-weight:700;letter-spacing:2.5px;padding:4px 16px;border-radius:20px;white-space:nowrap;animation:fi .3s 1.9s ease both">INSIDE ONBOARDING</div>
@@ -295,6 +249,52 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
     </div>
   </div>
 </div>
+
+<!-- ══ SVG CONNECTOR LAYER — rendered last so arrows sit above cards ══ -->
+<svg class="a" style="left:0;top:0;width:1920px;height:1080px;pointer-events:none" viewBox="0 0 1920 1080">
+
+  <!-- Dot at Employee Profile bottom exit point -->
+  <circle cx="982" cy="400" r="4.5" fill="#8db5a2" opacity="0" style="animation:fi .3s .68s ease both"/>
+
+  <!-- Vertical line from Employee Profile bottom (y=400) to bus (y=432), x=982 -->
+  <line x1="982" y1="400" x2="982" y2="429" stroke="#8db5a2" stroke-width="1.5"
+        stroke-dasharray="29" stroke-dashoffset="29"
+        style="animation:dv29 .25s .7s ease both"/>
+  <!-- Arrowhead pointing down -->
+  <polygon points="982,437 977,429 987,429" fill="#8db5a2" opacity="0" style="animation:fi .2s .94s ease both"/>
+
+  <!-- ── Horizontal flowing bus line at y=432 ── -->
+  <line x1="259" y1="432" x2="1415" y2="432"
+        stroke="#8db5a2" stroke-width="1.5" stroke-dasharray="5,4" stroke-dashoffset="0"
+        opacity="0"
+        id="busLine"/>
+
+  <!-- Connection dots at each card top center -->
+  <circle cx="259"  cy="432" r="4" fill="#8db5a2" opacity="0" style="animation:fi .25s .96s ease both"/>
+  <circle cx="548"  cy="432" r="4" fill="#8db5a2" opacity="0" style="animation:fi .25s .97s ease both"/>
+  <circle cx="837"  cy="432" r="4" fill="#8db5a2" opacity="0" style="animation:fi .25s .98s ease both"/>
+  <circle cx="1126" cy="432" r="4" fill="#8db5a2" opacity="0" style="animation:fi .25s .99s ease both"/>
+  <circle cx="1415" cy="432" r="4" fill="#8db5a2" opacity="0" style="animation:fi .25s 1.0s ease both"/>
+
+  <!-- Short ↓ connectors from bus to each card top (y=432→y=462) -->
+  <line x1="259"  y1="432" x2="259"  y2="461" stroke="#8db5a2" stroke-width="1.5" opacity="0" style="animation:fi .2s .98s ease both"/>
+  <polygon points="259,469 254,461 264,461"  fill="#8db5a2" opacity="0" style="animation:fi .2s 1.02s ease both"/>
+  <line x1="548"  y1="432" x2="548"  y2="461" stroke="#8db5a2" stroke-width="1.5" opacity="0" style="animation:fi .2s 1.0s ease both"/>
+  <polygon points="548,469 543,461 553,461"  fill="#8db5a2" opacity="0" style="animation:fi .2s 1.04s ease both"/>
+  <line x1="837"  y1="432" x2="837"  y2="461" stroke="#8db5a2" stroke-width="1.5" opacity="0" style="animation:fi .2s 1.02s ease both"/>
+  <polygon points="837,469 832,461 842,461"  fill="#8db5a2" opacity="0" style="animation:fi .2s 1.06s ease both"/>
+  <line x1="1126" y1="432" x2="1126" y2="461" stroke="#8db5a2" stroke-width="1.5" opacity="0" style="animation:fi .2s 1.04s ease both"/>
+  <polygon points="1126,469 1121,461 1131,461" fill="#8db5a2" opacity="0" style="animation:fi .2s 1.08s ease both"/>
+  <line x1="1415" y1="432" x2="1415" y2="461" stroke="#8db5a2" stroke-width="1.5" opacity="0" style="animation:fi .2s 1.06s ease both"/>
+  <polygon points="1415,469 1410,461 1420,461" fill="#8db5a2" opacity="0" style="animation:fi .2s 1.10s ease both"/>
+
+  <!-- Coral ↓ arrow from Onboarding card bottom (y=633) to Inside Onboarding (y=699) -->
+  <line x1="1126" y1="634" x2="1126" y2="695" stroke="#ee5a3c" stroke-width="2"
+        stroke-dasharray="61" stroke-dashoffset="61"
+        style="animation:dv61 .35s 1.55s ease both"/>
+  <polygon points="1126,703 1120,695 1132,695" fill="#ee5a3c" opacity="0" style="animation:fi .2s 1.88s ease both"/>
+
+</svg>
 
 <!-- ══ NAV ══ -->
 <div class="nav">
