@@ -26,18 +26,8 @@ html,body{width:100%;height:100%;background:#013a29;overflow:hidden;display:flex
 <body>
 <div id="vp"><div id="stage">
 
-<!-- ══ BG GLOW top-right ══ -->
-<div class="a" style="left:1078px;top:-244px;width:978px;height:397px;pointer-events:none">
-  <div style="position:absolute;inset:-112% -46%;background:radial-gradient(ellipse 55% 55% at 42% 52%,rgba(50,213,131,0.24) 0%,transparent 68%);pointer-events:none"></div>
-</div>
-
-<!-- ══ WAVE BACKGROUND ══ -->
-<!-- overflow:hidden clips bottom-left path artefact from horn_bg.svg -->
-<div class="a" style="left:-145px;top:-166px;width:1738px;height:800px;overflow:hidden;display:flex;align-items:center;justify-content:center;pointer-events:none;animation:fi 1s ease both">
-  <div style="transform:rotate(-15deg);width:1663px;flex-shrink:0">
-    <img src="Assets/horn_bg.svg" style="width:100%;height:auto;display:block">
-  </div>
-</div>
+<!-- ══ BACKGROUND ══ -->
+<img class="a" src="Assets/overview bg.png" style="inset:0;width:100%;height:100%;object-fit:cover;object-position:center">
 
 <!-- ══ HROne LOGO ══ -->
 <img class="a" src="Assets/hrone-white-logo.svg"
@@ -68,7 +58,6 @@ html,body{width:100%;height:100%;background:#013a29;overflow:hidden;display:flex
 <script>
 function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);document.getElementById('stage').style.transform='scale('+s+')';}
 fit();addEventListener('resize',fit);
-if(parent!==window){document.querySelector('.nav').style.display='none';}
 document.getElementById('prevBtn').onclick=function(){if(parent!==window)parent.postMessage({type:'nav-key',key:'ArrowLeft'},'*');};
 document.getElementById('nextBtn').onclick=function(){if(parent!==window)parent.postMessage({type:'nav-key',key:'ArrowRight'},'*');};
 </script>
