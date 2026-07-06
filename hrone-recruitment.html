@@ -79,9 +79,8 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   height:15px; padding:0 5px; border-radius:3px;
   font-size:8px; font-weight:700; color:#fff; letter-spacing:.06em; flex-shrink:0;
 }
-.b-ai   { background:#ee5a3c; }
-.b-api  { background:#013b2a; }
-.b-str  { background:#013b2a; height:14px; font-size:7.5px; }
+.b-ai    { background:#ee5a3c; }
+.b-addon { background:#013b2a; height:14px; font-size:7.5px; padding:0 6px; }
 
 /* ── SOURCE CARDS ────────────────────────────── */
 .src-card {
@@ -99,6 +98,10 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   border-color:#ee5a3c; z-index:20;
 }
 .src-title { font-size:17px; font-weight:700; color:#0e0e0e; white-space:nowrap; flex:1; }
+
+.src-card.two-line { flex-direction:column; align-items:flex-start; justify-content:center; gap:2px; padding:9px 15px; }
+.src-card.two-line .src-title { white-space:normal; font-size:15.5px; line-height:1.25; }
+.src-card.two-line .src-sub { font-size:12.5px; font-weight:400; color:#5b5b5b; line-height:1.25; }
 
 /* ── AI CORE ─────────────────────────────────── */
 .ai-core {
@@ -153,7 +156,7 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   box-shadow:0 8px 22px rgba(0,0,0,.11);
   border-color:#ee5a3c; z-index:20;
 }
-.off-title { font-size:18px; font-weight:700; color:#0e0e0e; margin-bottom:2px; }
+.off-title { font-size:18px; font-weight:700; color:#0e0e0e; margin-bottom:2px; display:flex; align-items:center; gap:6px; }
 .off-sub   { font-size:14px;   font-weight:400; color:#5b5b5b; }
 
 /* ── NAV ─────────────────────────────────────── */
@@ -260,22 +263,26 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   <!-- → AI Interviewer (1048,575) — regular gray dashed -->
   <line class="conn c-ai-scr" x1="1007" y1="638" x2="1048" y2="575"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <!-- → Multi-round (1048,662) -->
+  <!-- → AI Relevancy Score (1048,662) -->
   <line class="conn c-ai-scr" x1="1007" y1="638" x2="1048" y2="662"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <!-- → Feedback & Decision (1048,749) -->
+  <!-- → Multi-round Interviews (1048,749) -->
   <line class="conn c-ai-scr" x1="1007" y1="638" x2="1048" y2="749"
+        stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <!-- → Feedback & Decision (1048,835) -->
+  <line class="conn c-ai-scr" x1="1007" y1="638" x2="1048" y2="835"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
 
   <!-- ⑥ Right dashed rail of SCREEN column (Figma 72.94%×1920 = 1400px) -->
   <line class="conn" id="c-scr-vert"
-        x1="1400" y1="368" x2="1400" y2="700"
+        x1="1400" y1="368" x2="1400" y2="787"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
 
   <!-- ⑦ SCREEN right (1373) → SCREEN–OFFER rail (1400): short stubs (skip y=575, coral arrow replaces it) -->
   <line class="conn c-scr-stub" x1="1373" y1="401" x2="1400" y2="401" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
   <line class="conn c-scr-stub" x1="1373" y1="488" x2="1400" y2="488" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
   <line class="conn c-scr-stub" x1="1373" y1="662" x2="1400" y2="662" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <line class="conn c-scr-stub" x1="1373" y1="749" x2="1400" y2="749" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
 
   <!-- ⑧ SCREEN-OFFER rail (1400) → OFFER cards (1432) -->
   <line class="conn c-scr-off" x1="1400" y1="401" x2="1432" y2="401"
@@ -292,6 +299,8 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
         x1="1400" y1="575" x2="1432" y2="575"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <line class="conn c-scr-off" x1="1400" y1="662" x2="1432" y2="662"
+        stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line class="conn c-scr-off" x1="1400" y1="749" x2="1432" y2="749"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
 </svg>
 
@@ -324,9 +333,9 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   <span class="eyebrow-txt">Module 01 · Plan to Hire</span>
 </div>
 
-<div class="slide-title">Recruitment</div>
+<div class="slide-title">Recruitment<span class="dot">.</span></div>
 
-<p class="slide-sub">Four stages, six sourcing channels, One AI core — every requisition<br>tracked from approved plan to signed offer.</p>
+<p class="slide-sub">Four stages, six sourcing channels, One AI core - every requisition tracked<br>from approved plan to signed offer.</p>
 
 
 <!-- ──────────────────────────────────────────── -->
@@ -353,7 +362,7 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   </div>
   <div class="p-body">
     <div class="p-title">New Job Requisition</div>
-    <div class="p-sub">growth · brand-new role</div>
+    <div class="p-sub">new role</div>
   </div>
 </div>
 
@@ -375,19 +384,17 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   </div>
 </div>
 
-<div class="plan-card" id="p3" style="left:125px;top:614px;height:99px" tabindex="0" role="button" aria-label="Budgeted Job Requisition">
+<div class="plan-card" id="p3" style="left:125px;top:614px;height:99px" tabindex="0" role="button" aria-label="Copy from team">
   <div class="p-disc">
-    <!-- wallet + coin (budgeted/pre-approved) -->
+    <!-- check-square (copy from team) -->
     <svg viewBox="0 0 26 26" fill="none" stroke="#cf5f3c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="2" y="7" width="22" height="15" rx="2"/>
-      <path d="M2 11h22"/>
-      <path d="M18 11V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v4"/>
-      <circle cx="18" cy="17.5" r="2.5"/>
+      <rect x="3" y="3" width="20" height="20" rx="4"/>
+      <polyline points="8,13.5 11.5,17 18,9"/>
     </svg>
   </div>
   <div class="p-body">
-    <div class="p-title">Budgeted Job Requisition</div>
-    <div class="p-sub">pre-approved · annual plan</div>
+    <div class="p-title">Copy from team</div>
+    <div class="p-sub">Details copied from team member</div>
   </div>
 </div>
 
@@ -402,8 +409,8 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
     </svg>
   </div>
   <div class="p-body">
-    <div class="p-title">Workforce Planning <span class="badge b-str">STRATEGIC</span></div>
-    <div class="p-sub">upstream of every requisition</div>
+    <div class="p-title">Workforce Planning <span class="badge b-addon">Add On</span></div>
+    <div class="p-sub">Annual Plan</div>
   </div>
 </div>
 
@@ -421,15 +428,15 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 <div class="src-card" id="s3" style="left:521px;top:544px" tabindex="0">
   <span class="src-title">Referral</span>
 </div>
-<div class="src-card" id="s4" style="left:521px;top:631px" tabindex="0">
-  <span class="src-title">LinkedIn / Naukri</span>
-  <span class="badge b-api" style="margin-left:auto">API</span>
+<div class="src-card two-line" id="s4" style="left:521px;top:631px" tabindex="0">
+  <span class="src-title">Chrome Extension</span>
+  <span class="src-sub">- LinkedIn / Naukri</span>
 </div>
 <div class="src-card" id="s5" style="left:521px;top:718px" tabindex="0">
-  <span class="src-title">Consultants</span>
+  <span class="src-title" style="font-size:16px">Recruitment Agency</span>
 </div>
 <div class="src-card" id="s6" style="left:521px;top:804px" tabindex="0">
-  <span class="src-title">Chrome Extension</span>
+  <span class="src-title">Talent Pool</span>
   <span class="badge b-ai" style="margin-left:auto">AI</span>
 </div>
 
@@ -461,9 +468,13 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   <span class="badge b-ai" style="margin-left:auto">AI</span>
 </div>
 <div class="scr-card" id="r4" style="left:1048px;top:631px" tabindex="0">
-  <span class="scr-title">Multi-round Interviews</span>
+  <span class="scr-title">AI Relevancy Score</span>
+  <span class="badge b-ai" style="margin-left:auto">AI</span>
 </div>
 <div class="scr-card" id="r5" style="left:1048px;top:718px" tabindex="0">
+  <span class="scr-title">Multi-round Interviews</span>
+</div>
+<div class="scr-card" id="r6" style="left:1048px;top:804px" tabindex="0">
   <span class="scr-title">Feedback &amp; Decision</span>
 </div>
 
@@ -473,20 +484,24 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 <!-- ──────────────────────────────────────────── -->
 
 <div class="off-card" id="o1" style="left:1432px;top:367px" tabindex="0">
-  <div class="off-title">Offer Generation</div>
+  <div class="off-title">Offer Generation/Approval/Acceptance</div>
   <div class="off-sub">auto-letter · digi-sign · share</div>
 </div>
 <div class="off-card" id="o2" style="left:1432px;top:454px" tabindex="0">
-  <div class="off-title">e-KYC</div>
+  <div class="off-title">e-KYC <span class="badge b-addon">Add On</span></div>
   <div class="off-sub">PAN · Aadhaar · Bank</div>
 </div>
 <div class="off-card" id="o3" style="left:1432px;top:540px" tabindex="0">
-  <div class="off-title">Initiate BGV</div>
+  <div class="off-title">Initiate BGV <span class="badge b-addon">Add On</span></div>
   <div class="off-sub">automated vendor · status sync</div>
 </div>
 <div class="off-card" id="o4" style="left:1432px;top:627px" tabindex="0">
-  <div class="off-title">Upcoming Joiner</div>
+  <div class="off-title">Candidate Engagement</div>
   <div class="off-sub">engagement · dropout prevention</div>
+</div>
+<div class="off-card" id="o5" style="left:1432px;top:714px" tabindex="0">
+  <div class="off-title">Upcoming Joiner</div>
+  <div class="off-sub">Preboarding SOP's</div>
 </div>
 
 
@@ -499,8 +514,8 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
     AI-powered steps
   </div>
   <div class="leg-item">
-    <span class="badge b-api">API</span>
-    Integration-powered steps
+    <span class="badge b-addon">Add On</span>
+    Procured Additionally
   </div>
 </div>
 
