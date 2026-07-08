@@ -290,8 +290,8 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
   <line id="busLine" x1="144" y1="338" x2="1448" y2="338"
     stroke="rgba(1,59,42,0.25)" stroke-width="1.5" stroke-dasharray="5 4" opacity="0"/>
 
-  <!-- Stage 01: vertical from Probation card bottom (y=490, center x=282) down to fork -->
-  <line x1="282" y1="490" x2="282" y2="532" stroke="#013b2a" stroke-width="1.5" opacity="0.5"/>
+  <!-- Stage 01: vertical from Probation card bottom (y=490) down to fork, offset from label text -->
+  <line x1="300" y1="490" x2="300" y2="532" stroke="#013b2a" stroke-width="1.5" opacity="0.5"/>
   <!-- Horizontal fork at y=532 -->
   <line x1="148" y1="532" x2="372" y2="532" stroke="#013b2a" stroke-width="1.5" opacity="0.5"/>
   <!-- 3 verticals down to boxes (tops at y=548) -->
@@ -303,8 +303,8 @@ html,body{width:100%;height:100%;background:#fdf5e7;overflow:hidden;display:flex
   <line x1="728" y1="506" x2="728" y2="520" stroke="#5d7a68" stroke-width="1.5" opacity="0.4"/>
   <line x1="728" y1="594" x2="728" y2="608" stroke="#5d7a68" stroke-width="1.5" opacity="0.4"/>
 
-  <!-- Coral arrow from Confirm box (right x=196, y=568) rightward to Stage 02 -->
-  <line x1="196" y1="568" x2="534" y2="568" stroke="#ee5a3c" stroke-width="2" marker-end="url(#ah-c)"/>
+  <!-- Coral arrow from Confirm box: dips below Extend/Terminate boxes and captions, then up into Stage 02 -->
+  <path d="M196 568 L196 620 L500 620 L500 568 L534 568" fill="none" stroke="#ee5a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah-c)"/>
 
   <!-- Stage 03: vertical connector between Transfers (bottom y=592) and Promotions (top y=612) -->
   <line x1="1176" y1="592" x2="1176" y2="612" stroke="#5d7a68" stroke-width="1.5" opacity="0.4"/>
