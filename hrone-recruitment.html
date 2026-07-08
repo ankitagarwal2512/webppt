@@ -81,6 +81,7 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 }
 .b-ai    { background:#ee5a3c; }
 .b-addon { background:#013b2a; height:14px; font-size:7.5px; padding:0 6px; }
+.b-api   { background:#23A578; height:14px; font-size:7.5px; padding:0 6px; }
 
 /* ── SOURCE CARDS ────────────────────────────── */
 .src-card {
@@ -282,7 +283,6 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   <line class="conn c-scr-stub" x1="1373" y1="401" x2="1400" y2="401" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
   <line class="conn c-scr-stub" x1="1373" y1="488" x2="1400" y2="488" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
   <line class="conn c-scr-stub" x1="1373" y1="662" x2="1400" y2="662" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
-  <line class="conn c-scr-stub" x1="1373" y1="749" x2="1400" y2="749" stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="3 3"/>
 
   <!-- ⑧ SCREEN-OFFER rail (1400) → OFFER cards (1432) -->
   <line class="conn c-scr-off" x1="1400" y1="401" x2="1432" y2="401"
@@ -299,8 +299,6 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
         x1="1400" y1="575" x2="1432" y2="575"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
   <line class="conn c-scr-off" x1="1400" y1="662" x2="1432" y2="662"
-        stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <line class="conn c-scr-off" x1="1400" y1="749" x2="1432" y2="749"
         stroke="#c2b4a8" stroke-width="1.5" stroke-dasharray="5 4"/>
 </svg>
 
@@ -335,7 +333,7 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 
 <div class="slide-title">Recruitment<span class="dot">.</span></div>
 
-<p class="slide-sub">Four stages, six sourcing channels, One AI core - every requisition tracked<br>from approved plan to signed offer.</p>
+<p class="slide-sub">Four stages, six sourcing channels, One AI core - every<br>requisition tracked from approved plan to signed offer.</p>
 
 
 <!-- ──────────────────────────────────────────── -->
@@ -362,7 +360,7 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   </div>
   <div class="p-body">
     <div class="p-title">New Job Requisition</div>
-    <div class="p-sub">new role</div>
+    <div class="p-sub">growth · brand-new role</div>
   </div>
 </div>
 
@@ -384,17 +382,17 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   </div>
 </div>
 
-<div class="plan-card" id="p3" style="left:125px;top:614px;height:99px" tabindex="0" role="button" aria-label="Copy from team">
+<div class="plan-card" id="p3" style="left:125px;top:614px;height:99px" tabindex="0" role="button" aria-label="Budgeted Job Requisition">
   <div class="p-disc">
-    <!-- check-square (copy from team) -->
+    <!-- check-square (pre-approved) -->
     <svg viewBox="0 0 26 26" fill="none" stroke="#cf5f3c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
       <rect x="3" y="3" width="20" height="20" rx="4"/>
       <polyline points="8,13.5 11.5,17 18,9"/>
     </svg>
   </div>
   <div class="p-body">
-    <div class="p-title">Copy from team</div>
-    <div class="p-sub">Details copied from team member</div>
+    <div class="p-title">Budgeted Job Requisition</div>
+    <div class="p-sub">pre-approved · annual plan</div>
   </div>
 </div>
 
@@ -410,7 +408,7 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
   </div>
   <div class="p-body">
     <div class="p-title">Workforce Planning <span class="badge b-addon">Add On</span></div>
-    <div class="p-sub">Annual Plan</div>
+    <div class="p-sub">upstream of every requisition</div>
   </div>
 </div>
 
@@ -428,15 +426,15 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 <div class="src-card" id="s3" style="left:521px;top:544px" tabindex="0">
   <span class="src-title">Referral</span>
 </div>
-<div class="src-card two-line" id="s4" style="left:521px;top:631px" tabindex="0">
-  <span class="src-title">Chrome Extension</span>
-  <span class="src-sub">- LinkedIn / Naukri</span>
+<div class="src-card" id="s4" style="left:521px;top:631px" tabindex="0">
+  <span class="src-title">LinkedIn / Naukri</span>
+  <span class="badge b-api" style="margin-left:auto">API</span>
 </div>
 <div class="src-card" id="s5" style="left:521px;top:718px" tabindex="0">
-  <span class="src-title" style="font-size:16px">Recruitment Agency</span>
+  <span class="src-title">Consultants</span>
 </div>
 <div class="src-card" id="s6" style="left:521px;top:804px" tabindex="0">
-  <span class="src-title">Talent Pool</span>
+  <span class="src-title">Chrome Extension</span>
   <span class="badge b-ai" style="margin-left:auto">AI</span>
 </div>
 
@@ -484,24 +482,20 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 <!-- ──────────────────────────────────────────── -->
 
 <div class="off-card" id="o1" style="left:1432px;top:367px" tabindex="0">
-  <div class="off-title">Offer Generation/Approval/Acceptance</div>
+  <div class="off-title">Offer Generation</div>
   <div class="off-sub">auto-letter · digi-sign · share</div>
 </div>
 <div class="off-card" id="o2" style="left:1432px;top:454px" tabindex="0">
-  <div class="off-title">e-KYC <span class="badge b-addon">Add On</span></div>
+  <div class="off-title">e-KYC</div>
   <div class="off-sub">PAN · Aadhaar · Bank</div>
 </div>
 <div class="off-card" id="o3" style="left:1432px;top:540px" tabindex="0">
-  <div class="off-title">Initiate BGV <span class="badge b-addon">Add On</span></div>
+  <div class="off-title">Initiate BGV</div>
   <div class="off-sub">automated vendor · status sync</div>
 </div>
-<div class="off-card" id="o4" style="left:1432px;top:627px" tabindex="0">
-  <div class="off-title">Candidate Engagement</div>
-  <div class="off-sub">engagement · dropout prevention</div>
-</div>
-<div class="off-card" id="o5" style="left:1432px;top:714px" tabindex="0">
+<div class="off-card" id="o5" style="left:1432px;top:627px" tabindex="0">
   <div class="off-title">Upcoming Joiner</div>
-  <div class="off-sub">Preboarding SOP's</div>
+  <div class="off-sub">engagement · dropout prevention</div>
 </div>
 
 
@@ -514,8 +508,8 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
     AI-powered steps
   </div>
   <div class="leg-item">
-    <span class="badge b-addon">Add On</span>
-    Procured Additionally
+    <span class="badge b-api">API</span>
+    Integration-powered steps
   </div>
 </div>
 
