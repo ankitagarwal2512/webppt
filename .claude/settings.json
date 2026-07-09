@@ -13,7 +13,13 @@
       "Bash(lsof -ti:8791,8792)",
       "Bash(lsof -ti:8793,8794)",
       "Bash(lsof -ti:8795,8796)",
-      "Bash(python3 -)"
+      "Bash(python3 -)",
+      "Bash(node -e \"console.log\\(1\\)\")",
+      "Bash(python3 -c \"import websockets\")",
+      "Bash(python3 -c \"import websocket\")",
+      "Bash(pip3 list *)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(pkill -f \"http.server 8934\")"
     ]
   }
 }

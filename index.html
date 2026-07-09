@@ -535,7 +535,7 @@ function renumberUI() {
     const disabled = disabledSlides.has(n);
     r.classList.toggle('row-disabled', disabled);
     const numEl = r.querySelector('.slide-num');
-    if (numEl) numEl.textContent = String(displayNumberFor(n)).padStart(2,'0');
+    if (numEl) numEl.textContent = disabled ? '—' : String(displayNumberFor(n)).padStart(2,'0');
     const eyeBtn = r.querySelector('.slide-eye');
     if (eyeBtn) eyeBtn.innerHTML = disabled ? EYE_OFF_SVG : EYE_SVG;
   });
