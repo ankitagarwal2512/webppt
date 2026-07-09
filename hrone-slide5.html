@@ -262,7 +262,7 @@
 </div>
 
 <div class="nav">
-  <span class="nav-cnt" id="navCount">5 / 30</span>
+  <span class="nav-cnt" id="navCount">6 / 31</span>
   <button class="nav-btn" id="prevBtn" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   <button class="nav-btn" id="nextBtn" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
@@ -360,6 +360,9 @@ document.getElementById('nextBtn').addEventListener('click', ()=>{ window.locati
 
 function fit(){ const s = Math.min(window.innerWidth/1920, window.innerHeight/1080); document.getElementById('stage').style.transform = `scale(${s})`; }
 window.addEventListener('resize', fit); fit();
+
+// counter sync from shell
+window.addEventListener('message',function(e){if(e.data&&e.data.type==='set-counter'){var el=document.querySelector('.nav-cnt');if(el)el.textContent=e.data.text;}});
 </script>
 </body>
 </html>

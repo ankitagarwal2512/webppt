@@ -45,7 +45,7 @@ html,body{width:100%;height:100%;background:#013a29;overflow:hidden;display:flex
 
 <!-- ══ NAV ══ -->
 <div class="nav">
-  <span class="nav-cnt">20 / 30</span>
+  <span class="nav-cnt">21 / 31</span>
   <button class="nav-btn" id="prevBtn">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
   </button>
@@ -60,6 +60,9 @@ function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);document.getElem
 fit();addEventListener('resize',fit);
 document.getElementById('prevBtn').onclick=function(){if(parent!==window)parent.postMessage({type:'nav-key',key:'ArrowLeft'},'*');};
 document.getElementById('nextBtn').onclick=function(){if(parent!==window)parent.postMessage({type:'nav-key',key:'ArrowRight'},'*');};
+
+// counter sync from shell
+window.addEventListener('message',function(e){if(e.data&&e.data.type==='set-counter'){var el=document.querySelector('.nav-cnt');if(el)el.textContent=e.data.text;}});
 </script>
 </body>
 </html>

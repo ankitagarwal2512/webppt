@@ -116,7 +116,7 @@
 </div></div>
 
 <div class="nav">
-  <span class="nav-cnt">30 / 30</span>
+  <span class="nav-cnt">31 / 31</span>
   <button class="nav-btn" id="prevBtn" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
   <button class="nav-btn" id="nextBtn" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
 </div>
@@ -137,6 +137,9 @@ document.addEventListener('keydown', e => {
     window.parent.postMessage({type:'nav-key', key:e.key}, '*');
   }
 });
+
+// counter sync from shell
+window.addEventListener('message',function(e){if(e.data&&e.data.type==='set-counter'){var el=document.querySelector('.nav-cnt');if(el)el.textContent=e.data.text;}});
 </script>
 </body>
 </html>

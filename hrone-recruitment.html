@@ -519,7 +519,7 @@ html, body { width:100%; height:100%; background:#1a1210; font-family:'Public Sa
 <!-- NAV  (outside #stage so transform doesn't scale it) -->
 <!-- ──────────────────────────────────────────── -->
 <div class="nav">
-  <span class="nav-cnt" id="navCount">21 / 30</span>
+  <span class="nav-cnt" id="navCount">22 / 31</span>
   <button class="nav-btn" id="prevBtn" aria-label="Previous slide">
     <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
@@ -623,6 +623,9 @@ document.getElementById('nextBtn').addEventListener('click', () => {
     window.parent.postMessage({ type: 'nav-key', key: 'ArrowRight' }, '*');
 });
 
+
+// counter sync from shell
+window.addEventListener('message',function(e){if(e.data&&e.data.type==='set-counter'){var el=document.querySelector('.nav-cnt');if(el)el.textContent=e.data.text;}});
 </script>
 </body>
 </html>
