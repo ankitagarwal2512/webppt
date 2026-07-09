@@ -3,7 +3,12 @@
     "allow": [
       "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --window-size=1920,1080 --virtual-time-budget=2000 --screenshot=slide10_infosec.png http://localhost:8793/hrone-infosec.html)",
       "Bash(python3 -c ' *)",
-      "Bash(pkill -f \"http.server 8793\")"
+      "Bash(pkill -f \"http.server 8793\")",
+      "Bash(sips -g pixelWidth -g pixelHeight Assets/Infosec/soc1.png Assets/Infosec/soc2.png \"Assets/Infosec/SOC 2.png\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/private/tmp/claude-1897574812/-Users-ankit-agarwal-Documents-Web-Presentation/51a44e48-abe5-4fb9-aee5-d83b4440bf17/scratchpad/infosec-1366.png --window-size=1366,768 --virtual-time-budget=2000 \"http://localhost:8791/hrone-infosec.html\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/private/tmp/claude-1897574812/-Users-ankit-agarwal-Documents-Web-Presentation/51a44e48-abe5-4fb9-aee5-d83b4440bf17/scratchpad/infosec-1440.png --window-size=1440,900 --virtual-time-budget=2000 \"http://localhost:8791/hrone-infosec.html\")",
+      "Bash(lsof -ti:8791)",
+      "Bash(xargs kill)"
     ]
   }
 }
