@@ -11,7 +11,8 @@
       "Bash(xargs kill)",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --screenshot=/private/tmp/claude-1897574812/-Users-ankit-agarwal-Documents-Web-Presentation/51a44e48-abe5-4fb9-aee5-d83b4440bf17/scratchpad/infosec-v2.png --window-size=1920,1080 --virtual-time-budget=2000 \"http://localhost:8792/hrone-infosec.html\")",
       "Bash(lsof -ti:8791,8792)",
-      "Bash(lsof -ti:8793,8794)"
+      "Bash(lsof -ti:8793,8794)",
+      "Bash(lsof -ti:8795,8796)"
     ]
   }
 }
