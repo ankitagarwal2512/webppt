@@ -205,6 +205,18 @@ html,body{width:100%;height:100%;overflow:hidden;background:#013a29;font-family:
 }
 
 .slide-row.stub{ opacity:.3; cursor:default; }
+.slide-row.row-disabled{ opacity:.4; }
+.slide-row.row-disabled .slide-name{ text-decoration:line-through; text-decoration-color:rgba(255,255,255,.3); }
+
+.slide-eye{
+  flex-shrink:0;width:24px;height:24px;border-radius:6px;border:none;
+  background:transparent;color:rgba(255,255,255,.32);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .12s,color .15s;
+}
+.slide-eye:hover{ background:rgba(255,255,255,.1); color:rgba(255,255,255,.85); }
+.slide-eye svg{ width:15px;height:15px; }
+.slide-row.row-disabled .slide-eye{ color:#e2735a; }
 
 .slide-num{
   font-size:11px;font-weight:700;
@@ -384,54 +396,61 @@ const GROUPS = [
     ]},
   { id:'platform', label:'The Platform', icon:'M2 2h4v4H2zM8 2h4v4H8zM2 8h4v4H2zM8 8h4v4H8z',
     slides:[
-      { n:5,  t:'The Comprehensive HCM Suite', f:'hrone-slide5.html' },
-      { n:6,  t:'Payroll Outsourcing',          f:'hrone-payroll-outsourcing.html' },
-      { n:7,  t:'InboxforHR', html:'InboxforHR<sup style="font-size:.55em;vertical-align:super;line-height:0">TM</sup>', f:'hrone-inboxforhr.html' },
-      { n:8,  t:'Two Problems, One Inbox',     f:'hrone-what-it-kills.html' },
-      { n:9,  t:'The Facts',                   f:'hrone-the-facts.html' },
-      { n:10, t:'Infosec & Trust',               f:'hrone-infosec.html' },
+      { n:5,  t:'Outgrow the Team, Not the Tool', f:'hrone-outgrow.html', optional:true },
+      { n:6,  t:'The Comprehensive HCM Suite', f:'hrone-slide5.html' },
+      { n:7,  t:'Payroll Outsourcing',          f:'hrone-payroll-outsourcing.html' },
+      { n:8,  t:'InboxforHR', html:'InboxforHR<sup style="font-size:.55em;vertical-align:super;line-height:0">TM</sup>', f:'hrone-inboxforhr.html' },
+      { n:9,  t:'Two Problems, One Inbox',     f:'hrone-what-it-kills.html' },
+      { n:10, t:'The Facts',                   f:'hrone-the-facts.html' },
+      { n:11, t:'Infosec & Trust',               f:'hrone-infosec.html' },
     ]},
   { id:'mobile', label:'Mobile & AI', icon:'M4.5 1h5a1 1 0 011 1v10a1 1 0 01-1 1h-5a1 1 0 01-1-1V2a1 1 0 011-1zM6 11.5h2',
     slides:[
-      { n:11, t:'Mobile-First Experience',     f:'hrone-mobile.html' },
-      { n:12, t:'OneAI Voice Agent',           f:'hrone-oneai.html' },
-      { n:13, t:'OneAI Efficiency in Every Module', f:'hrone-efficiency.html' },
-      { n:14, t:'Integrations',                 f:'hrone-integrations.html' },
-      { n:15, t:'Service & Our Strength',         f:'hrone-service.html' },
+      { n:12, t:'Mobile-First Experience',     f:'hrone-mobile.html' },
+      { n:13, t:'OneAI Voice Agent',           f:'hrone-oneai.html' },
+      { n:14, t:'OneAI Efficiency in Every Module', f:'hrone-efficiency.html' },
+      { n:15, t:'Integrations',                 f:'hrone-integrations.html' },
+      { n:16, t:'Service & Our Strength',         f:'hrone-service.html' },
     ]},
   { id:'build', label:'Build & Extend', icon:'M4 2.5L2 7l2 4.5M10 2.5l2 4.5-2 4.5',
     slides:[
-      { n:16, t:'Studio — Build your own app',  f:'hrone-studio.html' },
-      { n:17, t:"Studio — What's Inside",       f:'hrone-studio-inside.html' },
-      { n:18, t:'Reporting & Analytics',        f:'hrone-dashboards.html' },
+      { n:17, t:'Studio — Build your own app',  f:'hrone-studio.html' },
+      { n:18, t:"Studio — What's Inside",       f:'hrone-studio-inside.html' },
+      { n:19, t:'Reporting & Analytics',        f:'hrone-dashboards.html' },
     ]},
 
   { id:'market', label:'Annexure', icon:'M2 5h10l-1.5 7H3.5L2 5zM5.5 5V3.5a1.5 1.5 0 013 0V5',
     slides:[
-      { n:19, t:'Add-Ons',                      f:'hrone-marketplace.html' },
+      { n:20, t:'Add-Ons',                      f:'hrone-marketplace.html' },
     ]},
   { id:'modules', label:'Modules', icon:'M1 4l6-3 6 3-6 3-6-3M1 8l6 3 6-3M1 11l6 3 6-3',
     slides:[
-      { n:20, t:'Overview',                    f:'hrone-modules-overview.html' },
-      { n:21, t:'Recruitment',                 f:'hrone-recruitment.html' },
-      { n:22, t:'Onboarding',                  f:'hrone-module-onboarding.html' },
-      { n:23, t:'Workforce Management',        f:'hrone-module-workforce.html' },
-      { n:24, t:'Time Office',                 f:'hrone-module-timeoffice.html' },
-      { n:25, t:'Payroll',                     f:'hrone-module-payroll.html' },
-      { n:26, t:'Performance',                 f:'hrone-module-performance.html' },
-      { n:27, t:'Engagement',                  f:'hrone-module-engagement.html' },
-      { n:28, t:'Expense',                     f:'hrone-module-expense.html' },
-      { n:29, t:'Helpdesk',                    f:'hrone-module-helpdesk.html' },
+      { n:21, t:'Overview',                    f:'hrone-modules-overview.html' },
+      { n:22, t:'Recruitment',                 f:'hrone-recruitment.html' },
+      { n:23, t:'Onboarding',                  f:'hrone-module-onboarding.html' },
+      { n:24, t:'Workforce Management',        f:'hrone-module-workforce.html' },
+      { n:25, t:'Time Office',                 f:'hrone-module-timeoffice.html' },
+      { n:26, t:'Payroll',                     f:'hrone-module-payroll.html' },
+      { n:27, t:'Performance',                 f:'hrone-module-performance.html' },
+      { n:28, t:'Engagement',                  f:'hrone-module-engagement.html' },
+      { n:29, t:'Expense',                     f:'hrone-module-expense.html' },
+      { n:30, t:'Helpdesk',                    f:'hrone-module-helpdesk.html' },
     ]},
   { id:'close', label:'Close', icon:'M2 7l3.5 3.5 6.5-6.5',
     slides:[
-      { n:30, t:'Next Steps & Demo',           f:'hrone-next-steps.html' },
+      { n:31, t:'Next Steps & Demo',           f:'hrone-next-steps.html' },
     ]},
 ];
 
 // filename → slide lookup
 const FILE_MAP = {};
 GROUPS.forEach(g => g.slides.forEach(s => { if (s.f) FILE_MAP[s.f] = s; }));
+
+// Slides the presenter has hidden from numbering/arrow-nav for this session (not persisted).
+const disabledSlides = new Set();
+
+const EYE_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>`;
+const EYE_OFF_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.94 10.94 0 0112 19c-7 0-11-7-11-7a18.5 18.5 0 015.06-5.94M9.9 4.24A10.94 10.94 0 0112 4c7 0 11 7 11 7a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`;
 
 // ── Build nav DOM ─────────────────────────────────────────────────
 const navScroll = document.getElementById('navScroll');
@@ -463,6 +482,7 @@ GROUPS.forEach(g => {
                data-n="${s.n}" data-q="${s.t.toLowerCase()}" data-file="${s.f || ''}">
             <span class="slide-num">${String(s.n).padStart(2,'0')}</span>
             <span class="slide-name">${s.html || s.t}</span>
+            ${s.optional ? `<button class="slide-eye" type="button" title="Show/hide this slide when presenting" aria-label="Toggle slide visibility">${EYE_SVG}</button>` : ''}
           </div>`
        ).join('')}
      </div>`;
@@ -475,6 +495,15 @@ GROUPS.forEach(g => {
     row.addEventListener('click', () => goTo(+row.dataset.n, row.dataset.file));
   });
 
+  el.querySelectorAll('.slide-eye').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const n = +btn.closest('.slide-row').dataset.n;
+      if (disabledSlides.has(n)) disabledSlides.delete(n); else disabledSlides.add(n);
+      renumberUI();
+    });
+  });
+
   navScroll.insertBefore(el, navEmpty);
 });
 
@@ -484,9 +513,49 @@ const frame    = document.getElementById('slideFrame');
 const slideCtr = document.getElementById('slideCtr');
 let   current  = 1;
 
+// All slides with a real file, static manifest order.
+function getFullList() {
+  return GROUPS.flatMap(g => g.slides.filter(s => s.f)).sort((a,b) => a.n - b.n);
+}
+// Slides currently switched on (excludes anything the presenter hid via the eye toggle).
+function getActiveList() {
+  return getFullList().filter(s => !disabledSlides.has(s.n));
+}
+// 1-based position `n` would occupy among the active slides, whether or not it's active itself.
+function displayNumberFor(n) {
+  return getActiveList().filter(s => s.n < n).length + 1;
+}
+
+function renumberUI() {
+  const active = getActiveList();
+  const total  = active.length;
+
+  document.querySelectorAll('.slide-row').forEach(r => {
+    const n = +r.dataset.n;
+    const disabled = disabledSlides.has(n);
+    r.classList.toggle('row-disabled', disabled);
+    const numEl = r.querySelector('.slide-num');
+    if (numEl) numEl.textContent = String(displayNumberFor(n)).padStart(2,'0');
+    const eyeBtn = r.querySelector('.slide-eye');
+    if (eyeBtn) eyeBtn.innerHTML = disabled ? EYE_OFF_SVG : EYE_SVG;
+  });
+
+  document.querySelectorAll('.nav-grp').forEach(g => {
+    const grp = GROUPS.find(x => x.id === g.dataset.gid);
+    const badge = g.querySelector('.grp-badge');
+    if (grp && badge) badge.textContent = grp.slides.filter(s => s.f && !disabledSlides.has(s.n)).length;
+  });
+
+  slideCtr.textContent = `${String(displayNumberFor(current)).padStart(2,'0')} / ${total}`;
+  syncFrameCounter();
+}
+
+function syncFrameCounter() {
+  try { frame.contentWindow.postMessage({ type:'set-counter', text: slideCtr.textContent }, '*'); } catch(e) {}
+}
+
 function setActive(n) {
   current = n;
-  slideCtr.textContent = `${String(n).padStart(2,'0')} / 30`;
 
   document.querySelectorAll('.slide-row').forEach(r => {
     r.classList.toggle('active', +r.dataset.n === n);
@@ -502,6 +571,8 @@ function setActive(n) {
     const row = navScroll.querySelector('.slide-row.active');
     if (row) row.scrollIntoView({ block:'nearest', behavior:'smooth' });
   });
+
+  renumberUI();
 }
 
 function goTo(n, file) {
@@ -525,6 +596,7 @@ frame.addEventListener('load', () => {
     updateShellNav();
   } catch(e) {}
   try { frame.contentWindow.dispatchEvent(new Event('resize')); } catch(e) {}
+  syncFrameCounter();
 });
 
 setActive(1);
@@ -600,15 +672,27 @@ btnPrev.addEventListener('click', () => navArrow('ArrowLeft'));
 btnNext.addEventListener('click', () => navArrow('ArrowRight'));
 
 function updateNavBtns() {
-  const built = GROUPS.flatMap(g => g.slides.filter(s => s.f)).sort((a,b) => a.n - b.n);
+  const built = getActiveList();
   const idx   = built.findIndex(s => s.n === current);
+  if (idx === -1) {
+    btnPrev.classList.toggle('hidden', !built.some(s => s.n < current));
+    btnNext.classList.toggle('hidden', !built.some(s => s.n > current));
+    return;
+  }
   btnPrev.classList.toggle('hidden', idx <= 0);
   btnNext.classList.toggle('hidden', idx >= built.length - 1);
 }
 
 function navArrow(key) {
-  const built = GROUPS.flatMap(g => g.slides.filter(s => s.f)).sort((a,b) => a.n - b.n);
+  const built = getActiveList();
   const idx   = built.findIndex(s => s.n === current);
+  // Previewing a slide the presenter has hidden — jump relative to its manifest position.
+  if (idx === -1) {
+    if (key === 'ArrowRight') { const nxt = built.find(s => s.n > current); if (nxt) goTo(nxt.n, nxt.f); }
+    if (key === 'ArrowLeft')  { const prv = [...built].reverse().find(s => s.n < current); if (prv) goTo(prv.n, prv.f); }
+    updateNavBtns();
+    return;
+  }
   if (key === 'ArrowRight' && idx < built.length - 1) goTo(built[idx+1].n, built[idx+1].f);
   if (key === 'ArrowLeft'  && idx > 0)                goTo(built[idx-1].n, built[idx-1].f);
   updateNavBtns();
