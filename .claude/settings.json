@@ -29,7 +29,17 @@
       "Bash(rm -f \"/Users/ankit.agarwal/Documents/Web Presentation/_debug-go.html\" /tmp/debug-go.html /tmp/debug_result*.png /tmp/go_direct*.png /tmp/why_direct.png /tmp/why_nav_crop.png)",
       "Bash(python3 -c \"import websockets, requests; print\\('OK'\\)\")",
       "Bash(rm -f pptshots/99.png)",
-      "Bash(python3 cdp_capture.py)"
+      "Bash(python3 cdp_capture.py)",
+      "Bash(grep -E '\\\\$$| \\\\$')",
+      "Bash(grep -E '\\\\$ |—|·')",
+      "Bash(grep -nE ' $|—|·')",
+      "Bash(set -e)",
+      "Bash(git rm *)",
+      "Bash(git mv *)",
+      "Bash(echo \"HROne_Overview.pptx\")",
+      "Bash(echo \"Slide1-Updated.png\")",
+      "Bash(sed -i '' 's#Assets/HROne — Inbox Product Hero/#Assets/inbox-product-hero/#g' hrone-dashboards.html)",
+      "Bash(sed -i '' 's#Assets/payrolloutsorucing /#Assets/payroll-outsourcing/#g' hrone-payroll-outsourcing.html)"
     ],
     "additionalDirectories": [
       "/tmp"
