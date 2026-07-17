@@ -42,7 +42,8 @@
       "Bash(sed -i '' 's#Assets/payrolloutsorucing /#Assets/payroll-outsourcing/#g' hrone-payroll-outsourcing.html)",
       "Bash(python3 -m http.server 8899)",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --window-size=1920,1080 --virtual-time-budget=2000 --screenshot=/tmp/facts_full.png \"http://localhost:8899/hrone-the-facts.html\")",
-      "Bash(kill %1)"
+      "Bash(kill %1)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --window-size=1920,1080 --virtual-time-budget=2000 --screenshot=/tmp/facts_full2.png \"http://localhost:8899/hrone-the-facts.html\")"
     ],
     "additionalDirectories": [
       "/tmp"
